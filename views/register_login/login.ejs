@@ -1,0 +1,42 @@
+<% include ../partials/header.ejs %>
+
+<div class="container mt-5">
+      <div class="row justify-content-center">
+            <div class="col-6">
+                  <% include ../partials/message %>
+            </div>
+      </div>
+</div>
+
+
+<div class="container">
+      <div class="row justify-content-center mt-5 mb-2">
+            <div class="col-6"">
+                  <h1 class=" text-center">Login</h1>
+                  <hr>
+            </div>
+      </div>
+</div>
+
+
+<div class="container">
+      <div class="row justify-content-center">
+            <div class="col-6">
+                  <form action="/user/login" method="POST">
+                        <div class="form-group">
+                              <label for="email">Email</label>
+                              <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email"
+                                    autofocus autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                              <label for="password">Password</label>
+                              <input type="password" class="form-control" id="password" placeholder="Enter Password"
+                                    name="password">
+                        </div>
+                        <button type="submit" class="mt-4 mb-2 btn btn-outline-primary btn-block">Login</button>
+                        <hr>
+                        <a href="/user/register" class="mt-2 btn btn-outline-secondary btn-block">Register</a>
+                  </form>
+            </div>
+      </div>
+</div>

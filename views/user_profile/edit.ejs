@@ -1,0 +1,44 @@
+<% include ../partials/header2.ejs %>
+
+<br><br><br>
+
+<div class="container mt-5">
+      <div class="row justify-content-center">
+            <div class="col-6">
+                  <% include ../partials/message %>
+            </div>
+      </div>
+</div>
+
+
+<div class="container">
+      <div class="row justify-content-center mt-5 mb-3">
+            <div class="col-6">
+                  <h1 class="text-center">Edit Your Profile</h1>
+                  <hr>
+            </div>
+      </div>
+</div>
+
+
+<div class="container">
+      <div class="row justify-content-center mb-5">
+            <div class="col-6">
+                  <form method="POST" enctype="multipart/form-data" action="/user/edit?_method=PUT">
+                        <div class="form-group">
+                              <label for="name">Name</label>
+                              <input type="name" class="form-control" id="name" placeholder="Enter Name" name="name">
+                        </div>
+                        <div class="custom-file mt-3 mb-3">
+                              <input type="file" class="custom-file-input" id="customFile" name="picture">
+                              <label class="custom-file-label" for="customFile">Choose picture</label>
+                              <small class="form-text text-muted">If you do not update your picture, let the file upload
+                                    empty</small>
+                        </div>
+                        <button type="submit" class="mt-4 mb-2 btn btn-outline-primary btn-block btn-lg">Edit</button>
+                        <hr>
+                        <a href="/user" class="mt-2 btn btn-outline-secondary btn-block btn-lg">Cancel</a>
+                  </form>
+            </div>
+      </div>
+</div>

@@ -1,0 +1,41 @@
+<% include ./partials/header2.ejs %>
+
+<br><br><br><br><br><br>
+
+<div class="container">
+      <% if (posts.length >= 1) { %>
+      <% posts.forEach(post => { %>
+      <div class="row">
+            <div class="ui card centered mb-5 raised stacked segment" style="width: 540px;">
+                  <div class="content">
+                        <a href="/user/<%= post.user_id.name %>" class="profile-user">
+                              <img class="ui avatar big image mr-2 border border-white"
+                                    src="/uploads/user_picture/<%= post.user_id.user_picture %>">
+                              <%= post.user_id.name %>
+                        </a>
+                  </div>
+                  <div class="image">
+                        <img src="/uploads/img_post/<%= post.picture %>" class="img-fluid">
+                  </div>
+                  <div class="content">
+                        <div class="description text-body mt-2 mb-2">
+                              <%= post.description %>
+                        </div>
+                  </div>
+                  <div class="extra content">
+                        <span class="right floated text-monospace mt-3">
+                              <%= post.date %>
+                        </span>
+                  </div>
+            </div>
+      </div>
+      <% }); %>
+      <% } else { %>
+      <br><br>
+      <div class="text-center">
+            <img src="/img/meme.png" alt="img">
+            <h1 class="mt-3">No Post Right Now</h1>
+      </div>
+      <% } %>
+</div>
+<br>

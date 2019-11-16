@@ -1,0 +1,25 @@
+* {
+      font-family: Ubuntu;
+}
+
+body {
+      background-color: #f5eeee;
+      font-size: 15px;
+}
+
+
+.navbar-nav {
+      margin-left: 890px;
+}
+
+a.profile-user {
+      color: black;
+}
+
+a.profile-user:hover {
+      color: blueviolet;
+}
+
+a.nav-link i:hover {
+      color: blueviolet;
+}
