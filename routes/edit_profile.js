@@ -9,8 +9,6 @@ const fs = require('fs');
 const router = express.Router();
 
 
-
-
 // handle process upload 
 const storage = multer.diskStorage({
       destination: './public/uploads/user_picture',
@@ -24,23 +22,23 @@ const upload = multer({
 });
 
 
-
 // render edit page
 router.get('/edit', ensureAuthenticated, async (req, res) => {
-      let name;
 
       try {
-            name = await User.findById(req.user._id).select({
+
+            const name = await User.findById(req.user._id).select({
                   name: 1
             }).exec();
+
+            res.render('user_profile/edit', {
+                  data: name
+            });
 
       } catch (err) {
             console.log(err);
       }
 
-      res.render('user_profile/edit', {
-            data: name
-      });
 });
 
 

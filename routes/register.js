@@ -26,7 +26,6 @@ const upload = multer({
 // Render page form register
 router.get('/register', (req, res) => {
       res.render('register_login/register');
-      console.log("get register " + res.statusCode);
 });
 
 

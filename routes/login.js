@@ -4,40 +4,50 @@ const router = express.Router();
 
 
 // render login page
-router.get('/login', (req, res) => {
-      res.render('register_login/login');
+router.get('/login', async (req, res) => {
+      try {
+            res.render('register_login/login');
+
+      } catch (err) {
+            console.log("Something wrong", err);
+      }
 });
 
 
 // handling process login
-router.post('/login', (req, res, next) => {
+router.post('/login', async (req, res, next) => {
 
-      const {
-            email,
-            password
-      } = req.body;
-
-      let errors = [];
-
-      if (!email || !password) {
-            errors.push({
-                  msg: "Please Fill All Fields"
-            });
-      }
-
-      if (errors.length > 0) {
-            return res.render('register_login/login', {
-                  errors,
+      try {
+            const {
                   email,
                   password
-            });
-      }
+            } = req.body;
 
-      passport.authenticate('local', {
-            successRedirect: '/',
-            failureRedirect: '/user/login',
-            failureFlash: true
-      })(req, res, next);
+            let errors = [];
+
+            if (!email || !password) {
+                  errors.push({
+                        msg: "Please Fill All Fields"
+                  });
+            }
+
+            if (errors.length > 0) {
+                  return res.render('register_login/login', {
+                        errors,
+                        email,
+                        password
+                  });
+            }
+
+            passport.authenticate('local', {
+                  successRedirect: '/',
+                  failureRedirect: '/user/login',
+                  failureFlash: true
+            })(req, res, next);
+
+      } catch (err) {
+            console.log("Something wrong", err);
+      }
 
 });
 

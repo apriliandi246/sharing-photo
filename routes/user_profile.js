@@ -10,23 +10,21 @@ const router = express.Router();
 // render user profile
 router.get('/', ensureAuthenticated, async (req, res) => {
 
-      let posts;
-
       try {
-            posts = await Post.find({
+            const posts = await Post.find({
                   user_id: req.user._id
+            });
+
+            res.render('user_profile/user', {
+                  img: req.user.user_picture,
+                  name: req.user.name,
+                  join: req.user.join,
+                  posts: posts
             });
 
       } catch {
             posts = [];
       }
-
-      res.render('user_profile/user', {
-            img: req.user.user_picture,
-            name: req.user.name,
-            join: req.user.join,
-            posts: posts
-      });
 
 });
 
