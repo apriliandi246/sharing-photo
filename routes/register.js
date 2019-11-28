@@ -163,13 +163,11 @@ router.post('/register', upload.single('picture'), (req, res) => {
 });
 
 
-
 // remove the user picture if registration failed
 function removePicture(fileName) {
       fs.unlink(fileName, (err) => {
             if (err) console.log(err);
       });
 }
-
 
 module.exports = router;

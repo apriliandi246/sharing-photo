@@ -5,12 +5,7 @@ const router = express.Router();
 
 // render login page
 router.get('/login', async (req, res) => {
-      try {
-            res.render('register_login/login');
-
-      } catch (err) {
-            console.log("Something wrong", err);
-      }
+      res.render('register_login/login');
 });
 
 
@@ -50,6 +45,5 @@ router.post('/login', async (req, res, next) => {
       }
 
 });
-
 
 module.exports = router;
