@@ -1,13 +1,13 @@
 <% include ./partials/header2.ejs %>
 
-<br><br><br><br><br><br>
+<br><br><br><br><br>
 
 <div class="container">
       <% if (posts.length >= 1) { %>
       <% posts.forEach(post => { %>
       <div class="row">
             <br>
-            <div class="ui card centered mb-5 raised stacked segment" style="width: 540px;">
+            <div class="ui card centered mb-5 raised stacked segment" style="width: 570px;">
                   <div class="content">
                         <a href="/user/<%= post.user_id.name %>" class="profile-user">
                               <img class="ui avatar big image mr-2 border border-white"
