@@ -20,6 +20,7 @@ router.get('/', ensureAuthenticated, async (req, res) => {
 
       } catch (err) {
             console.log("Something wrong", err);
+            return;
       }
 
 });
