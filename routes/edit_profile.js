@@ -31,6 +31,8 @@ router.get('/edit', ensureAuthenticated, async (req, res) => {
                   name: 1
             }).exec();
 
+            console.log(name);
+
             res.render('user_profile/edit', {
                   data: name
             });

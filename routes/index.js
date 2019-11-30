@@ -14,6 +14,8 @@ router.get('/', ensureAuthenticated, async (req, res) => {
                   picture: 'desc'
             }).populate('user_id').exec();
 
+            console.log(posts);
+
             res.render('index', {
                   posts: posts
             });
