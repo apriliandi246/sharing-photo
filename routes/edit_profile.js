@@ -26,12 +26,9 @@ const upload = multer({
 router.get('/edit', ensureAuthenticated, async (req, res) => {
 
       try {
-
             const name = await User.findById(req.user._id).select({
                   name: 1
             }).exec();
-
-            console.log(name);
 
             res.render('user_profile/edit', {
                   data: name
