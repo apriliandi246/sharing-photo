@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 module.exports = function () {
-      mongoose.connect('mongodb://localhost/meme', {
+      mongoose.connect('mongodb://localhost/project_1', {
                   useNewUrlParser: true,
                   useUnifiedTopology: true
             })
