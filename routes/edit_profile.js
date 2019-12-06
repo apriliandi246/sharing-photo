@@ -117,6 +117,7 @@ router.put('/edit', ensureAuthenticated, upload.single('picture'), async (req, r
 
             } catch (err) {
                   console.log(err);
+                  return;
             }
 
       }
