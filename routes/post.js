@@ -1,27 +1,14 @@
 const {
       ensureAuthenticated
 } = require('../config/auth');
+const {
+      upload,
+      removeImage
+} = require('../upload/upload');
 const express = require('express');
-const multer = require('multer');
-const path = require('path');
-const fs = require('fs');
 const Post = require('../models/Post');
 const date = require('../public/js/date').joined;
 const router = express.Router();
-
-
-
-// handle process upload
-const storage = multer.diskStorage({
-      destination: './public/uploads/img_post',
-      filename: function (req, file, callback) {
-            callback(null, "image-post-" + file.fieldname + '-' + Date.now() + '-' + Math.floor(Math.random() * 1246) + path.extname(file.originalname));
-      }
-});
-
-const upload = multer({
-      storage: storage
-});
 
 
 
@@ -92,14 +79,6 @@ router.post('/', ensureAuthenticated, upload.single('picture'), async (req, res)
       }
 
 });
-
-
-// remove image post, if post process is failed
-function removeImage(fileName) {
-      fs.unlink(fileName, (err) => {
-            if (err) console.log(err);
-      })
-}
 
 
 module.exports = router;

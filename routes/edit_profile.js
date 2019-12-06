@@ -1,25 +1,15 @@
 const {
       ensureAuthenticated
 } = require('../config/auth');
+const {
+      upload2,
+      removeImage,
+      removeOldImage
+} = require('../upload/upload');
 const express = require('express');
 const User = require('../models/User');
-const multer = require('multer');
-const path = require('path');
-const fs = require('fs');
 const router = express.Router();
 
-
-// handle process upload 
-const storage = multer.diskStorage({
-      destination: './public/uploads/user_picture',
-      filename: function (req, file, callback) {
-            callback(null, "user-" + file.fieldname + '-' + Date.now() + '-' + Math.floor(Math.random() * 1000000000) + path.extname(file.originalname));
-      }
-});
-
-const upload = multer({
-      storage: storage
-});
 
 
 // render edit page
@@ -42,7 +32,7 @@ router.get('/edit', ensureAuthenticated, async (req, res) => {
 
 
 // handle process edit
-router.put('/edit', ensureAuthenticated, upload.single('picture'), async (req, res) => {
+router.put('/edit', ensureAuthenticated, upload2.single('picture'), async (req, res) => {
 
       let edit;
 
@@ -83,7 +73,7 @@ router.put('/edit', ensureAuthenticated, upload.single('picture'), async (req, r
 
       if (errors.length > 0) {
 
-            if (req.file != undefined) removePicture(`./public/uploads/user_picture/${req.file.filename}`);
+            if (req.file != undefined) removeImage(`./public/uploads/user_picture/${req.file.filename}`);
             res.render('user_profile/edit', {
                   errors,
                   name
@@ -104,7 +94,7 @@ router.put('/edit', ensureAuthenticated, upload.single('picture'), async (req, r
 
                   // if user picture is not empty, then remove old picture and use new picture
                   if (req.file != undefined) {
-                        removeOldPicture(`./public/uploads/user_picture/${picture.user_picture}`);
+                        removeOldImage(`./public/uploads/user_picture/${picture.user_picture}`);
                         edit.user_picture = req.file.filename;
 
                         // if user picture is empty, still using old picture
@@ -123,22 +113,6 @@ router.put('/edit', ensureAuthenticated, upload.single('picture'), async (req, r
       }
 
 });
-
-
-// remove the user picture if registration failed
-function removePicture(fileName) {
-      fs.unlink(fileName, (err) => {
-            if (err) console.log(err);
-      });
-}
-
-
-// if user update their profile picture, remove old picture
-function removeOldPicture(fileName) {
-      fs.unlink(fileName, (err) => {
-            if (err) console.log(err);
-      });
-}
 
 
 module.exports = router;

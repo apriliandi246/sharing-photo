@@ -1,26 +1,12 @@
 const express = require('express');
-const multer = require('multer');
-const path = require('path');
-const fs = require('fs');
 const bcrypt = require('bcryptjs');
 const User = require('../models/User');
 const joined = require('../public/js/date').joined;
 const router = express.Router();
-
-
-
-// handle process upload
-const storage = multer.diskStorage({
-      destination: './public/uploads/user_picture',
-      filename: function (req, file, callback) {
-            callback(null, "user-picture" + file.fieldname + '-' + Date.now() + '-' + Math.floor(Math.random() * 1246) + path.extname(file.originalname));
-      }
-});
-
-const upload = multer({
-      storage: storage
-});
-
+const {
+      upload2,
+      removeImage
+} = require('../upload/upload');
 
 
 // Render page form register
@@ -30,7 +16,7 @@ router.get('/register', (req, res) => {
 
 
 // process register
-router.post('/register', upload.single('picture'), (req, res) => {
+router.post('/register', upload2.single('picture'), (req, res) => {
 
       const {
             name,
@@ -39,6 +25,7 @@ router.post('/register', upload.single('picture'), (req, res) => {
             pass2
       } = req.body;
 
+      // errors
       let errors = [];
 
 
@@ -83,7 +70,7 @@ router.post('/register', upload.single('picture'), (req, res) => {
       if (errors.length > 0) {
 
             // if registration failed and file upload not undefined, then delete the image from folder
-            if (req.file != undefined) removePicture(`./public/uploads/user_picture/${req.file.filename}`);
+            if (req.file != undefined) removeImage(`./public/uploads/user_picture/${req.file.filename}`);
 
             res.render('register_login/register', {
                   errors,
@@ -120,7 +107,7 @@ router.post('/register', upload.single('picture'), (req, res) => {
                               }
 
                               // if registration failed and file upload not undefined, then delete the image from folder
-                              if (req.file != undefined) removePicture(`./public/uploads/user_picture/${req.file.filename}`);
+                              if (req.file != undefined) removeImage(`./public/uploads/user_picture/${req.file.filename}`);
 
                               res.render('register_login/register', {
                                     errors,
@@ -162,12 +149,5 @@ router.post('/register', upload.single('picture'), (req, res) => {
       }
 });
 
-
-// remove the user picture if registration failed
-function removePicture(fileName) {
-      fs.unlink(fileName, (err) => {
-            if (err) console.log(err);
-      });
-}
 
 module.exports = router;
