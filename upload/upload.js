@@ -4,7 +4,6 @@ const fs = require('fs');
 const crypto = require('crypto').randomBytes(16).toString('hex');
 
 
-
 // handle process upload for POST
 const storage = multer.diskStorage({
       destination: './public/uploads/img_post',
