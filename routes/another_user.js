@@ -16,14 +16,19 @@ router.get('/:name', ensureAuthenticated, async (req, res) => {
                   name: req.params.name
             }).exec();
 
+            // jika namanya sama degan nama user yang sedang login, maka redirect saja ke halaman profile
             if (req.user.name === req.params.name) {
                   res.redirect('/user');
 
+
+                  // jika user tidak ditemukan
             } else if (name.length === 0) {
                   res.status(404).render('not_found/user_not_found', {
                         name: req.params.name
                   });
 
+
+                  // jika user ditemukan
             } else {
                   // take id user id
                   const post = await Post.find({

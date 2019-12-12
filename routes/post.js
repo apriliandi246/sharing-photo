@@ -26,14 +26,15 @@ router.post('/', ensureAuthenticated, upload.single('picture'), async (req, res)
             picture
       } = req.body;
 
+
       let errors = [];
+
 
       if (!description || req.file == undefined) {
             errors.push({
                   msg: "Please Fill All Fields"
             });
       }
-
 
       // check type the file
       if (req.file != undefined) {
@@ -46,7 +47,7 @@ router.post('/', ensureAuthenticated, upload.single('picture'), async (req, res)
       }
 
 
-      // if pass
+      // jika terdapat error
       if (errors.length > 0) {
 
             // if post process is failed, remove the image
@@ -58,22 +59,27 @@ router.post('/', ensureAuthenticated, upload.single('picture'), async (req, res)
                   picture
             });
 
+
+            // jika tidak ada error
       } else {
 
-            const newPost = new Post({
-                  picture: req.file.filename,
-                  description: req.body.description,
-                  date: date,
-                  user_id: req.user._id
-            });
-
             try {
-                  // save to database and redirect to home page
+
+                  // make new post
+                  const newPost = new Post({
+                        picture: req.file.filename,
+                        description: req.body.description,
+                        date: date,
+                        user_id: req.user._id
+                  });
+
+                  // save to database and redirect to home pag
                   await newPost.save();
                   res.redirect('/');
 
             } catch (err) {
-                  console.log(err);
+                  console.log("Something wrong", err);
+                  return;
             }
 
       }

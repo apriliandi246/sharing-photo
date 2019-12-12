@@ -6,7 +6,6 @@ const Post = require('../models/Post');
 const router = express.Router();
 
 
-
 // render user profile
 router.get('/', ensureAuthenticated, async (req, res) => {
 

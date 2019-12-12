@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-
 // handle logout
 router.get('/logout', (req, res) => {
       req.logOut();
