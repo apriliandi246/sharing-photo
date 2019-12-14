@@ -22,7 +22,7 @@ app.use(express.static('public'));
 
 
 // set up method put
-app.use(methodOverride('_method'));
+// app.use(methodOverride('_method'));
 
 
 // handle session

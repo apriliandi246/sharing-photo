@@ -32,7 +32,7 @@ router.get('/edit', ensureAuthenticated, async (req, res) => {
 
 
 // handle process edit
-router.put('/edit', ensureAuthenticated, upload2.single('picture'), async (req, res) => {
+router.post('/edit', ensureAuthenticated, upload2.single('picture'), async (req, res) => {
 
       let edit;
 
@@ -90,7 +90,8 @@ router.put('/edit', ensureAuthenticated, upload2.single('picture'), async (req, 
 
             try {
                   edit = await User.findById(req.user._id);
-                  edit.name = req.body.name;
+
+                  edit.name = name;
 
                   // if user picture is not empty, then remove old picture and use new picture
                   if (req.file != undefined) {
