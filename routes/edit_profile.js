@@ -20,7 +20,7 @@ router.get('/edit', ensureAuthenticated, async (req, res) => {
                   name: 1
             }).exec();
 
-            res.render('user_profile/edit', {
+            res.render('user_profile/edit_profile', {
                   data: name
             });
 
@@ -74,7 +74,7 @@ router.put('/edit', ensureAuthenticated, upload2.single('picture'), async (req, 
       if (errors.length > 0) {
 
             if (req.file != undefined) removeImage(`./public/uploads/user_picture/${req.file.filename}`);
-            res.render('user_profile/edit', {
+            res.render('user_profile/edit_profile', {
                   errors,
                   name
             });

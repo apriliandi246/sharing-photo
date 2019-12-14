@@ -35,7 +35,7 @@ router.get('/:name', ensureAuthenticated, async (req, res) => {
                         user_id: name[0]._id
                   }).exec();
 
-                  res.render('user_profile/users', {
+                  res.render('user_profile/another_user', {
                         data: name,
                         posts: post
                   });

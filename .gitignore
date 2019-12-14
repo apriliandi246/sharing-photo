@@ -1,6 +1,9 @@
 
-# Created by https://www.gitignore.io/api/node,linux,visualstudio
-# Edit at https://www.gitignore.io/?templates=node,linux,visualstudio
+# Created by https://www.gitignore.io/api/node,linux,dotenv,visualstudio
+# Edit at https://www.gitignore.io/?templates=node,linux,dotenv,visualstudio
+
+### dotenv ###
+.env
 
 ### Linux ###
 *~
@@ -83,7 +86,6 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
 .env.test
 
 # parcel-bundler cache (https://parceljs.org/)
@@ -458,4 +460,4 @@ healthchecksdb
 # Backup folder for Package Reference Convert tool in Visual Studio 2017
 MigrationBackup/
 
-# End of https://www.gitignore.io/api/node,linux,visualstudio
+# End of https://www.gitignore.io/api/node,linux,dotenv,visualstudio
