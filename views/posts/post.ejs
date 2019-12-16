@@ -1,43 +1,60 @@
-<% include ../partials/header2.ejs %>
+<!DOCTYPE html>
+<html lang="en">
 
-<br><br><br>
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Post Picture - Just MEME</title>
+</head>
 
-<div class="container mt-5">
-      <div class="row justify-content-center">
-            <div class="col-6">
-                  <% include ../partials/message %>
+<body>
+
+      <% include ../partials/header2.ejs %>
+
+      <br><br><br>
+
+      <div class="container mt-5">
+            <div class="row justify-content-center">
+                  <div class="col-6">
+                        <% include ../partials/message %>
+                  </div>
             </div>
       </div>
-</div>
 
 
-<div class="container">
-      <div class="row justify-content-center mt-5 mb-3">
-            <div class="col-6">
-                  <h1 class="text-center">Make a Post</h1>
-                  <hr>
-            </div>
-      </div>
-</div>
-
-
-<div class="container">
-      <div class="row justify-content-center mb-5">
-            <div class="col-7">
-                  <form action="/post" method="POST" enctype="multipart/form-data">
-                        <div class="form-group">
-                              <label for="description">Description</label>
-                              <textarea class="form-control form-control-lg" id="description" rows="10"
-                                    name="description"></textarea>
-                        </div>
-                        <div class="custom-file mt-3 mb-3">
-                              <input type="file" class="custom-file-input" id="customFile" name="picture">
-                              <label class="custom-file-label" for="customFile">Choose your picture</label>
-                        </div>
-                        <button type="submit" class="mt-4 mb-2 btn btn-outline-primary btn-block btn-lg">Post</button>
+      <div class="container">
+            <div class="row justify-content-center mt-5 mb-3">
+                  <div class="col-6">
+                        <h1 class="text-center">Make a Post</h1>
                         <hr>
-                        <a href="/" class="mt-2 btn btn-outline-secondary btn-block btn-lg">Cancel</a>
-                  </form>
+                  </div>
             </div>
       </div>
-</div>
+
+
+      <div class="container">
+            <div class="row justify-content-center mb-5">
+                  <div class="col-7">
+                        <form action="/post" method="POST" enctype="multipart/form-data">
+                              <div class="form-group">
+                                    <label for="description">Description</label>
+                                    <textarea class="form-control form-control-lg" id="description" rows="10"
+                                          name="description"></textarea>
+                              </div>
+                              <div class="custom-file mt-3 mb-3">
+                                    <input type="file" class="custom-file-input" id="customFile" name="picture">
+                                    <label class="custom-file-label" for="customFile">Choose your picture</label>
+                              </div>
+                              <button type="submit"
+                                    class="mt-4 mb-2 btn btn-outline-primary btn-block btn-lg">Post</button>
+                              <hr>
+                              <a href="/" class="mt-2 btn btn-outline-secondary btn-block btn-lg">Cancel</a>
+                        </form>
+                  </div>
+            </div>
+      </div>
+
+</body>
+
+</html>
