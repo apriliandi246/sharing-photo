@@ -1,69 +1,86 @@
-<% include ../partials/header2.ejs %>
+<!DOCTYPE html>
+<html lang="en">
 
-<br><br><br><br><br>
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title><%= data[0].name %></title>
+</head>
 
-<div class="container">
-      <div class="row mt-4 mb-5 justify-content-center">
-            <% data.forEach(user => { %>
-            <div class="col-5">
-                  <div class="text-center">
-                        <img src="/uploads/user_picture/<%= user.user_picture %>"
-                              class="rounded img-thumbnail border border-light" width="500px" height="370px">
+<body>
+
+      <% include ../partials/header2.ejs %>
+
+      <br><br><br><br><br>
+
+      <div class="container">
+            <div class="row mt-4 mb-5 justify-content-center">
+                  <% data.forEach(user => { %>
+                  <div class="col-5">
+                        <div class="text-center">
+                              <img src="/uploads/user_picture/<%= user.user_picture %>"
+                                    class="rounded img-thumbnail border border-light" width="500px" height="370px">
+                        </div>
+                  </div>
+                  <div class="col-5 mt-2">
+                        <ul class="list-group list-group-flush">
+                              <li class="list-group-item mb-2 rounded border border-light">
+                                    <h2>
+                                          </i><%= user.name %></h2>
+                              </li>
+                              <li class="list-group-item mt-2 mb-1 rounded border border-light mt-3">
+                                    <h4>
+                                          <span class="ml-1 mr-1">
+                                                Joined :
+                                          </span>
+                                          <%= user.join %>
+                                    </h4>
+                              </li>
+                              <li class="list-group-item mt-2 mb-1 rounded border border-light mt-3">
+                                    <h4>
+                                          <span class="ml-1 mr-1">
+                                                Post :
+                                          </span>
+                                          <%= posts.length %> Post
+                                    </h4>
+                              </li>
+                        </ul>
+                  </div>
+                  <% }); %>
+            </div>
+            <hr>
+      </div>
+
+
+
+      <div class="container">
+            <div class="row mt-5 justify-content-center">
+                  <div class="col-10">
+                        <ul class="list-unstyled">
+                              <% if (posts.length >= 1) { %>
+                              <% posts.forEach(post => { %>
+                              <li class="media mt-5">
+                                    <img src="/uploads/img_post/<%= post.picture %>" alt="" width="370px" height="250px"
+                                          class="mr-4 mb-5 rounded img-thumbnail border border-light">
+                                    <div class="media-body mt-2">
+                                          <h3 class="mt-0 mb-4 text-muted text-monospace"><mark
+                                                      class="rounded"><%= post.date %></mark></h3>
+                                          <h5 class="mt-0"><mark class="bg-light rounded"><%= post.description %></mark>
+                                          </h5>
+                                    </div>
+                              </li>
+                              <% }); %>
+                              <% } else { %>
+                              <h1 class="text-center">You Have No Post Right Now</h1>
+                              <% } %>
+                        </ul>
                   </div>
             </div>
-            <div class="col-5 mt-2">
-                  <ul class="list-group list-group-flush">
-                        <li class="list-group-item mb-2 rounded border border-light">
-                              <h2>
-                                    </i> <%= user.name %> </h2>
-                        </li>
-                        <li class="list-group-item mt-2 mb-1 rounded border border-light mt-3">
-                              <h4>
-                                    <span class="ml-1 mr-1">
-                                          Joined :
-                                    </span>
-                                    <%= user.join %>
-                              </h4>
-                        </li>
-                        <li class="list-group-item mt-2 mb-1 rounded border border-light mt-3">
-                              <h4>
-                                    <span class="ml-1 mr-1">
-                                          Post :
-                                    </span>
-                                    <%= posts.length %> Post
-                              </h4>
-                        </li>
-                  </ul>
-            </div>
-            <% }); %>
       </div>
-      <hr>
-</div>
 
+      <br><br><br>
 
+</body>
 
-<div class="container">
-      <div class="row mt-5 justify-content-center">
-            <div class="col-10">
-                  <ul class="list-unstyled">
-                        <% if (posts.length >= 1) { %>
-                        <% posts.forEach(post => { %>
-                        <li class="media mt-5">
-                              <img src="/uploads/img_post/<%= post.picture %>" alt="" width="370px" height="250px"
-                                    class="mr-4 mb-5 rounded img-thumbnail border border-light">
-                              <div class="media-body mt-2">
-                                    <h3 class="mt-0 mb-4 text-muted text-monospace"><mark
-                                                class="rounded"><%= post.date %></mark></h3>
-                                    <h5 class="mt-0"><mark class="bg-light rounded"><%= post.description %></mark></h5>
-                              </div>
-                        </li>
-                        <% }); %>
-                        <% } else { %>
-                        <h1 class="text-center">You Have No Post Right Now</h1>
-                        <% } %>
-                  </ul>
-            </div>
-      </div>
-</div>
-
-<br><br><br>
+</html>

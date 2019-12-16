@@ -90,7 +90,7 @@ router.post('/edit', ensureAuthenticated, upload2.single('picture'), async (req,
 
             try {
                   edit = await User.findById(req.user._id);
-
+                  console.log(edit);
                   edit.name = name;
 
                   // if user picture is not empty, then remove old picture and use new picture
