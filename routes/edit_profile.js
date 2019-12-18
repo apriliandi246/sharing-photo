@@ -15,18 +15,11 @@ const router = express.Router();
 // render edit page
 router.get('/edit', ensureAuthenticated, async (req, res) => {
 
-      try {
-            const name = await User.findById(req.user._id).select({
-                  name: 1
-            }).exec();
-
-            res.render('user_profile/edit_profile', {
-                  data: name
+      User.findById(req.user._id, (err, userInfo) => {
+            res.render("user_profile/edit_profile", {
+                  data: userInfo
             });
-
-      } catch (err) {
-            console.log(err);
-      }
+      })
 
 });
 
@@ -46,11 +39,6 @@ router.post('/edit', ensureAuthenticated, upload2.single('picture'), async (req,
             name: name
       });
 
-      if (userName != null) {
-            errors.push({
-                  msg: "Username is already register"
-            });
-      }
 
       // check filed name
       if (!req.body.name) {
@@ -60,10 +48,17 @@ router.post('/edit', ensureAuthenticated, upload2.single('picture'), async (req,
       }
 
 
+      if (userName != null) {
+            errors.push({
+                  msg: "Username is already register"
+            });
+      }
+
+
       // check file type
       if (req.file != undefined) {
             const imageMimeTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'].includes(req.file.mimetype);
-            if (imageMimeTypes == false) {
+            if (imageMimeTypes === false) {
                   errors.push({
                         msg: "Image Only"
                   });
@@ -90,7 +85,6 @@ router.post('/edit', ensureAuthenticated, upload2.single('picture'), async (req,
 
             try {
                   edit = await User.findById(req.user._id);
-                  console.log(edit);
                   edit.name = name;
 
                   // if user picture is not empty, then remove old picture and use new picture
@@ -98,8 +92,9 @@ router.post('/edit', ensureAuthenticated, upload2.single('picture'), async (req,
                         removeOldImage(`./public/uploads/user_picture/${picture.user_picture}`);
                         edit.user_picture = req.file.filename;
 
-                        // if user picture is empty, still using old picture
+
                   } else {
+                        // if user picture is empty, still using old picture
                         edit.user_picture = pictureName;
                   }
 
