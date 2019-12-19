@@ -7,16 +7,19 @@ const {
       upload2,
       removeImage
 } = require('../upload/upload');
+const {
+      forwardAuth
+} = require('../config/auth');
 
 
 // Render page form register
-router.get('/register', (req, res) => {
+router.get('/register', forwardAuth, (req, res) => {
       res.render('register_login/register');
 });
 
 
 // process register
-router.post('/register', upload2.single('picture'), (req, res) => {
+router.post('/register', forwardAuth, upload2.single('picture'), (req, res) => {
 
       const {
             name,

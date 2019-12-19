@@ -1,16 +1,19 @@
 const express = require('express');
 const passport = require('passport');
 const router = express.Router();
+const {
+      forwardAuth
+} = require('../config/auth');
 
 
 // render login page
-router.get('/login', async (req, res) => {
+router.get('/login', forwardAuth, (req, res) => {
       res.render('register_login/login');
 });
 
 
 // handling process login
-router.post('/login', async (req, res, next) => {
+router.post('/login', forwardAuth, async (req, res, next) => {
 
       try {
             const {
@@ -32,13 +35,15 @@ router.post('/login', async (req, res, next) => {
                         email,
                         password
                   });
+
+            } else {
+                  passport.authenticate('local', {
+                        successRedirect: '/',
+                        failureRedirect: '/user/login',
+                        failureFlash: true
+                  })(req, res, next);
             }
 
-            passport.authenticate('local', {
-                  successRedirect: '/user',
-                  failureRedirect: '/user/login',
-                  failureFlash: true
-            })(req, res, next);
 
       } catch (err) {
             console.log("Something wrong", err);

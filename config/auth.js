@@ -5,5 +5,13 @@ module.exports = {
             }
             req.flash("error_msg", "Please Log in First");
             res.redirect('/user/login');
+      },
+
+      forwardAuth: function (req, res, next) {
+            if (!req.isAuthenticated()) {
+                  return next();
+            }
+
+            res.redirect('/');
       }
 }
