@@ -1,45 +1,64 @@
-<% include ../partials/header2.ejs %>
+<!DOCTYPE html>
+<html lang="en">
 
-<br><br><br>
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Edit Profile - Just MEME</title>
+</head>
 
-<div class="container mt-5">
-      <div class="row justify-content-center">
-            <div class="col-6">
-                  <% include ../partials/message %>
+<body>
+
+      <%- include ('../partials/header2.ejs') %>
+
+      <br><br><br>
+
+      <div class="container mt-5">
+            <div class="row justify-content-center">
+                  <div class="col-6">
+                        <%- include ('../partials/message') %>
+                  </div>
             </div>
       </div>
-</div>
 
 
-<div class="container">
-      <div class="row justify-content-center mt-5 mb-3">
-            <div class="col-6">
-                  <h1 class="text-center">Edit Your Profile</h1>
-                  <hr>
-            </div>
-      </div>
-</div>
-
-
-<div class="container">
-      <div class="row justify-content-center mb-5">
-            <div class="col-4">
-                  <form method="POST" enctype="multipart/form-data" action="/user/edit">
-                        <div class="form-group">
-                              <label for="name">Name</label>
-                              <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name">
-                        </div>
-                        <div class=" custom-file mt-3 mb-3">
-                              <input type="file" class="custom-file-input" id="customFile" name="picture"
-                                    accept="image/x-png, image/gif, image/jpeg, image/jpg">
-                              <label class="custom-file-label" for="customFile">Choose picture</label>
-                              <small class="form-text text-muted">If you do not update your picture, let the file upload
-                                    empty</small>
-                        </div>
-                        <button type="submit" class="mt-4 mb-2 btn btn-outline-primary btn-block">Edit</button>
+      <div class="container">
+            <div class="row justify-content-center mt-5 mb-3">
+                  <div class="col-6">
+                        <h1 class="text-center">Edit Your Profile</h1>
                         <hr>
-                        <a href="/user" class="mt-2 btn btn-outline-secondary btn-block">Cancel</a>
-                  </form>
+                  </div>
             </div>
       </div>
-</div>
+
+
+      <div class="container">
+            <div class="row justify-content-center mb-5">
+                  <div class="col-4">
+                        <form method="POST" enctype="multipart/form-data" action="/user/edit">
+                              <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Enter Name"
+                                          name="name" value="<%= data.name %>">
+                                    <div class=" custom-file mt-3 mb-3">
+                                          <input type="file" class="custom-file-input" id="customFile" name="picture"
+                                                accept="image/x-png, image/gif, image/jpeg, image/jpg">
+                                          <label class="custom-file-label" for="customFile">Choose picture</label>
+                                          <small class="form-text text-muted">If you do not update your picture, let the
+                                                file
+                                                upload
+                                                empty</small>
+                                    </div>
+                              </div>
+                              <button type="submit" class="mt-4 mb-2 btn btn-outline-primary btn-block">Edit</button>
+                              <hr>
+                              <a href="/user" class="mt-2 btn btn-outline-secondary btn-block">Cancel</a>
+                        </form>
+                  </div>
+            </div>
+      </div>
+
+</body>
+
+</html>
