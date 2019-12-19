@@ -1,3 +1,6 @@
+const express = require('express');
+const Post = require('../models/Post');
+const date = require('../public/js/date').joined;
 const {
       ensureAuthenticated
 } = require('../config/auth');
@@ -5,9 +8,6 @@ const {
       upload,
       removeImage
 } = require('../upload/upload');
-const express = require('express');
-const Post = require('../models/Post');
-const date = require('../public/js/date').joined;
 const router = express.Router();
 
 

@@ -1,3 +1,5 @@
+const express = require('express');
+const User = require('../models/User');
 const {
       ensureAuthenticated
 } = require('../config/auth');
@@ -6,8 +8,6 @@ const {
       removeImage,
       removeOldImage
 } = require('../upload/upload');
-const express = require('express');
-const User = require('../models/User');
 const router = express.Router();
 
 

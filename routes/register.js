@@ -12,6 +12,7 @@ const {
 } = require('../config/auth');
 
 
+
 // Render page form register
 router.get('/register', forwardAuth, (req, res) => {
       res.render('register_login/register');
