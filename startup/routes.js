@@ -19,7 +19,6 @@ module.exports = function (app) {
       app.use('/user', require('../routes/edit_profile'));
       app.use('/user', require('../routes/another_user'));
       app.use('/post', require('../routes/post'));
-      app.use('/', require('../routes/search'));
 
 
       // Handle page not found
