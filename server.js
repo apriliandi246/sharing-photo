@@ -1,7 +1,10 @@
 const express = require('express');
 const passport = require('passport');
 const expressLayouts = require('express-ejs-layouts');
+require('dotenv').config();
 const app = express();
+
+
 
 
 // mongodb 

@@ -20,6 +20,9 @@ const UserSchema = new mongoose.Schema({
       user_picture: {
             type: String,
             required: true
+      },
+      sumVisit: {
+            type: Number
       }
 });
 
