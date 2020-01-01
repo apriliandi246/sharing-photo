@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Search - Just MEME</title>
+</head>
+
+<body>
+
+      <%- include ('../partials/header2.ejs') %>
+
+      <br><br><br>
+
+      <div class="container mt-5">
+            <div class="row justify-content-center">
+                  <div class="col-4">
+                        <form action="/search" method="POST">
+                              <div class="form-group">
+                                    <input type="text" class="form-control form-control-lg" placeholder="Enter Username"
+                                          name="username" autofocus autocomplete="off">
+                              </div>
+                        </form>
+                  </div>
+            </div>
+      </div>
+
+</body>
+
+</html>
