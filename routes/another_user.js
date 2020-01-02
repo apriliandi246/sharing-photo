@@ -1,9 +1,9 @@
-const {
-      ensureAuthenticated
-} = require('../config/auth');
 const express = require('express');
 const User = require('../models/User');
 const Post = require('../models/Post');
+const {
+      ensureAuthenticated
+} = require('../config/auth');
 const router = express.Router();
 
 
