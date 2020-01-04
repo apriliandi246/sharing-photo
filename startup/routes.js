@@ -1,5 +1,7 @@
 const express = require('express');
 
+
+// handle all routes and others
 module.exports = function (app) {
 
       // body-parser

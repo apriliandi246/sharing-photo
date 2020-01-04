@@ -47,7 +47,7 @@ router.post('/', ensureAuthenticated, upload.single('picture'), async (req, res)
       }
 
 
-      // jika terdapat error
+      // if have an errors
       if (errors.length > 0) {
 
             // if post process is failed, remove the image
@@ -60,7 +60,7 @@ router.post('/', ensureAuthenticated, upload.single('picture'), async (req, res)
             });
 
 
-            // jika tidak ada error
+            // if nothing errors
       } else {
 
             try {

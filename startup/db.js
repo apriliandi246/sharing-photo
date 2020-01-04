@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// handle connect to database
 module.exports = function () {
       mongoose.connect('mongodb://localhost/project_1', {
                   useNewUrlParser: true,

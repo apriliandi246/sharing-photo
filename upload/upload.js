@@ -4,6 +4,9 @@ const fs = require('fs');
 const crypto = require('crypto').randomBytes(16).toString('hex');
 
 
+// *** Hanlde all Process Upload Image ***
+
+
 // handle process upload for POST
 const storage = multer.diskStorage({
       destination: './public/uploads/img_post',
@@ -12,11 +15,11 @@ const storage = multer.diskStorage({
       }
 });
 
+
 // for upload POST
 const upload = multer({
       storage: storage
 });
-
 
 
 // handle process upload for USER PICTURE
@@ -27,11 +30,11 @@ const storage2 = multer.diskStorage({
       }
 });
 
+
 // for upload USER PICTURE
 const upload2 = multer({
       storage: storage2
 });
-
 
 
 // remove image post, if post process is failed
@@ -48,7 +51,6 @@ function removeOldPicture(fileName) {
             if (err) console.log(err);
       });
 }
-
 
 
 module.exports = {
