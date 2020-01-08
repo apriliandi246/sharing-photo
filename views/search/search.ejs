@@ -24,10 +24,21 @@
                               </div>
                         </form>
 
+                        <% if (username.length !== 0) { %>
                         <% username.forEach(user => { %>
-                        <a href="/user/<%= user.name %>" class="mt-5 mb-5 profile-user"><%= user.name %></a>
-                        <br><br>
+                        <div class="ui card centered raised stacked mb-4" style="width: 690px;">
+                              <div class="content">
+                                    <a href="/user/<%= user.name %>" class="profile-user">
+                                          <img class="ui avatar big image mr-2 border border-white"
+                                                src="/uploads/user_picture/<%= user.user_picture %>">
+                                          <%= user.name %>
+                                    </a>
+                              </div>
+                        </div>
                         <% }); %>
+                        <% } else { %>
+                        <h1 class="text-center mt-3">User Not Found</h1>
+                        <% } %>
                   </div>
             </div>
       </div>
