@@ -23,7 +23,9 @@
                                           name="name" autofocus autocomplete="off">
                               </div>
                         </form>
+                  </div>
 
+                  <div class="col-4">
                         <% if (username.length !== 0) { %>
                         <% username.forEach(user => { %>
                         <div class="ui card centered raised stacked mb-4" style="width: 690px;">
@@ -37,7 +39,7 @@
                         </div>
                         <% }); %>
                         <% } else { %>
-                        <h1 class="text-center mt-3">User Not Found</h1>
+                        <h1 class="text-center mt-3">Username Not Found</h1>
                         <% } %>
                   </div>
             </div>

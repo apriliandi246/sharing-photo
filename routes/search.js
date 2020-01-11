@@ -13,6 +13,8 @@ router.get('/', ensureAuthenticated, async (req, res) => {
             query = query.regex('name', new RegExp(req.query.name, 'i'));
       }
 
+      // console.log(req.query);
+
       try {
             const name = await query.exec();
             res.render('search/search', {
