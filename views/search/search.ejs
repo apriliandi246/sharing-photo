@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Search - Just MEME</title>
+</head>
+
+<body>
+
+      <%- include ('../partials/header2.ejs') %>
+
+      <br><br><br>
+
+      <div class="container mt-5">
+            <div class="row justify-content-center">
+                  <div class="col-4">
+                        <form action="/search" method="GET">
+                              <div class="form-group mb-5">
+                                    <input type="text" class="form-control form-control-lg" placeholder="Enter Username"
+                                          name="name" autofocus autocomplete="off">
+                              </div>
+                        </form>
+
+                        <% if (username.length !== 0) { %>
+                        <% username.forEach(user => { %>
+                        <div class="ui card centered raised stacked mb-4" style="width: 690px;">
+                              <div class="content">
+                                    <a href="/user/<%= user.name %>" class="profile-user">
+                                          <img class="ui avatar big image mr-2 border border-white"
+                                                src="/uploads/user_picture/<%= user.user_picture %>">
+                                          <%= user.name %>
+                                    </a>
+                              </div>
+                        </div>
+                        <% }); %>
+                        <% } else { %>
+                        <h1 class="text-center mt-3">User Not Found</h1>
+                        <% } %>
+                  </div>
+            </div>
+      </div>
+
+</body>
+
+</html>
