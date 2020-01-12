@@ -18,7 +18,7 @@ router.get('/:name', ensureAuthenticated, async (req, res) => {
 
             // jika namanya sama degan nama user yang sedang login, maka redirect saja ke halaman profile
             if (req.user.name === req.params.name) {
-                  res.redirect('/user');
+                  res.redirect('/me');
 
 
                   // jika user tidak ditemukan

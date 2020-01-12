@@ -17,7 +17,7 @@ module.exports = function (app) {
       app.use('/user', require('../routes/login'));
       app.use('/', require('../routes/index'));
       app.use('/user', require('../routes/logout'));
-      app.use('/user', require('../routes/user_profile'));
+      app.use('/me', require('../routes/user_profile'));
       app.use('/user', require('../routes/edit_profile'));
       app.use('/user', require('../routes/another_user'));
       app.use('/post', require('../routes/post'));
