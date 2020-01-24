@@ -16,7 +16,7 @@ module.exports = function (passport) {
                         .then(users => {
                               if (!users) {
                                     return done(null, false, {
-                                          message: "That Email is not Registered"
+                                          message: "That email is not registered"
                                     });
                               }
 
@@ -28,7 +28,7 @@ module.exports = function (passport) {
                                           return done(null, users);
                                     } else {
                                           return done(null, false, {
-                                                message: "Password Incorect"
+                                                message: "Password incorect"
                                           });
                                     }
                               });

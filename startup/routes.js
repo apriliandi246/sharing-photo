@@ -22,7 +22,7 @@ module.exports = function (app) {
       app.use('/user', require('../routes/another_user'));
       app.use('/post', require('../routes/post'));
       app.use('/search', require('../routes/search'));
-
+      app.use('/logout', require('../routes/logout'));
 
       // Handle page not found
       app.use((req, res, next) => {

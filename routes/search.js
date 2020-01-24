@@ -1,32 +1,12 @@
 const express = require('express');
-const User = require('../models/User');
+const ControllerSearch = require('../controllers/search');
 const {
       ensureAuthenticated
 } = require('../config/auth');
 const router = express();
 
 
-router.get('/', ensureAuthenticated, async (req, res) => {
-      let query = User.find();
-
-      if (req.query.name != null && req.query.name != '') {
-            query = query.regex('name', new RegExp(req.query.name, 'i'));
-      }
-
-      // console.log(req.query);
-
-      try {
-            const name = await query.exec();
-            res.render('search/search', {
-                  username: name
-            });
-
-      } catch (err) {
-            console.log("Something wrong => ", err);
-            return;
-      }
-});
-
-
+// search another user
+router.get('/', ensureAuthenticated, ControllerSearch.search_another_user);
 
 module.exports = router;

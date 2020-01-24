@@ -43,7 +43,7 @@ router.post('/edit', ensureAuthenticated, upload2.single('picture'), async (req,
       // check filed name
       if (!req.body.name) {
             errors.push({
-                  msg: "Please Fill All Fields"
+                  msg: "Please fill all fields"
             });
       }
 
@@ -60,7 +60,7 @@ router.post('/edit', ensureAuthenticated, upload2.single('picture'), async (req,
             const imageMimeTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'].includes(req.file.mimetype);
             if (imageMimeTypes === false) {
                   errors.push({
-                        msg: "Image Only"
+                        msg: "Image only"
                   });
             }
       }

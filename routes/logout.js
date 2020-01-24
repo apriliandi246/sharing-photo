@@ -1,14 +1,9 @@
 const express = require('express');
+const LogoutController = require('../controllers/logout');
 const router = express.Router();
 
 
 // handle logout
-router.get('/logout', (req, res) => {
-
-      req.logOut();
-      req.flash("success_msg", "You are Logged Out");
-      res.redirect('/user/login');
-
-});
+router.get('/', LogoutController.logout);
 
 module.exports = router;

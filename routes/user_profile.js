@@ -1,5 +1,5 @@
 const express = require('express');
-const Post = require('../models/Post');
+const ControllerUserProfile = require('../controllers/user_profile');
 const {
       ensureAuthenticated
 } = require('../config/auth');
@@ -7,24 +7,6 @@ const router = express.Router();
 
 
 // render user profile
-router.get('/', ensureAuthenticated, async (req, res) => {
-
-      try {
-            const posts = await Post.find({
-                  user_id: req.user._id
-            });
-
-            res.render('user_profile/user', {
-                  img: req.user.user_picture,
-                  name: req.user.name,
-                  join: req.user.join,
-                  posts: posts
-            });
-
-      } catch {
-            posts = [];
-      }
-
-});
+router.get('/', ensureAuthenticated, ControllerUserProfile.render_user_profile_page);
 
 module.exports = router;
