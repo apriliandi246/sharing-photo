@@ -1,11 +1,11 @@
+"use strict";
+
 const User = require('../models/User');
 const Post = require('../models/Post');
 
 
-const visit_another_user = async (req, res) => {
-
+module.exports.visit_another_user = async (req, res) => {
       try {
-
             const name = await User.find({
                   name: req.params.name
             }).exec();
@@ -39,10 +39,4 @@ const visit_another_user = async (req, res) => {
             console.log("Something wrong", err);
             return;
       }
-
-}
-
-
-module.exports = {
-      visit_another_user
 }

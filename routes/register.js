@@ -1,8 +1,9 @@
+"use strict";
+
 const express = require('express');
 const RegisterController = require('../controllers/register');
 const {
-      upload2,
-      removeImage
+      upload2
 } = require('../upload/upload');
 const {
       forwardAuth

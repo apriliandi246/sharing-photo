@@ -1,7 +1,9 @@
+"use strict";
+
 const User = require('../models/User');
 
 
-const search_another_user = async (req, res) => {
+module.exports.search_another_user = async (req, res) => {
       let query = User.find();
 
       if (req.query.name != null && req.query.name != '') {
@@ -18,9 +20,4 @@ const search_another_user = async (req, res) => {
             console.log("Something wrong => ", err);
             return;
       }
-}
-
-
-module.exports = {
-      search_another_user
 }

@@ -1,7 +1,9 @@
+"use strict";
+
 const Post = require('../models/Post');
 
 
-const render_user_profile_page = async (req, res) => {
+module.exports.render_user_profile_page = async (req, res) => {
       try {
             const posts = await Post.find({
                   user_id: req.user._id
@@ -17,9 +19,4 @@ const render_user_profile_page = async (req, res) => {
       } catch {
             posts = [];
       }
-}
-
-
-module.exports = {
-      render_user_profile_page
 }

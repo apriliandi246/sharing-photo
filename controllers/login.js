@@ -1,12 +1,13 @@
+"use strict";
+
 const passport = require('passport');
 
 
-const render_login_page = (req, res) => {
+module.exports.render_login_page = (req, res) => {
       res.render('register_login/login');
 }
 
-
-const login = async (req, res, next) => {
+module.exports.login = async (req, res, next) => {
 
       try {
             const {
@@ -43,10 +44,4 @@ const login = async (req, res, next) => {
             return;
       }
 
-}
-
-
-module.exports = {
-      render_login_page,
-      login
 }

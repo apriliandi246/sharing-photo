@@ -1,3 +1,5 @@
+"use strict";
+
 const express = require('express');
 const ControllerSearch = require('../controllers/search');
 const {

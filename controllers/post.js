@@ -1,3 +1,5 @@
+"use strict";
+
 const Post = require('../models/Post');
 const date = require('../public/js/date').joined;
 const {
@@ -6,13 +8,12 @@ const {
 
 
 
-const render_make_post_page = (req, res) => {
+module.exports.render_make_post_page = (req, res) => {
       res.render('posts/post');
 }
 
 
-const make_post = async (req, res) => {
-
+module.exports.make_post = async (req, res) => {
       const {
             description,
             picture
@@ -75,11 +76,4 @@ const make_post = async (req, res) => {
             }
 
       }
-
-}
-
-
-module.exports = {
-      render_make_post_page,
-      make_post
 }

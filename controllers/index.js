@@ -1,7 +1,9 @@
+"use strict";
+
 const Post = require('../models/Post');
 
-const get_all_post = async (req, res) => {
 
+module.exports.get_all_post = async (req, res) => {
       try {
             // populate('user_id') => untuk mengambil data dari schema user.
             const posts = await Post.find().sort({
@@ -16,10 +18,4 @@ const get_all_post = async (req, res) => {
             console.log("Something wrong", err);
             return;
       }
-
-}
-
-
-module.exports = {
-      get_all_post
 }

@@ -1,14 +1,21 @@
+"use strict";
+
 const bcrypt = require('bcrypt');
 const User = require('../models/User');
-const joined = require('../public/js/date').joined;
+const {
+      joined
+} = require('../public/js/date');
+const {
+      removeImage
+} = require('../upload/upload');
 
 
-const render_register_page = (req, res) => {
+module.exports.render_register_page = (req, res) => {
       res.render('register_login/register');
 }
 
 
-const create_new_user = (req, res) => {
+module.exports.create_new_user = (req, res) => {
       const {
             name,
             email,
@@ -138,10 +145,4 @@ const create_new_user = (req, res) => {
                   })
                   .catch(err => console.log("Something wrong", err));
       }
-}
-
-
-module.exports = {
-      render_register_page,
-      create_new_user
 }

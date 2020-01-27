@@ -1,3 +1,5 @@
+"use strict";
+
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
@@ -7,7 +9,8 @@ const crypto = require('crypto').randomBytes(16).toString('hex');
 // *** Hanlde all Process Upload Image ***
 
 
-// handle process upload for POST
+// Handle Process Upload for POST
+
 const storage = multer.diskStorage({
       destination: './public/uploads/img_post',
       filename: function (req, file, callback) {
@@ -17,12 +20,14 @@ const storage = multer.diskStorage({
 
 
 // for upload POST
-const upload = multer({
+module.exports.upload = multer({
       storage: storage
 });
 
 
-// handle process upload for USER PICTURE
+
+// Handle Process Upload for USER PICTURE
+
 const storage2 = multer.diskStorage({
       destination: './public/uploads/user_picture',
       filename: function (req, file, callback) {
@@ -32,13 +37,13 @@ const storage2 = multer.diskStorage({
 
 
 // for upload USER PICTURE
-const upload2 = multer({
+module.exports.upload2 = multer({
       storage: storage2
 });
 
 
 // remove image post, if post process is failed
-function removeImage(fileName) {
+module.exports.removeImage = (fileName) => {
       fs.unlink(fileName, (err) => {
             if (err) console.log(err);
       })
@@ -46,16 +51,8 @@ function removeImage(fileName) {
 
 
 // if user update their profile picture, remove old picture
-function removeOldPicture(fileName) {
+module.exports.removeOldPicture = (fileName) => {
       fs.unlink(fileName, (err) => {
             if (err) console.log(err);
       });
-}
-
-
-module.exports = {
-      upload: upload,
-      upload2: upload2,
-      removeImage: removeImage,
-      removeOldImage: removeOldPicture
 }
