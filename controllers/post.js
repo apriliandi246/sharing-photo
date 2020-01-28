@@ -1,7 +1,7 @@
 "use strict";
 
 const Post = require('../models/Post');
-const date = require('../public/js/date').joined;
+const moment = require('moment');
 const {
       removeImage
 } = require('../upload/upload');
@@ -62,7 +62,7 @@ module.exports.make_post = async (req, res) => {
                   const newPost = new Post({
                         picture: req.file.filename,
                         description: req.body.description,
-                        date: date,
+                        date: moment().format('ll'),
                         user_id: req.user._id
                   });
 

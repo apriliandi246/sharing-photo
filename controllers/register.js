@@ -2,9 +2,7 @@
 
 const bcrypt = require('bcrypt');
 const User = require('../models/User');
-const {
-      joined
-} = require('../public/js/date');
+const moment = require('moment');
 const {
       removeImage
 } = require('../upload/upload');
@@ -83,12 +81,12 @@ module.exports.create_new_user = (req, res) => {
 
             User.findOne()
                   .or([{
-                              name: name
+                        name: name
 
-                        },
-                        {
-                              email: email
-                        }
+                  },
+                  {
+                        email: email
+                  }
                   ])
                   .then(user => {
                         if (user) {
@@ -120,7 +118,7 @@ module.exports.create_new_user = (req, res) => {
                               const newUser = new User({
                                     name: name,
                                     email: email,
-                                    join: joined,
+                                    join: moment().format('ll'),
                                     password: pass,
                                     user_picture: req.file.filename
                               });
