@@ -4,6 +4,7 @@ const User = require('../models/User');
 const Post = require('../models/Post');
 
 
+// handle when user visit another user
 module.exports.visit_another_user = async (req, res) => {
       try {
             const name = await User.find({

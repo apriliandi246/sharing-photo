@@ -8,11 +8,13 @@ const {
 } = require('../upload/upload');
 
 
+// render registration page
 module.exports.render_register_page = (req, res) => {
       res.render('register_login/register');
 }
 
 
+// handle create new user process
 module.exports.create_new_user = (req, res) => {
       const {
             name,
@@ -23,7 +25,6 @@ module.exports.create_new_user = (req, res) => {
 
       // errors
       let errors = [];
-
 
       // check required fields
       if (!name || !email || !pass || !pass2) {

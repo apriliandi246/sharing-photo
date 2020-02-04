@@ -6,8 +6,7 @@ const {
       ensureAuthenticated
 } = require('../config/auth');
 const {
-      upload,
-      removeImage
+      upload
 } = require('../upload/upload');
 const router = express.Router();
 

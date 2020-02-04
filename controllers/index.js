@@ -3,6 +3,7 @@
 const Post = require('../models/Post');
 
 
+// render the main page
 module.exports.get_all_post = async (req, res) => {
       try {
             // populate('user_id') => untuk mengambil data dari schema user.

@@ -8,11 +8,13 @@ const {
 
 
 
+// show make post page
 module.exports.render_make_post_page = (req, res) => {
       res.render('posts/post');
 }
 
 
+// handle process post
 module.exports.make_post = async (req, res) => {
       const {
             description,

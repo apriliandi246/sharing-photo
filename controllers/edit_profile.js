@@ -7,7 +7,7 @@ const {
 } = require('../upload/upload');
 
 
-
+// render edit profile page
 module.exports.render_page_edit_profile = async (req, res) => {
       User.findById(req.user._id, (err, userInfo) => {
             res.render("user_profile/edit_profile", {
@@ -17,6 +17,7 @@ module.exports.render_page_edit_profile = async (req, res) => {
 }
 
 
+// handle process edit profile
 module.exports.edit_profile = async (req, res) => {
       let edit;
 
