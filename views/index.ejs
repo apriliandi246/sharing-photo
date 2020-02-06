@@ -31,11 +31,11 @@
                               <img src="/uploads/img_post/<%= post.picture %>" class="img-fluid">
                         </div>
                         <div class="content">
-                              <div class="description text-body mt-2 mb-2">
+                              <div id="description" class="description text-body mb-3" style="white-space: pre-line;">
                                     <%= post.description %>
                               </div>
                         </div>
-                        <div class="extra content">
+                        <div class=" extra content">
                               <span class="right floated text-monospace">
                                     <mark class="rounded"><%= post.date %></mark>
                               </span>
@@ -54,7 +54,6 @@
       </div>
 
       <br>
-
 </body>
 
 </html>
