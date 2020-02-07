@@ -31,8 +31,9 @@
                               <img src="/uploads/img_post/<%= post.picture %>" class="img-fluid">
                         </div>
                         <div class="content">
-                              <div id="description" class="description text-body mb-3" style="white-space: pre-line;">
-                                    <%= post.description %>
+                              <div class="description text-body mb-3" style="white-space: pre-line;">
+                                    <span
+                                          class="mr-2 font-weight-bold"><%= post.user_id.name %></span><%= post.description %>
                               </div>
                         </div>
                         <div class=" extra content">

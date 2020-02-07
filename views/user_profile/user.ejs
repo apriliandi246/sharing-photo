@@ -62,9 +62,10 @@
                                     <img src="/uploads/img_post/<%= post.picture %>" alt="" width="370px" height="250px"
                                           class="mr-4 mb-5 rounded img-thumbnail border border-light">
                                     <div class="media-body mt-2">
-                                          <h3 class="mt-0 mb-4 text-muted text-monospace"><mark
+                                          <h3 class="mb-3 text-muted text-monospace"><mark
                                                       class="rounded"><%= post.date %></mark></h3>
-                                          <h5 class="mt-0"><mark class="bg-light rounded"><%= post.description %></mark>
+                                          <h5 class="mt-4"><mark class="bg-light rounded"
+                                                      style="white-space: pre-line;"><%= post.description %></mark>
                                           </h5>
                                     </div>
                               </li>
