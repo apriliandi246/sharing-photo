@@ -5,7 +5,6 @@ const express = require('express');
 
 // handle all routes and others
 module.exports = function (app) {
-
       // body-parser
       app.use(express.urlencoded({
             extended: false
@@ -30,5 +29,4 @@ module.exports = function (app) {
       app.use((req, res, next) => {
             res.status(404).render('not_found/page_not_found');
       });
-
 }

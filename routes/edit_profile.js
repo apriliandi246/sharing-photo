@@ -11,10 +11,8 @@ const {
 const router = express.Router();
 
 
-
 // render edit page
 router.get('/edit', ensureAuthenticated, ControllerEditProfile.render_page_edit_profile);
-
 
 // handle process edit
 router.post('/edit', ensureAuthenticated, upload2.single('picture'), ControllerEditProfile.edit_profile);

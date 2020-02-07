@@ -11,7 +11,6 @@ const {
 const router = express.Router();
 
 
-
 // Render page form register
 router.get('/register', forwardAuth, RegisterController.render_register_page);
 

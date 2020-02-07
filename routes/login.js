@@ -8,7 +8,6 @@ const {
 const router = express.Router();
 
 
-
 // render login page
 router.get('/login', forwardAuth, LoginController.render_login_page);
 
