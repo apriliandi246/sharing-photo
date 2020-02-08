@@ -4,7 +4,7 @@
 
 body {
       background-color: #f5eeee;
-      font-size: 15px;
+      font-size: 17px;
 }
 
 
@@ -18,7 +18,7 @@ a.profile-user {
 }
 
 a.profile-user:hover {
-      color: #FAED33;
+      color: cadetblue;
 }
 
 a.nav-link i:hover {
