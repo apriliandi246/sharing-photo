@@ -1,13 +1,15 @@
 "use strict";
 
 const mongoose = require('mongoose');
+const config = require('config');
 
 // handle connect to database
 module.exports = function () {
-      mongoose.connect('mongodb://localhost/project_1', {
+      const db = config.get('db');
+      mongoose.connect('db', {
                   useNewUrlParser: true,
                   useUnifiedTopology: true
             })
-            .then(() => console.log("Connect to MongoDB..."))
+            .then(() => console.log(`Connect to ${db}...`))
             .catch(err => console.log("Something wrong", err));
 }
