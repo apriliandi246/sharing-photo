@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --watchAll --runInBand --detectOpenHandles"
   },
   "jest": {
     "testEnvironment": "node"
@@ -28,6 +28,7 @@
     "multer": "^1.4.2",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
+    "supertest": "^4.0.2",
     "winston": "^3.2.1"
   }
 }
