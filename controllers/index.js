@@ -11,11 +11,11 @@ module.exports.get_all_post = async (req, res) => {
             const posts = await Post.find().sort({
                   picture: 'desc'
             }).populate('user_id').exec();
-            const datePost = moment(posts[0].fullDate).fromNow();
+
+            // MEMBUAT WAKTU POSTINGANNYA DINAMIS SESUAI DENGAN POSTINGANNYA
 
             res.render('index', {
-                  posts,
-                  datePost
+                  posts
             });
 
       } catch (err) {
