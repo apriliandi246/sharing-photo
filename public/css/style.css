@@ -24,3 +24,7 @@ a.profile-user:hover {
 a.nav-link i:hover {
       color: #FAED33;
 }
+
+span.name {
+      font-size: 14px;
+}

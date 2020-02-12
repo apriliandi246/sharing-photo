@@ -11,12 +11,11 @@ module.exports.get_all_post = async (req, res) => {
             const posts = await Post.find().sort({
                   picture: 'desc'
             }).populate('user_id').exec();
-
-            const datePost = moment(posts[0].fullDate[0]).fromNow();
+            const datePost = moment(posts[0].fullDate).fromNow();
 
             res.render('index', {
-                  posts: posts,
-                  date: datePost
+                  posts,
+                  datePost
             });
 
       } catch (err) {
