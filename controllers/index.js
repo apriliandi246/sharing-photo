@@ -1,6 +1,7 @@
 "use strict";
 
 const Post = require('../models/Post');
+const moment = require('moment');
 
 
 // render the main page
@@ -11,8 +12,11 @@ module.exports.get_all_post = async (req, res) => {
                   picture: 'desc'
             }).populate('user_id').exec();
 
+            const datePost = moment(posts[0].fullDate[0]).fromNow();
+
             res.render('index', {
-                  posts: posts
+                  posts: posts,
+                  date: datePost
             });
 
       } catch (err) {

@@ -59,12 +59,16 @@ module.exports.make_post = async (req, res) => {
       } else {
 
             try {
+                  const date = new Date();
 
                   // make new post
                   const newPost = new Post({
                         picture: req.file.filename,
                         description: req.body.description,
                         date: moment().format('ll'),
+                        fullDate: [
+                              [date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes()]
+                        ],
                         user_id: req.user._id
                   });
 

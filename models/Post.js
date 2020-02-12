@@ -13,6 +13,9 @@ const PostSchema = new mongoose.Schema({
             type: String,
             required: true
       },
+      fullDate: {
+            type: []
+      },
       user_id: {
             type: mongoose.Schema.Types.ObjectId,
             required: true,
