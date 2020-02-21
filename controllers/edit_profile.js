@@ -91,7 +91,7 @@ module.exports.edit_profile = async (req, res) => {
                   }
 
                   await edit.save();
-                  res.redirect('/user');
+                  res.redirect('/me');
 
             } catch (err) {
                   console.log(err);

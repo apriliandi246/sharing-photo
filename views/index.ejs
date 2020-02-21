@@ -23,8 +23,10 @@
                         <div class="content">
                               <a href="/user/<%= post.user_id.name %>" class="profile-user">
                                     <img class="ui avatar big image mr-2 border border-white"
-                                          src="/uploads/user_picture/<%= post.user_id.user_picture %>">
-                                    <%= post.user_id.name %>
+                                          src="/uploads/user_picture/<%= post.user_id.user_picture %>"
+                                          alt="profile-photo">
+                                    <%= post.user_id.name %> <img src="/img/verified.png" class="ml-1"
+                                          style="width: 18px;">
                               </a>
                         </div>
                         <div class="image">
