@@ -12,10 +12,14 @@ module.exports.get_all_post = async (req, res) => {
                   picture: 'desc'
             }).populate('user_id').exec();
 
-            // MEMBUAT WAKTU POSTINGANNYA DINAMIS SESUAI DENGAN POSTINGANNYA
+            // make relative date using moment js (https://momentjs.com/docs/#/displaying/fromnow/)
+            function getFullDate(date) {
+                  return moment(date).fromNow();
+            }
 
             res.render('index', {
-                  posts
+                  posts,
+                  fullDate: getFullDate
             });
 
       } catch (err) {
