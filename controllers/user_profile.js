@@ -13,6 +13,7 @@ module.exports.render_user_profile_page = async (req, res) => {
                   img: req.user.user_picture,
                   name: req.user.name,
                   join: req.user.join,
+                  verified: req.user.verified,
                   posts: posts
             });
 

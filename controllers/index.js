@@ -11,7 +11,7 @@ module.exports.get_all_post = async (req, res) => {
             const posts = await Post.find().sort({
                   picture: 'desc'
             }).populate('user_id').exec();
-
+            console.log(posts);
             // make relative date using moment js (https://momentjs.com/docs/#/displaying/fromnow/)
             function getFullDate(date) {
                   return moment(date).fromNow();

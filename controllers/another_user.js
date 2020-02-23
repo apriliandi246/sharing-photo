@@ -30,6 +30,8 @@ module.exports.visit_another_user = async (req, res) => {
                         user_id: name[0]._id
                   }).exec();
 
+                  console.log(name);
+
                   res.render('user_profile/another_user', {
                         data: name,
                         posts: post

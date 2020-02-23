@@ -28,3 +28,7 @@ a.nav-link i:hover {
 span.name {
       font-size: 14px;
 }
+
+.description {
+      margin-top: -20px;
+}
