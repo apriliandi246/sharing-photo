@@ -12,6 +12,7 @@ module.exports.search_another_user = async (req, res) => {
 
       try {
             const name = await query.exec();
+
             res.render('search/search', {
                   username: name
             });

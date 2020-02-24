@@ -24,17 +24,27 @@
                               </div>
                         </form>
                   </div>
+            </div>
 
+            <div class="row justify-content-center">
                   <div class="col-4">
                         <% if (username.length !== 0) { %>
                         <% username.forEach(user => { %>
                         <div class="ui card centered raised stacked mb-4" style="width: 690px;">
                               <div class="content">
+                                    <% if (user.verified === true) { %>
+                                    <a href="/user/<%= user.name %>" class="profile-user">
+                                          <img class="ui avatar big image mr-2 border border-white"
+                                                src="/uploads/user_picture/<%= user.user_picture %>">
+                                          <%= user.name %> <img src="/img/verified.png" class="ml-1"
+                                                style="width: 18px; margin-bottom: 2px;">
+                                    </a>
+                                    <% } else { %>
                                     <a href="/user/<%= user.name %>" class="profile-user">
                                           <img class="ui avatar big image mr-2 border border-white"
                                                 src="/uploads/user_picture/<%= user.user_picture %>">
                                           <%= user.name %>
-                                    </a>
+                                          <% } %>
                               </div>
                         </div>
                         <% }); %>
