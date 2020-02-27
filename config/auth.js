@@ -6,7 +6,7 @@ module.exports = {
             if (req.isAuthenticated()) {
                   return next();
             }
-            req.flash("error_msg", "Please Log in First");
+            req.flash("error_msg", "Please login first");
             res.redirect('/user/login');
       },
 
