@@ -36,11 +36,11 @@
       <div class="container">
             <div class="row justify-content-center mb-5">
                   <div class="col-4">
-                        <form method="POST" enctype="multipart/form-data" action="/user/edit">
+                        <form method="POST" action="/user/edit" enctype="multipart/form-data">
                               <div class="form-group">
                                     <label for="name">Name</label>
                                     <input type="text" class="form-control" id="name" placeholder="Enter Name"
-                                          name="name">
+                                          name="name" autocomplete="off">
                                     <div class=" custom-file mt-3 mb-3">
                                           <input type="file" class="custom-file-input" id="customFile" name="picture"
                                                 accept="image/x-png, image/gif, image/jpeg, image/jpg">
@@ -51,9 +51,11 @@
                                                 empty</small>
                                     </div>
                               </div>
-                              <button type="submit" class="mt-4 mb-2 btn btn-outline-primary btn-block">Edit</button>
+                              <button type="submit"
+                                    class="font-weight-bold  mt-4 mb-2 btn btn-outline-primary btn-block">Edit</button>
                               <hr>
-                              <a href="/me" class="mt-2 btn btn-outline-secondary btn-block">Cancel</a>
+                              <a href="/me"
+                                    class="font-weight-bold  mt-2 btn btn-outline-secondary btn-block">Cancel</a>
                         </form>
                   </div>
             </div>

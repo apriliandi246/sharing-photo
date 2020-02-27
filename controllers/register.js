@@ -82,12 +82,12 @@ module.exports.create_new_user = (req, res) => {
 
             User.findOne()
                   .or([{
-                        name: name
+                              name: name
 
-                  },
-                  {
-                        email: email
-                  }
+                        },
+                        {
+                              email: email
+                        }
                   ])
                   .then(user => {
                         if (user) {
@@ -134,7 +134,7 @@ module.exports.create_new_user = (req, res) => {
                                           newUser.password = hash;
                                           newUser.save()
                                                 .then(() => {
-                                                      req.flash('success_msg', "You Are Now Registered and Can Log in");
+                                                      req.flash('success_msg', "You are now registered");
                                                       res.redirect('/user/login');
                                                 })
                                                 .catch(err => console.log(err));

@@ -18,11 +18,11 @@ a.profile-user {
 }
 
 a.profile-user:hover {
-      color: cadetblue;
+      color: rgb(108, 117, 125);
 }
 
 a.nav-link i:hover {
-      color: #FAED33;
+      color: rgb(108, 117, 125);
 }
 
 span.name {

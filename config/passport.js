@@ -30,7 +30,7 @@ module.exports = function (passport) {
                                           return done(null, users);
                                     } else {
                                           return done(null, false, {
-                                                message: "Password incorect"
+                                                message: "Incorrect email or password"
                                           });
                                     }
                               });

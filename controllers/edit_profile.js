@@ -3,17 +3,13 @@
 const User = require('../models/User');
 const {
       removeImage,
-      removeOldImage
+      removeOldPicture
 } = require('../upload/upload');
 
 
 // render edit profile page
 module.exports.render_page_edit_profile = async (req, res) => {
-      User.findById(req.user._id, (err, userInfo) => {
-            res.render("user_profile/edit_profile", {
-                  data: userInfo
-            });
-      })
+      res.render("user_profile/edit_profile");
 }
 
 
@@ -57,7 +53,6 @@ module.exports.edit_profile = async (req, res) => {
             }
       }
 
-
       if (errors.length > 0) {
 
             if (req.file != undefined) removeImage(`./public/uploads/user_picture/${req.file.filename}`);
@@ -81,7 +76,7 @@ module.exports.edit_profile = async (req, res) => {
 
                   // if user picture is not empty, then remove old picture and use new picture
                   if (req.file != undefined) {
-                        removeOldImage(`./public/uploads/user_picture/${picture.user_picture}`);
+                        removeOldPicture(`./public/uploads/user_picture/${picture.user_picture}`);
                         edit.user_picture = req.file.filename;
 
 

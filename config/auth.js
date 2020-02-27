@@ -1,7 +1,6 @@
 "use strict";
 
 module.exports = {
-
       // jika user belum login, maka arahkah ke jalaman login
       ensureAuthenticated: function (req, res, next) {
             if (req.isAuthenticated()) {
