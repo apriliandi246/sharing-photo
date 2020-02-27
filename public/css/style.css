@@ -7,6 +7,15 @@ body {
       font-size: 17px;
 }
 
+a.logo img {
+      width: 55px;
+      height: 55px;
+}
+
+.logo img {
+      width: 65px;
+      height: 65px;
+}
 
 .navbar-nav {
       margin-left: 890px;
