@@ -5,23 +5,21 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <title>Post Picture - Just MEME</title>
+      <title>Make a Post - Just MEME</title>
 </head>
 
 <body>
-
       <%- include ('../partials/header2.ejs') %>
 
       <br><br><br>
 
-      <div class="container mt-5">
+      <div class="container mt-4">
             <div class="row justify-content-center">
                   <div class="col-6">
                         <%- include ('../partials/message') %>
                   </div>
             </div>
       </div>
-
 
       <div class="container">
             <div class="row justify-content-center mt-5 mb-3">
@@ -32,16 +30,14 @@
             </div>
       </div>
 
-
       <div class="container">
             <div class="row justify-content-center mb-5">
                   <div class="col-7">
                         <form action="/post" method="POST" enctype="multipart/form-data">
                               <div class="form-group">
                                     <label for="description">Description</label>
-                                    <textarea class="form-control form-control-lg" id="description" rows="10"
-                                          name="description" style="white-space: pre-line;"
-                                          pattern="[a-zA-Z][a-zA-Z0-9\s]*"></textarea>
+                                    <textarea class="form-control form-control-lg" id="description" rows="15"
+                                          name="description" style="white-space: pre-line;"></textarea>
                               </div>
                               <div class="custom-file mt-3 mb-3">
                                     <input type="file" class="custom-file-input" id="customFile" name="picture"
@@ -57,7 +53,6 @@
                   </div>
             </div>
       </div>
-
 </body>
 
 </html>
