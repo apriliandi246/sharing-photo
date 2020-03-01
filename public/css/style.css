@@ -41,3 +41,8 @@ span.name {
 .description {
       margin-top: -20px;
 }
+
+
+.post-time span {
+      margin-bottom: -14px;
+}

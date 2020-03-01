@@ -9,7 +9,6 @@
 </head>
 
 <body>
-
       <%- include ('../partials/header.ejs') %>
 
       <div class="container mt-5">
@@ -33,26 +32,27 @@
 
       <div class="container">
             <div class="row justify-content-center">
-                  <div class="col-4 mt-2">
+                  <div class="col-5 mt-2">
                         <form action="/user/login" method="POST">
-                              <div class="form-group">
+                              <div class="form-group mb-4">
                                     <label for="email">Email</label>
-                                    <input type="email" class="form-control" id="email" placeholder="Enter Email"
-                                          name="email" autofocus autocomplete="off">
+                                    <input type="email" class="form-control form-control-lg" id="email"
+                                          placeholder="Enter Email" name="email" autofocus autocomplete="off">
                               </div>
                               <div class="form-group">
                                     <label for="password">Password</label>
-                                    <input type="password" class="form-control" id="password"
+                                    <input type="password" class="form-control form-control-lg" id="password"
                                           placeholder="Enter Password" name="password">
                               </div>
-                              <button type="submit" class="mt-4 mb-2 btn btn-outline-primary btn-block">Login</button>
+                              <button type="submit"
+                                    class="mt-5 mb-4 btn btn-outline-primary btn-block btn-lg">Login</button>
                               <hr>
-                              <a href="/user/register" class="mt-2 btn btn-outline-secondary btn-block">Register</a>
+                              <a href="/user/register"
+                                    class="mt-4 btn btn-outline-secondary btn-block btn-lg">Register</a>
                         </form>
                   </div>
             </div>
       </div>
-
 </body>
 
 </html>
