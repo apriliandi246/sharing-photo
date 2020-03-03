@@ -6,7 +6,7 @@ const expressLayouts = require('express-ejs-layouts');
 const app = express();
 
 
-// mongodb 
+// mongodb (database)
 require('./startup/db')();
 
 // passport config
@@ -37,8 +37,6 @@ require('./startup/routes')(app);
 // Listen port
 const PORT = 8000;
 
-const server = app.listen(PORT, () => {
+app.listen(PORT, () => {
       console.log(`Server started on port ${PORT}...`);
 });
-
-module.exports = server;
