@@ -15,16 +15,8 @@ module.exports.visit_another_user = async (req, res) => {
             if (req.user.name === req.params.name) {
                   res.redirect('/me');
 
-
-                  // jika user tidak ditemukan
-            } else if (name.length === 0) {
-                  res.status(404).render('not_found/user_not_found', {
-                        name: req.params.name
-                  });
-
-
-                  // jika user ditemukan
-            } else {
+            } else if (req.user.name !== req.params.name && name.length > 0) {
+                  // user lain
                   // take id user id
                   const post = await Post.find({
                         user_id: name[0]._id
@@ -33,6 +25,12 @@ module.exports.visit_another_user = async (req, res) => {
                   res.render('user_profile/another_user', {
                         data: name,
                         posts: post
+                  });
+
+            } else {
+                  // jika user tidak ditemukan
+                  res.status(404).render('not_found/user_not_found', {
+                        name: req.params.name
                   });
             }
 

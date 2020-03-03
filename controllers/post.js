@@ -21,9 +21,7 @@ module.exports.make_post = async (req, res) => {
             picture
       } = req.body;
 
-
       let errors = [];
-
 
       if (!description || req.file == undefined) {
             errors.push({
@@ -41,7 +39,6 @@ module.exports.make_post = async (req, res) => {
             }
       }
 
-
       // if have an errors
       if (errors.length > 0) {
 
@@ -54,10 +51,8 @@ module.exports.make_post = async (req, res) => {
                   picture
             });
 
-
-            // if nothing errors
       } else {
-
+            // if nothing errors
             try {
                   const date = new Date();
 
@@ -78,6 +73,5 @@ module.exports.make_post = async (req, res) => {
                   console.log("Something wrong", err);
                   return;
             }
-
       }
 }

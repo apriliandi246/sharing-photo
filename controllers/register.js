@@ -62,10 +62,8 @@ module.exports.create_new_user = (req, res) => {
             }
       }
 
-
       // show the errors 
       if (errors.length > 0) {
-
             // if registration failed and file upload not undefined, then delete the image from folder
             if (req.file != undefined) removeImage(`./public/uploads/user_picture/${req.file.filename}`);
 
@@ -77,9 +75,7 @@ module.exports.create_new_user = (req, res) => {
                   pass2
             });
 
-
       } else {
-
             User.findOne()
                   .or([{
                               name: name

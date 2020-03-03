@@ -8,10 +8,8 @@ module.exports.render_login_page = (req, res) => {
       res.render('register_login/login');
 }
 
-
 // handle login process
 module.exports.login = async (req, res, next) => {
-
       try {
             const {
                   email,
@@ -41,10 +39,8 @@ module.exports.login = async (req, res, next) => {
                   })(req, res, next);
             }
 
-
       } catch (err) {
             console.log("Something wrong", err);
             return;
       }
-
 }

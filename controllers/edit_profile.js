@@ -54,7 +54,6 @@ module.exports.edit_profile = async (req, res) => {
       }
 
       if (errors.length > 0) {
-
             if (req.file != undefined) removeImage(`./public/uploads/user_picture/${req.file.filename}`);
             res.render('user_profile/edit_profile', {
                   errors,
@@ -62,7 +61,6 @@ module.exports.edit_profile = async (req, res) => {
             });
 
       } else {
-
             const picture = await User.findById(req.user._id).select({
                   user_picture: 1
             }).exec();
@@ -92,6 +90,5 @@ module.exports.edit_profile = async (req, res) => {
                   console.log(err);
                   return;
             }
-
       }
 }
