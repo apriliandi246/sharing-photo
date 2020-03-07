@@ -41,7 +41,6 @@ module.exports.make_post = async (req, res) => {
 
       // if have an errors
       if (errors.length > 0) {
-
             // if post process is failed, remove the image
             if (req.file != undefined) removeImage(`./public/uploads/img_post/${req.file.filename}`);
 
