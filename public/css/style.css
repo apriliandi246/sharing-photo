@@ -4,7 +4,7 @@
 
 body {
       background-color: #f5eeee;
-      font-size: 17px;
+      font-size: 18px;
 }
 
 a.logo img {
@@ -15,10 +15,6 @@ a.logo img {
 .logo img {
       width: 65px;
       height: 65px;
-}
-
-.navbar-nav {
-      margin-left: 890px;
 }
 
 a.profile-user {
@@ -42,7 +38,10 @@ span.name {
       margin-top: -20px;
 }
 
-
 .post-time span {
       margin-bottom: -14px;
+}
+
+label.label-input {
+      color: rgb(131, 138, 142);
 }
