@@ -55,9 +55,10 @@ module.exports.create_new_user = (req, res) => {
 
       } else if (req.file != undefined) {
             const imageMimeTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'].includes(req.file.mimetype);
-            if (imageMimeTypes == false) {
+
+            if (imageMimeTypes === false) {
                   errors.push({
-                        msg: "Image Only"
+                        msg: "Image only"
                   });
             }
       }
@@ -79,7 +80,6 @@ module.exports.create_new_user = (req, res) => {
             User.findOne()
                   .or([{
                               name: name
-
                         },
                         {
                               email: email
@@ -92,6 +92,7 @@ module.exports.create_new_user = (req, res) => {
                                           errors.push({
                                                 msg: "Username is already registered"
                                           });
+
                                     } else if (user.email === email) {
                                           errors.push({
                                                 msg: "Email is already registered"
@@ -119,7 +120,6 @@ module.exports.create_new_user = (req, res) => {
                                     password: pass,
                                     user_picture: req.file.filename
                               });
-
 
                               // hash the password
                               bcrypt.genSalt(10, function (err, salt) {
