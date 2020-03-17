@@ -44,8 +44,9 @@ module.exports.edit_profile = async (req, res) => {
 
 
       // check file type
-      if (req.file != undefined) {
+      if (req.file !== undefined) {
             const imageMimeTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'].includes(req.file.mimetype);
+
             if (imageMimeTypes === false) {
                   errors.push({
                         msg: "Image only"
@@ -55,6 +56,7 @@ module.exports.edit_profile = async (req, res) => {
 
       if (errors.length > 0) {
             if (req.file != undefined) removeImage(`./public/uploads/user_picture/${req.file.filename}`);
+
             res.render('user_profile/edit_profile', {
                   errors,
                   name
@@ -75,8 +77,8 @@ module.exports.edit_profile = async (req, res) => {
                   // if user picture is not empty, then remove old picture and use new picture
                   if (req.file != undefined) {
                         removeOldPicture(`./public/uploads/user_picture/${picture.user_picture}`);
-                        edit.user_picture = req.file.filename;
 
+                        edit.user_picture = req.file.filename;
 
                   } else {
                         // if user picture is empty, still using old picture

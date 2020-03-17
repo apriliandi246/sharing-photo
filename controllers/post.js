@@ -32,6 +32,7 @@ module.exports.make_post = async (req, res) => {
       // check type the file
       if (req.file != undefined) {
             const imageMimeTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'].includes(req.file.mimetype);
+
             if (imageMimeTypes == false) {
                   errors.push({
                         msg: "Image only"
