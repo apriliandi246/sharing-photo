@@ -9,7 +9,9 @@ const {
 
 // render edit profile page
 module.exports.render_page_edit_profile = async (req, res) => {
-      res.render("user_profile/edit_profile");
+      res.render("user_profile/edit_profile", {
+            name: req.user.name
+      });
 }
 
 
@@ -24,7 +26,7 @@ module.exports.edit_profile = async (req, res) => {
       let errors = [];
 
       let userName = await User.findOne({
-            name: name
+            name
       });
 
 
@@ -35,8 +37,8 @@ module.exports.edit_profile = async (req, res) => {
             });
       }
 
-
-      if (userName != null) {
+      console.log(req.user.name);
+      if (userName !== null && userName !== req.user.name) {
             errors.push({
                   msg: "Username is already register"
             });
@@ -89,7 +91,7 @@ module.exports.edit_profile = async (req, res) => {
                   res.redirect('/me');
 
             } catch (err) {
-                  console.log(err);
+                  console.log("Something error", err);
                   return;
             }
       }
