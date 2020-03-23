@@ -17,33 +17,32 @@ module.exports.render_page_edit_profile = async (req, res) => {
 
 // handle process edit profile
 module.exports.edit_profile = async (req, res) => {
-      let edit;
 
       const {
             name
       } = req.body;
 
+      // store all errors
       let errors = [];
 
-      let userName = await User.findOne({
+      // search name, value reference from req.body.name
+      const names = await User.findOne({
             name
       });
-
-
+      console.log(req.user);
       // check filed name
-      if (!req.body.name) {
+      if (!name) {
             errors.push({
                   msg: "Please fill all fields"
             });
       }
 
-      console.log(req.user.name);
-      if (userName !== null && userName !== req.user.name) {
+      // check username
+      if (name === names.name && name !== req.user.name) {
             errors.push({
-                  msg: "Username is already register"
+                  msg: "Username already in use"
             });
       }
-
 
       // check file type
       if (req.file !== undefined) {
@@ -56,43 +55,34 @@ module.exports.edit_profile = async (req, res) => {
             }
       }
 
+      // if have any error
       if (errors.length > 0) {
-            if (req.file != undefined) removeImage(`./public/uploads/user_picture/${req.file.filename}`);
+            if (req.file !== undefined) removeImage(`./public/uploads/user_picture/${req.file.filename}`);
 
             res.render('user_profile/edit_profile', {
                   errors,
                   name
             });
 
+            // if there is no error
       } else {
-            const picture = await User.findById(req.user._id).select({
-                  user_picture: 1
-            }).exec();
-
-            // old picture name
-            let pictureName = picture.user_picture;
-
             try {
-                  edit = await User.findById(req.user._id);
-                  edit.name = name;
+                  const thisUser = await User.findByIdAndUpdate(req.user.id, {
+                        name
+                  }, {
+                        new: true
+                  });
 
-                  // if user picture is not empty, then remove old picture and use new picture
-                  if (req.file != undefined) {
-                        removeOldPicture(`./public/uploads/user_picture/${picture.user_picture}`);
-
-                        edit.user_picture = req.file.filename;
-
-                  } else {
-                        // if user picture is empty, still using old picture
-                        edit.user_picture = pictureName;
-                  }
-
-                  await edit.save();
+                  await thisUser.save();
                   res.redirect('/me');
 
-            } catch (err) {
-                  console.log("Something error", err);
+            } catch (e) {
+                  console.log(e);
                   return;
             }
       }
+
 }
+
+// PROBLEMS :
+// mengatsi bila user hanya mengupdate namanya saja, bukan gambarnya
