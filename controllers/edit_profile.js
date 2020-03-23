@@ -18,18 +18,14 @@ module.exports.render_page_edit_profile = async (req, res) => {
 // handle process edit profile
 module.exports.edit_profile = async (req, res) => {
 
+      // store all errors
+      let errors = [];
+
       const {
             name
       } = req.body;
 
-      // store all errors
-      let errors = [];
 
-      // search name, value reference from req.body.name
-      const names = await User.findOne({
-            name
-      });
-      console.log(req.user);
       // check filed name
       if (!name) {
             errors.push({
@@ -37,12 +33,6 @@ module.exports.edit_profile = async (req, res) => {
             });
       }
 
-      // check username
-      if (name === names.name && name !== req.user.name) {
-            errors.push({
-                  msg: "Username already in use"
-            });
-      }
 
       // check file type
       if (req.file !== undefined) {
@@ -67,13 +57,20 @@ module.exports.edit_profile = async (req, res) => {
             // if there is no error
       } else {
             try {
-                  const thisUser = await User.findByIdAndUpdate(req.user.id, {
-                        name
-                  }, {
-                        new: true
-                  });
+                  const user = await User.findById(req.user.id);
+                  user.name = name;
 
-                  await thisUser.save();
+                  if (req.file !== undefined) {
+                        if (req.user.user_picture === "default_picture.jpeg") {
+                              user.user_picture = req.file.filename;
+
+                        } else {
+                              user.user_picture = req.file.filename;
+                              removeOldPicture(`./public/uploads/user_picture/${req.user.user_picture}`);
+                        }
+                  }
+
+                  await user.save();
                   res.redirect('/me');
 
             } catch (e) {
@@ -84,5 +81,5 @@ module.exports.edit_profile = async (req, res) => {
 
 }
 
-// PROBLEMS :
-// mengatsi bila user hanya mengupdate namanya saja, bukan gambarnya
+// Problems :
+// check name already use or not
