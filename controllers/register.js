@@ -3,9 +3,7 @@
 const bcrypt = require('bcrypt');
 const User = require('../models/User');
 const moment = require('moment');
-const {
-      removeImage
-} = require('../upload/upload');
+
 
 
 // render registration page
@@ -47,27 +45,8 @@ module.exports.create_new_user = (req, res) => {
             });
       }
 
-      // check file selected
-      if (req.file == undefined) {
-            errors.push({
-                  msg: "No picture selected"
-            });
-
-      } else if (req.file != undefined) {
-            const imageMimeTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'].includes(req.file.mimetype);
-
-            if (imageMimeTypes === false) {
-                  errors.push({
-                        msg: "Image only"
-                  });
-            }
-      }
-
       // show the errors 
       if (errors.length > 0) {
-            // if registration failed and file upload not undefined, then delete the image from folder
-            if (req.file != undefined) removeImage(`./public/uploads/user_picture/${req.file.filename}`);
-
             res.render('register_login/register', {
                   errors,
                   name,
@@ -100,9 +79,6 @@ module.exports.create_new_user = (req, res) => {
                                     }
                               }
 
-                              // if registration failed and file upload not undefined, then delete the image from folder
-                              if (req.file != undefined) removeImage(`./public/uploads/user_picture/${req.file.filename}`);
-
                               res.render('register_login/register', {
                                     errors,
                                     name,
@@ -112,13 +88,12 @@ module.exports.create_new_user = (req, res) => {
                               });
 
                         } else {
-
                               const newUser = new User({
                                     name: name,
                                     email: email,
                                     join: moment().format('ll'),
                                     password: pass,
-                                    user_picture: req.file.filename
+                                    user_picture: "default_picture.jpeg"
                               });
 
                               // hash the password
