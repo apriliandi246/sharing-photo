@@ -24,10 +24,21 @@ module.exports.edit_profile = async (req, res) => {
             name
       } = req.body;
 
+      const user = await User.findOne({
+            name
+      });
+
       // check filed name
       if (!name) {
             errors.push({
                   msg: "Please fill all fields"
+            });
+      }
+
+      // check username is already in use or not
+      if (user && name !== req.user.name) {
+            errors.push({
+                  msg: "Username is already in use"
             });
       }
 
@@ -78,6 +89,3 @@ module.exports.edit_profile = async (req, res) => {
             }
       }
 }
-
-// Problems :
-// check name already use or not

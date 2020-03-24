@@ -29,9 +29,7 @@ module.exports.visit_another_user = async (req, res) => {
 
             } else {
                   // jika user tidak ditemukan
-                  res.status(404).render('not_found/user_not_found', {
-                        name: req.params.name
-                  });
+                  res.redirect('/');
             }
 
       } catch (err) {
