@@ -17,7 +17,6 @@ module.exports.render_page_edit_profile = async (req, res) => {
 
 // handle process edit profile
 module.exports.edit_profile = async (req, res) => {
-
       // store all errors
       let errors = [];
 
@@ -25,14 +24,12 @@ module.exports.edit_profile = async (req, res) => {
             name
       } = req.body;
 
-
       // check filed name
       if (!name) {
             errors.push({
                   msg: "Please fill all fields"
             });
       }
-
 
       // check file type
       if (req.file !== undefined) {
@@ -61,12 +58,14 @@ module.exports.edit_profile = async (req, res) => {
                   user.name = name;
 
                   if (req.file !== undefined) {
-                        if (req.user.user_picture === "default_picture.jpeg") {
-                              user.user_picture = req.file.filename;
-
-                        } else {
+                        // if filename is not default picture, update user picture and remove the old picture
+                        if (req.user.user_picture !== "default_picture.jpeg") {
                               user.user_picture = req.file.filename;
                               removeOldPicture(`./public/uploads/user_picture/${req.user.user_picture}`);
+
+                              // if filename is default_picture.jpeg, just update user picture
+                        } else {
+                              user.user_picture = req.file.filename;
                         }
                   }
 
@@ -78,7 +77,6 @@ module.exports.edit_profile = async (req, res) => {
                   return;
             }
       }
-
 }
 
 // Problems :

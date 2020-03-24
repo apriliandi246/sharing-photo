@@ -14,7 +14,7 @@
       <br><br><br><br><br>
 
       <div class="container">
-            <div class="row mt-4 mb-5 justify-content-center">
+            <div class="row mt-5 mb-5 justify-content-center">
                   <div class="col-5">
                         <div class="text-center">
                               <img src="/uploads/user_picture/<%= img %>"
@@ -69,10 +69,10 @@
                                     <img src="/uploads/img_post/<%= post.picture %>" alt="" width="470px" height="350px"
                                           class="mr-4 mb-5 img-thumbnail border border-light">
                                     <div class="media-body mt-2">
-                                          <h3 class="mb-2 text-muted text-monospace"><mark
+                                          <h3 class="mb-4 text-muted text-monospace"><mark
                                                       class="rounded"><%= post.date %></mark></h3>
-                                          <h5 class="mt-1"><mark class="bg-light rounded"
-                                                      style="white-space: pre-line;"><%= post.description %></mark>
+                                          <h5 class="description">
+                                                <%= post.description %>
                                           </h5>
                                     </div>
                               </li>

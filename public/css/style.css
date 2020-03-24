@@ -1,10 +1,10 @@
 * {
       font-family: Ubuntu;
+      font-size: 18px;
 }
 
 body {
       background-color: rgb(238, 238, 238);
-      font-size: 18px;
 }
 
 a.logo img {
@@ -20,6 +20,8 @@ a.logo img {
 a.profile-user {
       color: black;
       font-size: 16px;
+      font-family: Ubuntu;
+      font-weight: 450;
 }
 
 a.profile-user:hover {
@@ -35,7 +37,14 @@ span.name {
 }
 
 .description {
-      margin-top: -20px;
+      font-family: sans-serif;
+      line-height: 23px;
+      font-weight: 500;
+      font-size: 17px;
+      margin-top: -40px;
+      margin-bottom: -18px;
+      color: #262626;
+      white-space: pre-line;
 }
 
 .post-time span {
@@ -44,4 +53,8 @@ span.name {
 
 label.label-input {
       color: rgb(131, 138, 142);
+}
+
+.space-top {
+      margin-top: 70px;
 }

@@ -13,12 +13,11 @@
 
       <br><br><br><br><br>
 
-      <div class="container">
+      <div class="space-top container">
             <% if (posts.length >= 1) { %>
             <% posts.forEach(post => { %>
             <div class="row">
-                  <br>
-                  <div class="ui stacked segment card centered mb-5" style="width: 570px;">
+                  <div class="ui stacked segment card centered mb-5 mt-3" style="width: 570px;">
                         <div class="content">
                               <a href="/user/<%= post.user_id.name %>" class="profile-user">
                                     <img class="ui avatar image huge mr-2 border border-white"
@@ -36,9 +35,9 @@
                         <div class="image">
                               <img src="/uploads/img_post/<%= post.picture %>" class="img-fluid">
                         </div>
-                        <div class="description content mb-1">
-                              <div class="description text-body" style="white-space: pre-line;">
-                                    <span class="name mr-2 font-weight-bold badge badge-secondary text-wrap"
+                        <div class="description content">
+                              <div class="description text-body">
+                                    <span class="name mr-3 font-weight-bold badge badge-secondary text-wrap"
                                           rounded><%= post.user_id.name %></span><%= post.description %>
                               </div>
                         </div>
