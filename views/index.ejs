@@ -29,7 +29,6 @@
                                     <% } else { %>
                                     <%= post.user_id.name %>
                                     <% } %>
-
                               </a>
                         </div>
                         <div class="image">
@@ -42,8 +41,8 @@
                               </div>
                         </div>
                         <div class="post-time extra content">
-                              <span class="right floated text-monospace">
-                                    <mark class="rounded"><%= fullDate(post.fullDate) %></mark>
+                              <span class="right floated">
+                                    <%= fullDate(post.fullDate) %>
                               </span>
                         </div>
                   </div>
