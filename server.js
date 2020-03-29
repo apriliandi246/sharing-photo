@@ -35,8 +35,6 @@ require('./middleware/connect_flash')(app);
 require('./startup/routes')(app);
 
 // Listen port
-const PORT = 8000;
-
-app.listen(PORT, () => {
-      console.log(`Server started on port ${PORT}...`);
+app.listen(8000, () => {
+      console.log('Server started on port 8000...');
 });
