@@ -2,8 +2,6 @@
 
 const bcrypt = require('bcrypt');
 const User = require('../models/User');
-const moment = require('moment');
-
 
 
 // render registration page
@@ -91,7 +89,7 @@ module.exports.create_new_user = (req, res) => {
                               const newUser = new User({
                                     name: name,
                                     email: email,
-                                    join: moment().format('ll'),
+                                    join: new Date().toISOString(),
                                     password: pass,
                                     user_picture: "default_picture.jpeg"
                               });

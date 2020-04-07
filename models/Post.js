@@ -9,12 +9,9 @@ const PostSchema = new mongoose.Schema({
             type: String,
             require: true
       },
-      date: {
-            type: String,
+      createdAt: {
+            type: Date,
             required: true
-      },
-      fullDate: {
-            type: []
       },
       user_id: {
             type: mongoose.Schema.Types.ObjectId,

@@ -9,17 +9,17 @@ module.exports.get_all_post = async (req, res) => {
       try {
             // populate('user_id') => untuk mengambil data dari schema user.
             const posts = await Post.find().sort({
-                  picture: 'desc'
+                  createdAt: 'desc'
             }).populate('user_id').exec();
 
             // make relative date using moment js (https://momentjs.com/docs/#/displaying/fromnow/)
-            function getFullDate(date) {
+            function relativeDate(date) {
                   return moment(date).fromNow();
             }
 
             res.render('index', {
                   posts,
-                  fullDate: getFullDate
+                  relativeDate
             });
 
       } catch (err) {

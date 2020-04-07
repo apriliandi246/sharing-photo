@@ -10,7 +10,7 @@ const UserSchema = new mongoose.Schema({
             required: true
       },
       join: {
-            type: String,
+            type: Date,
             required: true
       },
       password: {

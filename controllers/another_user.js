@@ -2,6 +2,7 @@
 
 const User = require('../models/User');
 const Post = require('../models/Post');
+const moment = require('moment');
 
 
 // handle when user visit another user
@@ -22,7 +23,12 @@ module.exports.visit_another_user = async (req, res) => {
                         user_id: name[0]._id
                   }).exec();
 
+                  function formatDate(join) {
+                        return moment(join).format('ll');
+                  }
+
                   res.render('user_profile/another_user', {
+                        formatDate,
                         data: name,
                         posts: post
                   });
