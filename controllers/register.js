@@ -56,10 +56,10 @@ module.exports.create_new_user = (req, res) => {
       } else {
             User.findOne()
                   .or([{
-                              name: name
+                              name
                         },
                         {
-                              email: email
+                              email
                         }
                   ])
                   .then(user => {
@@ -97,7 +97,10 @@ module.exports.create_new_user = (req, res) => {
                               // hash the password
                               bcrypt.genSalt(10, function (err, salt) {
                                     bcrypt.hash(newUser.password, salt, function (err, hash) {
-                                          if (err) console.log(err);
+                                          if (err) {
+                                                console.log(err);
+                                                return;
+                                          }
 
                                           // set password to hash and save the new user to database.
                                           newUser.password = hash;

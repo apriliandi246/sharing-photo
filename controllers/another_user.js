@@ -12,13 +12,11 @@ module.exports.visit_another_user = async (req, res) => {
                   name: req.params.name
             }).exec();
 
-            // jika namanya sama degan nama user yang sedang login, maka redirect saja ke halaman profile
+
             if (req.user.name === req.params.name) {
                   res.redirect('/me');
 
             } else if (req.user.name !== req.params.name && name.length > 0) {
-                  // user lain
-                  // take id user id
                   const post = await Post.find({
                         user_id: name[0]._id
                   }).exec();
@@ -34,7 +32,6 @@ module.exports.visit_another_user = async (req, res) => {
                   });
 
             } else {
-                  // jika user tidak ditemukan
                   res.redirect('/');
             }
 

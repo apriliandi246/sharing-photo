@@ -54,8 +54,6 @@ module.exports.make_post = async (req, res) => {
       } else {
             // if nothing errors
             try {
-                  const date = new Date();
-
                   // make new post
                   const newPost = new Post({
                         picture: req.file.filename,

@@ -12,7 +12,7 @@ module.exports.get_all_post = async (req, res) => {
                   createdAt: 'desc'
             }).populate('user_id').exec();
 
-            // make relative date using moment js (https://momentjs.com/docs/#/displaying/fromnow/)
+            // make relative date 
             function relativeDate(date) {
                   return moment(date).fromNow();
             }
