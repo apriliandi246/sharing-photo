@@ -58,7 +58,6 @@ module.exports.make_post = async (req, res) => {
                   const newPost = new Post({
                         picture: req.file.filename,
                         description: req.body.description,
-                        createdAt: new Date().toISOString(),
                         user_id: req.user._id
                   });
 
