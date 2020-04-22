@@ -12,7 +12,6 @@ module.exports.visit_another_user = async (req, res) => {
                   name: req.params.name
             }).exec();
 
-
             if (req.user.name === req.params.name) {
                   res.redirect('/me');
 
@@ -21,14 +20,10 @@ module.exports.visit_another_user = async (req, res) => {
                         user_id: name[0]._id
                   }).exec();
 
-                  function formatDate(join) {
-                        return moment(join).format('ll');
-                  }
-
                   res.render('user_profile/another_user', {
-                        formatDate,
                         data: name,
-                        posts: post
+                        posts: post,
+                        formatDate
                   });
 
             } else {
@@ -39,4 +34,9 @@ module.exports.visit_another_user = async (req, res) => {
             console.log("Something wrong", err);
             return;
       }
+}
+
+
+function formatDate(join) {
+      return moment(join).format('ll');
 }

@@ -12,11 +12,6 @@ module.exports.get_all_post = async (req, res) => {
                   createdAt: 'desc'
             }).populate('user_id').exec();
 
-            // make relative date 
-            function relativeDate(date) {
-                  return moment(date).fromNow();
-            }
-
             res.render('index', {
                   posts,
                   relativeDate
@@ -26,4 +21,10 @@ module.exports.get_all_post = async (req, res) => {
             console.log("Something wrong", err);
             return;
       }
+}
+
+
+// make relative date 
+function relativeDate(date) {
+      return moment(date).fromNow();
 }

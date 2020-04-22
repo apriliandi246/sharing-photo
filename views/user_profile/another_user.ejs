@@ -66,8 +66,9 @@
                                     <img src="/uploads/img_post/<%= post.picture %>" alt="" width="370px" height="250px"
                                           class="mr-4 mb-5 rounded img-thumbnail border border-light">
                                     <div class="media-body mt-2">
-                                          <h3 class="mb-5 text-muted text-monospace"><mark
-                                                      class="rounded"><%= post.date %></mark></h3>
+                                          <h3 class="date mb-4 text-muted text-monospace">
+                                                <%= formatDate(post.date); %>
+                                          </h3>
                                           <h5 class="description">
                                                 <%= post.description %>
                                           </h5>

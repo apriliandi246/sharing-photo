@@ -6,14 +6,10 @@ const moment = require('moment');
 
 module.exports.render_user_profile_page = async (req, res) => {
       try {
-            // all posts user
+            // all posts of user
             const posts = await Post.find({
                   user_id: req.user._id
             });
-
-            function formatDate(date) {
-                  return moment(date).format('ll');
-            }
 
             res.render('user_profile/user', {
                   posts,
@@ -27,4 +23,10 @@ module.exports.render_user_profile_page = async (req, res) => {
       } catch {
             posts = [];
       }
+}
+
+
+// make format date
+function formatDate(date) {
+      return moment(date).format('ll');
 }

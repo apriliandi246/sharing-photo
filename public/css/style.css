@@ -1,64 +1,72 @@
-* {
-      font-family: Ubuntu;
-      font-size: 18px;
+body {
+    font-size: 18px;
+    background-color: rgb(238, 238, 238);
 }
 
-body {
-      background-color: rgb(238, 238, 238);
-}
 
 a.logo img {
-      width: 55px;
-      height: 55px;
+    width: 55px;
+    height: 55px;
 }
+
 
 .logo img {
-      width: 65px;
-      height: 65px;
+    width: 65px;
+    height: 65px;
 }
+
 
 a.profile-user {
-      color: black;
-      font-size: 16px;
-      font-family: Ubuntu;
-      font-weight: 450;
+    color: black;
+    font-size: 17px;
+    font-weight: bold;
+    transition: .3s;
 }
+
 
 a.profile-user:hover {
-      color: rgb(108, 117, 125);
+    color: rgb(108, 117, 125);
 }
+
 
 a.nav-link i:hover {
-      color: rgb(108, 117, 125);
+    color: rgb(108, 117, 125);
 }
 
-span.name {
-      font-size: 16px;
-}
 
 .description {
-      font-family: sans-serif;
-      line-height: 23px;
-      font-weight: 500;
-      font-size: 17px;
-      margin-top: -40px;
-      margin-bottom: -18px;
-      color: #262626;
-      white-space: pre-line;
+    font-size: 17px;
+    line-height: 24px;
+    margin-top: -35px;
+    font-weight: 400;
+    margin-bottom: -18px;
+    white-space: pre-line;
 }
+
 
 .post-time span {
-      margin-bottom: -14px;
+    font-size: 18px;
+    margin-bottom: -14px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
 }
+
+
+h3.date {
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
 
 label.label-input {
-      color: rgb(131, 138, 142);
+    color: rgb(131, 138, 142);
 }
+
 
 .space-top {
-      margin-top: 70px;
+    margin-top: 135px;
 }
 
+
 .space-top-long {
-      margin-top: 240px;
+    margin-top: 240px;
 }

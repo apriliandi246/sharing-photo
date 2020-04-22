@@ -1,7 +1,6 @@
 "use strict";
 
 const Post = require('../models/Post');
-const moment = require('moment');
 const {
       removeImage
 } = require('../upload/upload');
