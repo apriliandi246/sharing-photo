@@ -51,7 +51,7 @@ module.exports.make_post = async (req, res) => {
             });
 
       } else {
-            // if nothing errors
+            // if errors is nothing
             try {
                   // make new post
                   const newPost = new Post({
