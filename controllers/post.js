@@ -1,10 +1,10 @@
 "use strict";
 
-const Post = require('../models/Post');
-const {
-      removeImage
-} = require('../upload/upload');
 
+const Post = require('../models/Post');
+const multer = require('multer');
+const path = require('path');
+const crypto = require('crypto').randomBytes(16).toString('hex');
 
 
 // show make post page
@@ -42,7 +42,7 @@ module.exports.make_post = async (req, res) => {
       // if have an errors
       if (errors.length > 0) {
             // if post process is failed, remove the image
-            if (req.file != undefined) removeImage(`./public/uploads/img_post/${req.file.filename}`);
+            if (req.file !== undefined) removeImage(`./public/uploads/img_post/${req.file.filename}`);
 
             res.render('posts/post', {
                   errors,
@@ -70,3 +70,17 @@ module.exports.make_post = async (req, res) => {
             }
       }
 }
+
+
+// handle upload post
+const storage = multer.diskStorage({
+      destination: './public/uploads/img_post',
+      filename: function (req, file, callback) {
+            callback(null, Date.now() + crypto + path.extname(file.originalname));
+      }
+});
+
+
+module.exports.upload = multer({
+      storage: storage
+});

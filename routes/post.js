@@ -7,7 +7,7 @@ const {
 } = require('../config/auth');
 const {
       upload
-} = require('../upload/upload');
+} = require('../controllers/post');
 const router = express.Router();
 
 

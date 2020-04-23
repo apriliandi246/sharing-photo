@@ -10,4 +10,5 @@ const router = express.Router();
 
 router.get('/', ensureAuthenticated, IndexController.get_all_post);
 
+
 module.exports = router;

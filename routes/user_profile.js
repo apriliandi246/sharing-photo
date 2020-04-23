@@ -11,4 +11,5 @@ const router = express.Router();
 // render user profile
 router.get('/', ensureAuthenticated, ControllerUserProfile.render_user_profile_page);
 
+
 module.exports = router;

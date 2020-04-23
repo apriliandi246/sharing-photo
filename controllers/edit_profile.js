@@ -1,10 +1,12 @@
 "use strict";
 
+
 const User = require('../models/User');
-const {
-      removeImage,
-      removeOldPicture
-} = require('../upload/upload');
+const fs = require('fs');
+const path = require('path');
+const multer = require('multer');
+const crypto = require('crypto').randomBytes(16).toString('hex');
+
 
 
 // render edit profile page
@@ -89,3 +91,30 @@ module.exports.edit_profile = async (req, res) => {
             }
       }
 }
+
+
+// handle upload user picture
+const storage = multer.diskStorage({
+      destination: './public/uploads/user_picture',
+      filename: function (req, file, callback) {
+            callback(null, crypto + "-" + Date.now() + path.extname(file.originalname));
+      }
+});
+
+// remove image post, if post process is failed
+const removeImage = (fileName) => {
+      fs.unlink(fileName, (err) => {
+            if (err) console.log(err);
+      })
+}
+
+// if user update their profile picture, remove old picture
+const removeOldPicture = (fileName) => {
+      fs.unlink(fileName, (err) => {
+            if (err) console.log(err);
+      });
+}
+
+module.exports.upload = multer({
+      storage: storage
+});

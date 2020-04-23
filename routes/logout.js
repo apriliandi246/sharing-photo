@@ -8,4 +8,5 @@ const router = express.Router();
 // handle logout
 router.get('/', LogoutController.logout);
 
+
 module.exports = router;

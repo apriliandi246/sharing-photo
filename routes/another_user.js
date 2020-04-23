@@ -11,4 +11,5 @@ const router = express.Router();
 // visit another user account
 router.get('/:name', ensureAuthenticated, ControllerAnotherUser.visit_another_user);
 
+
 module.exports = router;
