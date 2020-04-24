@@ -56,8 +56,8 @@ module.exports.make_post = async (req, res) => {
                   // make new post
                   const newPost = new Post({
                         picture: req.file.filename,
-                        description: req.body.description,
-                        user_id: req.user._id
+                        user_id: req.user._id,
+                        description: req.body.description.trimStart().trimEnd(),
                   });
 
                   // save to database and redirect to home pag

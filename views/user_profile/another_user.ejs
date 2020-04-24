@@ -11,9 +11,7 @@
 <body>
       <%- include ('../partials/header2.ejs') %>
 
-      <br><br><br><br><br>
-
-      <div class="container">
+      <div class="space-top container">
             <div class="row mt-5 mb-5 mr-2 justify-content-center">
                   <% data.forEach(user => { %>
                   <div class="col-5">
@@ -63,8 +61,9 @@
                               <% if (posts.length >= 1) { %>
                               <% posts.forEach(post => { %>
                               <li class="media mt-5">
-                                    <img src="/uploads/img_post/<%= post.picture %>" alt="" width="370px" height="250px"
-                                          class="mr-4 mb-5 rounded img-thumbnail border border-light">
+                                    <img src="/uploads/img_post/<%= post.picture %>" alt="image-post"
+                                          class="user-picture mr-4 mb-5 rounded img-thumbnail border border-light"
+                                          width="470px" height="350px">
                                     <div class="media-body mt-2">
                                           <h3 class="date mb-4 text-muted text-monospace">
                                                 <%= formatDate(post.date); %>

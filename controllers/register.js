@@ -29,17 +29,17 @@ module.exports.create_new_user = (req, res) => {
         });
     }
 
-    // check password match
-    if (pass !== pass2) {
-        errors.push({
-            msg: "Password do not Match"
-        });
-    }
-
     // check pass length
     if (pass.length < 6) {
         errors.push({
             msg: "Password should be at least 6 characters"
+        });
+    }
+
+    // check password match
+    if (pass !== pass2) {
+        errors.push({
+            msg: "Password do not Match"
         });
     }
 
