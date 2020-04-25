@@ -17,11 +17,15 @@ a.profile-user {
   color: black;
   font-size: 17px;
   font-weight: bold;
-  transition: 0.3s;
 }
 
 a.profile-user:hover {
+  text-decoration: underline;
   color: rgb(108, 117, 125);
+}
+
+a.nav-link i {
+  transition: 0.2s;
 }
 
 a.nav-link i:hover {
@@ -58,4 +62,9 @@ label.label-input {
 
 .space-top-long {
   margin-top: 240px;
+}
+
+/* textare for input description */
+.description-input {
+  white-space: pre-line;
 }

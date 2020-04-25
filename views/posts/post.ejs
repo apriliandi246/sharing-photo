@@ -34,13 +34,13 @@
                         <form action="/post" method="POST" enctype="multipart/form-data" spellcheck="false">
                               <div class="form-group">
                                     <label for="description">Description</label>
-                                    <textarea class="form-control form-control-lg" placeholder="write a description..."
-                                          id="description" rows="11" name="description"
-                                          style="white-space: pre-line;"></textarea>
+                                    <textarea class="description-input form-control form-control-lg" id="description"
+                                          rows="11" placeholder="write a description..." name="description"
+                                          autofocus></textarea>
                               </div>
                               <div class="custom-file mt-3 mb-3">
                                     <input type="file" class="custom-file-input form-control-lg" id="customFile"
-                                          name="picture" accept="image/png, image/gif, image/jpeg, image/jpg">
+                                          accept="image/png, image/gif, image/jpeg, image/jpg" name="picture">
                                     <label class="label-input custom-file-label" for="customFile">Choose your
                                           image</label>
                               </div>
