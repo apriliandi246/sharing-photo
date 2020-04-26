@@ -9,19 +9,30 @@ const patterns = {
     email: /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/,
 }
 
+// PROBLEMS
+// - hide the button
+// - get class name
 
 function validate(field, regex) {
+    let lastClassName = field.className.split(' ');
+
     if (regex.test(field.value)) {
-        field.classList.remove('invalid');
+        if (lastClassName[lastClassName.length - 1] === 'invalid') {
+            field.classList.remove('invalid');
+        }
+
         field.classList.add('valid');
 
     } else {
-        field.classList.remove('valid');
+        if (lastClassName[lastClassName.length - 1] === 'valid') {
+            field.classList.remove('valid');
+        }
+
         field.classList.add('invalid');
     }
 
 
-    if (field.className === 'invalid') {
+    if (lastClassName[lastClassName.length - 1] === 'invalid') {
         button.disabled = true;
 
     } else {

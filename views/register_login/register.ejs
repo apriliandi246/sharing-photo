@@ -5,6 +5,7 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <link rel="stylesheet" href="/css/validate_form.css">
       <title>Register - Just MEME</title>
 </head>
 
@@ -36,25 +37,23 @@
                                     <label for="name">Username</label>
                                     <input type="text" class="form-control form-control-lg" id="name"
                                           placeholder="enter name" autocomplete="off" name="name" autofocus>
+                                    <p>username must be and contain 5 - 12 characters</p>
                               </div>
                               <div class="form-group">
                                     <label for="email">Email</label>
                                     <input type="text" class="form-control form-control-lg" id="email"
                                           placeholder="enter email" autocomplete="off" name="email">
+                                    <p>Email must be a valid address, e.g. me@mydomain.com</p>
                               </div>
                               <div class="form-group">
                                     <label for="password">Password</label>
                                     <input type="password" class="form-control form-control-lg" id="password"
                                           placeholder="enter password" name="pass">
-                              </div>
-                              <div class="form-group">
-                                    <label for="password2">Confirm Password</label>
-                                    <input type="password" class="form-control form-control-lg mb-1" id="password2"
-                                          placeholder="confirm password" name="pass2">
+                                    <p>Password must alphanumeric (@, _ and - are also allowed) and be 8 - 20 characters
+                                    </p>
                               </div>
                               <button type="submit"
-                                    class="register-btn mt-5 mb-2 btn btn-outline-primary btn-block btn-lg"
-                                    disabled>Register</button>
+                                    class="register-btn mt-5 mb-2 btn btn-outline-primary btn-block btn-lg">Register</button>
                               <hr>
                               <a href="/user/login" class="mt-2 btn btn-outline-secondary btn-block btn-lg">Login</a>
                         </form>
@@ -62,7 +61,7 @@
             </div>
       </div>
 
-      <script src="/js/validate_register.js"></script>
+      <script src="/js/validate_form.js"></script>
 </body>
 
 </html>
