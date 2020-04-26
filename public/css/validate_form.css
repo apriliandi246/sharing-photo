@@ -1,0 +1,19 @@
+input + p {
+  height: 0;
+  opacity: 0;
+  color: orange;
+  margin: 0 10px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: 0.2s;
+}
+
+input.invalid + p {
+  opacity: 1;
+  height: auto;
+  margin-top: 5px;
+  margin-bottom: 25px;
+  transition: 0.2s;
+}
