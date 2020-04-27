@@ -1,19 +1,23 @@
 input + p {
   height: 0;
   opacity: 0;
-  color: orange;
   margin: 0 10px;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: bold;
   text-align: center;
+  color: orangered;
   font-family: Arial, Helvetica, sans-serif;
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.3);
   transition: 0.2s;
 }
 
 input.invalid + p {
   opacity: 1;
   height: auto;
-  margin-top: 5px;
-  margin-bottom: 25px;
-  transition: 0.2s;
+  margin-top: 9px;
+  margin-bottom: 26.4px;
+}
+
+button.register-btn {
+  cursor: default;
 }
