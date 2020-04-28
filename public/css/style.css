@@ -20,7 +20,6 @@ a.profile-user {
 }
 
 a.profile-user:hover {
-  text-decoration: underline;
   color: rgb(108, 117, 125);
 }
 

@@ -33,14 +33,14 @@ module.exports.edit_profile = async (req, res) => {
       // check filed name
       if (!name) {
             errors.push({
-                  msg: "Please fill all fields"
+                  msg: "please fill all fields"
             });
       }
 
       // check username is already in use or not
       if (user && name !== req.user.name) {
             errors.push({
-                  msg: "Username is already in use"
+                  msg: "username is already in use"
             });
       }
 
@@ -50,7 +50,7 @@ module.exports.edit_profile = async (req, res) => {
 
             if (imageMimeTypes === false) {
                   errors.push({
-                        msg: "Image only"
+                        msg: "image only"
                   });
             }
       }

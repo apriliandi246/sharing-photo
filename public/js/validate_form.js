@@ -5,10 +5,17 @@ const button = document.querySelector('button.register-btn');
 // pattern regex
 const patterns = {
     name: /^[\S*]{5,12}$/i,
-    pass: /^[\w@-]{6,14}$/,
-    pass2: /^[\w@-]{6,14}$/,
+    pass: /^[\w@-]{6,12}$/,
+    pass2: /^[\w@-]{6,12}$/,
     email: /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/
 }
+
+
+inputs.forEach((input) => {
+    input.addEventListener('keyup', (e) => {
+        validate(e.target, patterns[e.target.attributes.name.value]);
+    });
+});
 
 
 function validate(field, regex) {
@@ -34,9 +41,8 @@ function validate(field, regex) {
 
 
 function checkClassName() {
-
-    // if form password is exist
-    if (inputs[2].classList[3] === 'valid') {
+    // if form password is exist / if form password is valid
+    if (inputs[2].classList[2] === 'valid') {
 
         // show form confirm password
         inputs[3].disabled = false;
@@ -47,7 +53,7 @@ function checkClassName() {
             inputs[3].classList.add('invalid');
 
             button.disabled = true;
-            button.style.cursor = "default";
+            button.style.cursor = 'default';
 
             // if the values of the two forms are the same
         } else {
@@ -60,23 +66,12 @@ function checkClassName() {
     }
 
     // if all of form is valid, show the button
-    if (inputs[0].classList[3] === 'valid' && inputs[1].classList[3] === 'valid' && inputs[2].classList[3] === 'valid' && inputs[3].classList[2] === 'valid') {
+    if (inputs[0].classList[2] === 'valid' && inputs[1].classList[2] === 'valid' && inputs[2].classList[2] === 'valid' && inputs[3].classList[2] === 'valid') {
         button.disabled = false;
-        button.style.cursor = "pointer";
+        button.style.cursor = 'pointer';
 
         // if not, disable the button
     } else {
         button.disabled = true;
     }
 }
-
-
-inputs.forEach((input) => {
-    input.addEventListener('keyup', (e) => {
-        validate(e.target, patterns[e.target.attributes.name.value]);
-    });
-});
-
-
-
-// TODO: refactor code and make simple

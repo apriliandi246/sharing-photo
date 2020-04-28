@@ -25,10 +25,11 @@ module.exports.create_new_user = (req, res) => {
     // check required fields
     if (!name || !email || !pass || !pass2) {
         errors.push({
-            msg: "Please fill all fields"
+            msg: "please fill all fields"
         });
     }
 
+    console.log(req.body);
 
     // show the errors 
     if (errors.length > 0) {
@@ -52,14 +53,21 @@ module.exports.create_new_user = (req, res) => {
             .then(user => {
                 if (user) {
                     if (user.name === name || user.email === email) {
-                        if (user.name === name) {
+                        if (user.name === name && user.email === email) {
                             errors.push({
-                                msg: "Username is already registered"
+                                msg: "username is already registered"
+                            }, {
+                                msg: "email is already registered"
                             });
 
-                        } else if (user.email === email) {
+                        } else if (user.name === name) {
                             errors.push({
-                                msg: "Email is already registered"
+                                msg: "username is already registered"
+                            });
+
+                        } else {
+                            errors.push({
+                                msg: "email is already registered"
                             });
                         }
                     }
@@ -74,8 +82,8 @@ module.exports.create_new_user = (req, res) => {
 
                 } else {
                     const newUser = new User({
-                        name: name,
-                        email: email,
+                        name,
+                        email,
                         password: pass,
                         verified: false,
                         user_picture: "default_picture.jpeg"
