@@ -29,8 +29,6 @@ module.exports.create_new_user = (req, res) => {
         });
     }
 
-    console.log(req.body);
-
     // show the errors 
     if (errors.length > 0) {
         res.render('register_login/register', {
