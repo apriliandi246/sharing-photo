@@ -5,8 +5,8 @@ const button = document.querySelector('button.register-btn');
 // pattern regex
 const patterns = {
     name: /^[\S*]{5,12}$/i,
-    pass: /^[\w@-]{6,12}$/,
-    pass2: /^[\w@-]{6,12}$/,
+    pass: /^[\w@-]{6,}$/,
+    pass2: /^[\w@-]{6,}$/,
     email: /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/
 }
 
@@ -14,6 +14,8 @@ const patterns = {
 inputs.forEach((input) => {
     input.addEventListener('keyup', (e) => {
         validate(e.target, patterns[e.target.attributes.name.value]);
+
+        checkClassName();
     });
 });
 
@@ -35,8 +37,6 @@ function validate(field, regex) {
 
         field.classList.add('invalid');
     }
-
-    checkClassName();
 }
 
 
