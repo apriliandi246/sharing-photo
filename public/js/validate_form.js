@@ -15,39 +15,9 @@ inputs.forEach((input) => {
     input.addEventListener('keyup', (e) => {
         validate(e.target, patterns[e.target.attributes.name.value]);
 
-        // if form password is exist / if form password is valid
-        if (inputs[2].classList[2] === 'valid') {
+        checkPasswordForm();
 
-            // show form confirm password
-            inputs[3].disabled = false;
-
-            // if form confirm password is not same with form password
-            if (inputs[3].value !== inputs[2].value) {
-                inputs[3].classList.remove('valid');
-                inputs[3].classList.add('invalid');
-
-                button.disabled = true;
-                button.style.cursor = 'default';
-
-                // if the values of the two forms are the same
-            } else {
-                inputs[3].classList.add('valid');
-            }
-
-            // if password is not exist and valid
-        } else {
-            inputs[3].disabled = true;
-        }
-
-        // if all of form is valid, show the button
-        if (inputs[0].classList[2] === 'valid' && inputs[1].classList[2] === 'valid' && inputs[2].classList[2] === 'valid' && inputs[3].classList[2] === 'valid') {
-            button.disabled = false;
-            button.style.cursor = 'pointer';
-
-            // if not, disable the button
-        } else {
-            button.disabled = true;
-        }
+        checkClass();
     });
 });
 
@@ -60,5 +30,45 @@ function validate(field, regex) {
     } else {
         field.classList.remove('valid')
         field.classList.add('invalid');
+    }
+}
+
+
+function checkPasswordForm() {
+    // if form password is exist / if form password is valid
+    if (inputs[2].classList[2] === 'valid') {
+
+        // show form confirm password
+        inputs[3].disabled = false;
+
+        // if form confirm password is not same with form password
+        if (inputs[3].value !== inputs[2].value) {
+            inputs[3].classList.remove('valid');
+            inputs[3].classList.add('invalid');
+
+            button.disabled = true;
+            button.style.cursor = 'default';
+
+            // if the values of the two forms are the same
+        } else {
+            inputs[3].classList.add('valid');
+        }
+
+        // if password is not exist and valid
+    } else {
+        inputs[3].disabled = true;
+    }
+}
+
+
+function checkClass() {
+    // if all of form is valid, show the button
+    if (inputs[0].classList[2] === 'valid' && inputs[1].classList[2] === 'valid' && inputs[2].classList[2] === 'valid' && inputs[3].classList[2] === 'valid') {
+        button.disabled = false;
+        button.style.cursor = 'pointer';
+
+        // if not, disable the button
+    } else {
+        button.disabled = true;
     }
 }
