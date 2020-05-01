@@ -1,17 +1,19 @@
 // ! Have a problem
+// - checking the input value (problem)
 
 const input = document.querySelector('textarea');
 const button = document.querySelector('button');
-const pattern = /[A-Za-z0-9]/ig;
+const pattern = /^[^\s][a-zA-Z0-9 ]*$/;
 
 
 input.addEventListener('keyup', () => {
     if (pattern.test(input.value) === false) {
         disableButton();
 
-    } else if (input.value.length >= 300) {
-        disableButton();
+    } else if (input.value.length > 300) {
         input.classList.add('invalid');
+        console.log("lebih goblok");
+        disableButton();
 
     } else if (input.value === '') {
         disableButton();
