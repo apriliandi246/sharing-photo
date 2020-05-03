@@ -1,6 +1,6 @@
 const input = document.querySelector('textarea');
 const button = document.querySelector('button');
-const pattern = /^[^\s][a-zA-Z0-9 ]*$/m;
+const pattern = /^[^\s][\S ]*$/m;
 
 
 input.addEventListener('keyup', () => {
