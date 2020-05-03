@@ -20,7 +20,7 @@ module.exports.login = async (req, res, next) => {
 
             if (!email || !password) {
                   errors.push({
-                        msg: "Please fill all fields"
+                        msg: "please fill all fields"
                   });
             }
 

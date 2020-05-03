@@ -24,7 +24,7 @@ module.exports.make_post = async (req, res) => {
 
       if (!description || req.file == undefined) {
             errors.push({
-                  msg: "Please fill all fields"
+                  msg: "please fill all fields"
             });
       }
 
@@ -34,10 +34,11 @@ module.exports.make_post = async (req, res) => {
 
             if (imageMimeTypes == false) {
                   errors.push({
-                        msg: "Image only"
+                        msg: "image only"
                   });
             }
       }
+
 
       // if have an errors
       if (errors.length > 0) {
@@ -55,8 +56,8 @@ module.exports.make_post = async (req, res) => {
             try {
                   // make new post
                   const newPost = new Post({
-                        picture: req.file.filename,
                         user_id: req.user._id,
+                        picture: req.file.filename,
                         description: req.body.description.trimStart().trimEnd(),
                   });
 

@@ -16,14 +16,16 @@ module.exports.visit_another_user = async (req, res) => {
                   res.redirect('/me');
 
             } else if (req.user.name !== req.params.name && name.length > 0) {
-                  const post = await Post.find({
+                  const posts = await Post.find({
                         user_id: name[0]._id
+                  }).sort({
+                        createdAt: 'desc'
                   }).exec();
 
                   res.render('user_profile/another_user', {
+                        posts,
+                        formatDate,
                         data: name,
-                        posts: post,
-                        formatDate
                   });
 
             } else {

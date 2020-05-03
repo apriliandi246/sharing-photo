@@ -5,6 +5,7 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <link rel="stylesheet" href="/css/validate_style/style.css">
       <title>Edit Profile - Just MEME</title>
 </head>
 
@@ -36,13 +37,15 @@
                                     <label for="name">Name</label>
                                     <input type="text" class="form-control form-control-lg" id="name"
                                           placeholder="enter name" name="name" autocomplete="off" value="<%= name %>">
-                                    <div class=" custom-file mt-4 mb-2">
-                                          <input type="file" class="custom-file-input form-control form-control-lg"
-                                                id="customFile" name="picture"
-                                                accept="image/x-png, image/gif, image/jpeg, image/jpg">
-                                          <label class="label-input custom-file-label" for="customFile">choose
-                                                your profile picture</label>
-                                    </div>
+                                    <p>username must be and contain 5 - 12 characters and no whitespace</p>
+                              </div>
+
+                              <div class="custom-file mt-4 mb-2">
+                                    <input type="file" class="custom-file-input form-control form-control-lg"
+                                          id="customFile" name="picture"
+                                          accept="image/x-png, image/gif, image/jpeg, image/jpg">
+                                    <label class="label-input custom-file-label" for="customFile">choose
+                                          your profile picture</label>
                               </div>
                               <button type="submit"
                                     class="font-weight-bold mt-4 mb-2 btn btn-outline-primary btn-block btn-lg">Edit</button>
@@ -54,6 +57,7 @@
             </div>
       </div>
 
+      <script src="/js/validate_form/validate_form_edit_profile.js"></script>
 </body>
 
 </html>

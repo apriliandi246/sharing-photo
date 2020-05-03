@@ -16,7 +16,7 @@
             <% posts.forEach(post => { %>
             <div class="row">
                   <div class="ui stacked segment card centered mb-5 mt-3" style="width: 600px;">
-                        <div class="content">
+                        <div class="content" style="border-bottom: 1px solid rgb(232,233,233);">
                               <a href="/user/<%= post.user_id.name %>" class="profile-user">
                                     <img class="ui avatar image huge mr-2 border border-white"
                                           src="/uploads/user_picture/<%= post.user_id.user_picture %>"
@@ -50,8 +50,7 @@
             <% }); %>
 
             <% } else { %>
-            <br><br>
-            <div class="text-center">
+            <div class="text-center mt-5">
                   <img src="/img/meme.png" alt="img">
                   <h1 class="mt-3">No Post Right Now</h1>
             </div>
