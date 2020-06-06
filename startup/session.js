@@ -6,9 +6,9 @@ require('dotenv').config();
 
 // handle session
 module.exports = function (app) {
-      app.use(session({
-            secret: process.env.SESSION,
-            resave: true,
-            saveUninitialized: true
-      }));
+   app.use(session({
+      secret: process.env.SESSION,
+      resave: true,
+      saveUninitialized: true
+   }));
 }
