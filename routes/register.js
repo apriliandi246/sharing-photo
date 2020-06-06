@@ -3,7 +3,7 @@
 const express = require('express');
 const RegisterController = require('../controllers/register');
 const {
-      forwardAuth
+   forwardAuth
 } = require('../config/auth');
 const router = express.Router();
 

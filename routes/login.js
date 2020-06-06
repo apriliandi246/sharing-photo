@@ -3,7 +3,7 @@
 const express = require('express');
 const LoginController = require('../controllers/login');
 const {
-      forwardAuth
+   forwardAuth
 } = require('../config/auth');
 const router = express.Router();
 

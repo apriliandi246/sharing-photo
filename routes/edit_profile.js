@@ -3,10 +3,10 @@
 const express = require('express');
 const ControllerEditProfile = require('../controllers/edit_profile');
 const {
-      ensureAuthenticated
+   ensureAuthenticated
 } = require('../config/auth');
 const {
-      upload
+   upload
 } = require('../controllers/edit_profile');
 const router = express.Router();
 

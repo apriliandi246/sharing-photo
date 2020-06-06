@@ -3,7 +3,7 @@
 const express = require('express');
 const ControllerSearch = require('../controllers/search');
 const {
-      ensureAuthenticated
+   ensureAuthenticated
 } = require('../config/auth');
 const router = express();
 

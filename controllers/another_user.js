@@ -7,38 +7,38 @@ const moment = require('moment');
 
 // handle when user visit another user
 module.exports.visit_another_user = async (req, res) => {
-      try {
-            const name = await User.find({
-                  name: req.params.name
-            }).exec();
+   try {
+      const name = await User.find({
+         name: req.params.name
+      }).exec();
 
-            if (req.user.name === req.params.name) {
-                  res.redirect('/me');
+      if (req.user.name === req.params.name) {
+         res.redirect('/me');
 
-            } else if (req.user.name !== req.params.name && name.length > 0) {
-                  const posts = await Post.find({
-                        user_id: name[0]._id
-                  }).sort({
-                        createdAt: 'desc'
-                  }).exec();
+      } else if (req.user.name !== req.params.name && name.length > 0) {
+         const posts = await Post.find({
+            user_id: name[0]._id
+         }).sort({
+            createdAt: 'desc'
+         }).exec();
 
-                  res.render('user_profile/another_user', {
-                        posts,
-                        formatDate,
-                        data: name,
-                  });
+         res.render('user_profile/another_user', {
+            posts,
+            formatDate,
+            data: name,
+         });
 
-            } else {
-                  res.redirect('/');
-            }
-
-      } catch (err) {
-            console.log("Something wrong", err);
-            return;
+      } else {
+         res.redirect('/');
       }
+
+   } catch (err) {
+      console.log("Something wrong", err);
+      return;
+   }
 }
 
 
 function formatDate(join) {
-      return moment(join).format('ll');
+   return moment(join).format('ll');
 }

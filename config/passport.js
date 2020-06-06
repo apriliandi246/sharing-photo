@@ -6,47 +6,47 @@ const User = require('../models/User');
 
 
 module.exports = function (passport) {
-      passport.use(
-            new LocalStrategy({
-                  usernameField: 'email'
-            }, (email, password, done) => {
+   passport.use(
+      new LocalStrategy({
+         usernameField: 'email'
+      }, (email, password, done) => {
 
-                  // match user
-                  User.findOne({
-                              email: email
-                        })
-                        .then(users => {
-                              if (!users) {
-                                    return done(null, false, {
-                                          message: "that email is not registered"
-                                    });
-                              }
+         // match user
+         User.findOne({
+            email: email
+         })
+            .then(users => {
+               if (!users) {
+                  return done(null, false, {
+                     message: "that email is not registered"
+                  });
+               }
 
-                              // match the passport to login
-                              bcrypt.compare(password, users.password, (err, isMatch) => {
-                                    if (err) throw err;
+               // match the passport to login
+               bcrypt.compare(password, users.password, (err, isMatch) => {
+                  if (err) throw err;
 
-                                    if (isMatch) {
-                                          return done(null, users);
-                                    } else {
-                                          return done(null, false, {
-                                                message: "incorrect email or password"
-                                          });
-                                    }
-                              });
-                        })
-                        .catch(err => console.log(err));
+                  if (isMatch) {
+                     return done(null, users);
+                  } else {
+                     return done(null, false, {
+                        message: "incorrect email or password"
+                     });
+                  }
+               });
             })
-      )
+            .catch(err => console.log(err));
+      })
+   )
 
-      passport.serializeUser(function (user, done) {
-            done(null, user.id);
-      });
+   passport.serializeUser(function (user, done) {
+      done(null, user.id);
+   });
 
-      passport.deserializeUser(function (id, done) {
-            User.findById(id, function (err, user) {
-                  done(err, user);
-            });
+   passport.deserializeUser(function (id, done) {
+      User.findById(id, function (err, user) {
+         done(err, user);
       });
+   });
 
 }

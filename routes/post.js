@@ -3,10 +3,10 @@
 const express = require('express');
 const ControllerPost = require('../controllers/post');
 const {
-      ensureAuthenticated
+   ensureAuthenticated
 } = require('../config/auth');
 const {
-      upload
+   upload
 } = require('../controllers/post');
 const router = express.Router();
 

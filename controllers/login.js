@@ -5,42 +5,42 @@ const passport = require('passport');
 
 // render login page
 module.exports.render_login_page = (req, res) => {
-      res.render('register_login/login');
+   res.render('register_login/login');
 }
 
 // handle login process
 module.exports.login = async (req, res, next) => {
-      try {
-            const {
-                  email,
-                  password
-            } = req.body;
+   try {
+      const {
+         email,
+         password
+      } = req.body;
 
-            let errors = [];
+      let errors = [];
 
-            if (!email || !password) {
-                  errors.push({
-                        msg: "please fill all fields"
-                  });
-            }
-
-            if (errors.length > 0) {
-                  return res.render('register_login/login', {
-                        errors,
-                        email,
-                        password
-                  });
-
-            } else {
-                  passport.authenticate('local', {
-                        successRedirect: '/',
-                        failureRedirect: '/user/login',
-                        failureFlash: true
-                  })(req, res, next);
-            }
-
-      } catch (err) {
-            console.log("Something wrong", err);
-            return;
+      if (!email || !password) {
+         errors.push({
+            msg: "please fill all fields"
+         });
       }
+
+      if (errors.length > 0) {
+         return res.render('register_login/login', {
+            errors,
+            email,
+            password
+         });
+
+      } else {
+         passport.authenticate('local', {
+            successRedirect: '/',
+            failureRedirect: '/user/login',
+            failureFlash: true
+         })(req, res, next);
+      }
+
+   } catch (err) {
+      console.log("Something wrong", err);
+      return;
+   }
 }

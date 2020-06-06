@@ -3,7 +3,7 @@
 const express = require('express');
 const ControllerUserProfile = require('../controllers/user_profile');
 const {
-      ensureAuthenticated
+   ensureAuthenticated
 } = require('../config/auth');
 const router = express.Router();
 
