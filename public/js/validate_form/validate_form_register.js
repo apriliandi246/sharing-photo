@@ -1,6 +1,6 @@
 const inputs = document.querySelectorAll('input');
-const button = document.querySelector('button.register-btn');
-
+const button = document.querySelector('button');
+console.log(button);
 
 // pattern regex
 const patterns = {
@@ -36,7 +36,7 @@ function validate(field, regex) {
 
 function checkPasswordForm() {
    // if form password is exist / if form password is valid
-   if (inputs[2].classList[2] === 'valid') {
+   if (inputs[2].classList[0] === 'valid') {
 
       // show form confirm password
       inputs[3].disabled = false;
@@ -63,7 +63,7 @@ function checkPasswordForm() {
 
 function checkClass() {
    // if all of form is valid, show the button
-   if (inputs[0].classList[2] === 'valid' && inputs[1].classList[2] === 'valid' && inputs[2].classList[2] === 'valid' && inputs[3].classList[2] === 'valid') {
+   if (inputs[0].classList[0] === 'valid' && inputs[1].classList[0] === 'valid' && inputs[2].classList[0] === 'valid' && inputs[3].classList[0] === 'valid') {
       button.disabled = false;
       button.style.cursor = 'pointer';
 

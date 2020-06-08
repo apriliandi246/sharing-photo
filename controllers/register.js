@@ -6,7 +6,9 @@ const User = require('../models/User');
 
 // render registration page
 module.exports.render_register_page = (req, res) => {
-   res.render('register_login/register');
+   res.render('register_login/register', {
+      nav: "Register"
+   });
 }
 
 

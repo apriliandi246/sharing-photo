@@ -2,61 +2,60 @@
 <html lang="en">
 
 <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <title>Just MEME</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Just MEME</title>
 </head>
 
 <body>
-      <%- include ('./partials/header2.ejs') %>
+   <%- include ('./partials/header2.ejs') %>
 
-      <div class="space-top container">
-            <% if (posts.length >= 1) { %>
-            <% posts.forEach(post => { %>
-            <div class="row">
-                  <div class="ui stacked segment card centered mb-5 mt-3" style="width: 600px;">
-                        <div class="content" style="border-bottom: 1px solid rgb(232,233,233);">
-                              <a href="/user/<%= post.user_id.name %>" class="profile-user">
-                                    <img class="ui avatar image huge mr-2 border border-white"
-                                          src="/uploads/user_picture/<%= post.user_id.user_picture %>"
-                                          alt="profile-photo">
-                                    <% if (post.user_id.verified === true) { %>
-                                    <%= post.user_id.name %>
-                                    <img src="/img/verified.png" class="ml-1 mb-1" style="width: 18px;">
-                                    <% } else { %>
-                                    <%= post.user_id.name %>
-                                    <% } %>
-                              </a>
-                        </div>
-
-                        <div class="image">
-                              <img src="/uploads/img_post/<%= post.picture %>" class="img-fluid">
-                        </div>
-
-                        <div class="description content">
-                              <div class="description text-body">
-                                    <%= post.description %>
-                              </div>
-                        </div>
-
-                        <div class="post-time extra content">
-                              <span class="right floated">
-                                    <%= relativeDate(post.createdAt) %>
-                              </span>
-                        </div>
-                  </div>
+   <div class="space-top container">
+      <% if (posts.length >= 1) { %>
+      <% posts.forEach(post => { %>
+      <div class="row">
+         <div class="ui stacked segment card centered mb-5 mt-3" style="width: 600px;">
+            <div class="content" style="border-bottom: 1px solid rgb(232,233,233);">
+               <a href="/user/<%= post.user_id.name %>" class="profile-user">
+                  <img class="ui avatar image huge mr-2 border border-white"
+                     src="/uploads/user_picture/<%= post.user_id.user_picture %>" alt="profile-photo">
+                  <% if (post.user_id.verified === true) { %>
+                  <%= post.user_id.name %>
+                  <img src="/img/verified.png" class="ml-1 mb-1" style="width: 18px;">
+                  <% } else { %>
+                  <%= post.user_id.name %>
+                  <% } %>
+               </a>
             </div>
-            <% }); %>
 
-            <% } else { %>
-            <div class="text-center mt-5">
-                  <img src="/img/meme.png" alt="img">
-                  <h1 class="mt-3">No Post Right Now</h1>
+            <div class="image">
+               <img src="/uploads/img_post/<%= post.picture %>" class="img-fluid">
             </div>
-            <% } %>
+
+            <div class="description content">
+               <div class="description text-body">
+                  <%= post.description %>
+               </div>
+            </div>
+
+            <div class="post-time extra content">
+               <span class="right floated">
+                  <%= relativeDate(post.createdAt) %>
+               </span>
+            </div>
+         </div>
       </div>
-      <br>
+      <% }); %>
+
+      <% } else { %>
+      <div class="text-center mt-5">
+         <img src="/img/meme.png" alt="img">
+         <h1 class="mt-3">No Post Right Now</h1>
+      </div>
+      <% } %>
+   </div>
+   <br>
 </body>
 
 </html>

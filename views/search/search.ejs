@@ -2,63 +2,22 @@
 <html lang="en">
 
 <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <title>Just MEME - Search</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" href="/css/search.css">
+   <title>Just MEME - Search</title>
 </head>
 
 <body>
-      <%- include ('../partials/header2.ejs') %>
 
-      <div class="space-top container">
-            <div class="row justify-content-center">
-                  <div class="col-5">
-                        <h1 class="text-center mt-5">Coming Soon</h1>
-                  </div>
-            </div>
-      </div>
+   <%- include ('../partials/header.ejs') %>
 
-      <!-- <div class="space-top container">
-            <div class="row justify-content-center">
-                  <div class="col-4">
-                        <form action="/search" method="GET">
-                              <div class="form-group mb-5">
-                                    <input type="text" class="form-control form-control-lg" placeholder="search user..."
-                                          name="name" autofocus autocomplete="off">
-                              </div>
-                        </form>
-                  </div>
-            </div>
+   <div class="container">
+      <h2>Coming Soon</h2>
+      <a href="#">home</a>
+   </div>
 
-            <div class="row justify-content-center">
-                  <div class="col-4">
-                        <% if (username.length !== 0) { %>
-                        <% username.forEach(user => { %>
-                        <div class="ui card centered raised stacked mb-4" style="width: 690px;">
-                              <div class="content">
-                                    <% if (user.verified === true) { %>
-                                    <a href="/user/<%= user.name %>" class="profile-user">
-                                          <img class="ui avatar big image mr-2 border border-white"
-                                                src="/uploads/user_picture/<%= user.user_picture %>">
-                                          <%= user.name %> <img src="/img/verified.png" class="ml-1"
-                                                style="width: 18px; margin-bottom: 2px;">
-                                    </a>
-                                    <% } else { %>
-                                    <a href="/user/<%= user.name %>" class="profile-user">
-                                          <img class="ui avatar big image mr-2 border border-white"
-                                                src="/uploads/user_picture/<%= user.user_picture %>">
-                                          <%= user.name %>
-                                          <% } %>
-                              </div>
-                        </div>
-                        <% }); %>
-                        <% } else { %>
-                        <h1 class="text-center mt-3">Username Not Found</h1>
-                        <% } %>
-                  </div>
-            </div>
-      </div> -->
 </body>
 
 </html>

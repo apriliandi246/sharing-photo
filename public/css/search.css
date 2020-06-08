@@ -1,0 +1,28 @@
+body {
+   font-family: sans-serif;
+   background-color: rgb(21, 32, 43);
+}
+
+
+.container {
+   margin: 200px;
+   text-align: center;
+}
+
+h2 {
+   color: white;
+   font-size: 50px;
+   margin-bottom: 18px;
+}
+
+a {
+   font-size: 25px;
+   color: lightskyblue;
+   text-decoration: none;
+   transition: .1s;
+}
+
+a:hover {
+   color: blueviolet;
+   text-decoration: underline;
+}
