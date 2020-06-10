@@ -5,20 +5,15 @@ const pattern = /^[^\s][\S ]*$/m;
 
 input.addEventListener('keyup', () => {
    if (input.value.length > 150) {
-      disableButton();
-      input.classList.add('invalid');
+      button.disabled = true;
+      input.classList.add("invalid");
 
    } else if (pattern.test(input.value) === false) {
-      disableButton();
+      button.disabled = true;
 
    } else {
       button.disabled = false;
       button.style.cursor = 'pointer';
+      input.classList.remove("invalid")
    }
 });
-
-
-function disableButton() {
-   button.disabled = true;
-   button.style.cursor = 'default';
-}

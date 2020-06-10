@@ -149,10 +149,11 @@ nav ul li a:hover {
 .card .footer {
    z-index: 5;
    float: right;
-   padding: 15px;
+   padding: 16px;
    color: white;
-   font-size: 18px;
+   font-size: 16px;
    font-family: monospace;
+   text-shadow: 1px 1px 10px black;
 }
 
 

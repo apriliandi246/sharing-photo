@@ -2,6 +2,8 @@ const input = document.querySelector('input[type="text"]');
 const button = document.querySelector('button');
 const pattern = /^[\S*]{5,12}$/i;
 
+console.log(input);
+console.log(button);
 
 input.addEventListener('keyup', () => {
    if (pattern.test(input.value) === false) {

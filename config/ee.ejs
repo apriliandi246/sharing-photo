@@ -1,69 +1,41 @@
-<div class="space-top container">
-   <div class="row mt-5 mb-5 mr-2 justify-content-center">
-      <% data.forEach(user => { %>
-      <div class="col-5">
-         <div class="text-center">
-            <img src="/uploads/user_picture/<%= user.user_picture %>" class="rounded img-thumbnail border border-light"
-               width="500px" height="370px">
-         </div>
+<div class="container">
+   <div class="row justify-content-center">
+      <div class="col-6">
+         <%- include ('../partials/message') %>
       </div>
-
-      <div class="col-4 mt-2 ml-5">
-         <ul class="list-group list-group-flush">
-            <li class="list-group-item mb-2 rounded border border-light">
-               <% if (user.verified === true) { %>
-               <h2><%= user.name %> <img src="/img/verified.png" class="ml-1 mb-1" style="width: 20px;"></h2>
-               <% } else { %>
-               <h2><%= user.name %></h2>
-               <% } %>
-            </li>
-            <li class="list-group-item mt-2 mb-1 rounded border border-light mt-3">
-               <h4>
-                  <span class="ml-1 mr-1">
-                     Joined :
-                  </span>
-                  <%= formatDate(user.join); %>
-               </h4>
-            </li>
-            <li class="list-group-item mt-2 mb-1 rounded border border-light mt-3">
-               <h4>
-                  <span class="ml-1 mr-1">
-                     Posts :
-                  </span>
-                  <%= posts.length %> posts
-               </h4>
-            </li>
-         </ul>
-      </div>
-      <% }); %>
    </div>
-   <hr>
 </div>
 
 <div class="container">
-   <div class="row mt-5 justify-content-center">
-      <div class="col-12">
-         <ul class="list-unstyled">
-            <% if (posts.length >= 1) { %>
-            <% posts.forEach(post => { %>
-            <li class="media mt-5">
-               <img src="/uploads/img_post/<%= post.picture %>" alt="image-post"
-                  class="user-picture mr-4 mb-5 rounded img-thumbnail border border-light" width="470px" height="350px">
-               <div class="media-body mt-2">
-                  <h3 class="date mb-4 text-muted text-monospace">
-                     <%= formatDate(post.date); %>
-                  </h3>
-                  <h5 class="description">
-                     <%= post.description %>
-                  </h5>
-               </div>
-            </li>
-            <% }); %>
-            <% } else { %>
-            <h1 class="text-center mt-3">This user have no post right now</h1>
-            <% } %>
-         </ul>
+   <div class="row justify-content-center mt-5 mb-3">
+      <div class="col-6">
+         <h1 class="text-center">Make a Post</h1>
+         <hr>
       </div>
    </div>
 </div>
-<br><br><br>
+
+<div class="container">
+   <div class="row justify-content-center mb-5">
+      <div class="col-7">
+         <form action="/post" method="POST" enctype="multipart/form-data" spellcheck="false">
+            <div class="form-group">
+               <label for="description">Description</label>
+               <textarea class="description-input form-control form-control-lg" id="description" rows="11"
+                  placeholder="write a description..." name="description" autofocus></textarea>
+               <p>must less than 150 characters</p>
+            </div>
+            <div class="custom-file mt-3 mb-3">
+               <input type="file" class="custom-file-input form-control-lg" id="customFile"
+                  accept="image/png, image/gif, image/jpeg, image/jpg" name="picture">
+               <label class="label-input custom-file-label" for="customFile">Choose your
+                  image</label>
+            </div>
+            <button type="submit" disabled
+               class="post-btn font-weight-bold mt-4 mb-2 btn btn-outline-primary btn-block btn-lg">Post</button>
+            <hr>
+            <a href="/me" class="font-weight-bold  mt-2 btn btn-outline-secondary btn-block btn-lg">Cancel</a>
+         </form>
+      </div>
+   </div>
+</div>
