@@ -5,52 +5,36 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" href="/css/login.css">
    <title>Log In - Just MEME</title>
 </head>
 
 <body>
+
    <%- include ('../partials/header.ejs') %>
 
-   <div class="container mt-5">
-      <div class="row justify-content-center">
-         <div class="col-6">
-            <%- include ('../partials/message') %>
+   <div class="container space-top">
+      <%- include ('../partials/message') %>
+
+      <form class="login-form" spellcheck="false" action="/user/login" method="POST">
+         <div class="input-form">
+            <label for="email">Email</label>
+            <input type="text" id="email" placeholder="enter email" autocomplete="off" name="email" autofocus>
          </div>
-      </div>
+
+         <div class="input-form">
+            <label for="pass1">Password</label>
+            <input type="password" id="pass1" placeholder="enter password" autocomplete="off" name="password">
+         </div>
+
+         <button type="submit">Login</button>
+         <hr>
+         <a href="/user/register">Register</a>
+      </form>
    </div>
 
-   <div class="container">
-      <div class="row justify-content-center mt-5 mb-2">
-         <div class="col-6"">
-                  <h1 class=" text-center">Login</h1>
-            <hr>
-         </div>
-      </div>
-   </div>
+   <script src="/js/alert/script.js"></script>
 
-   <div class="container">
-      <div class="row justify-content-center">
-         <div class="col-4 mt-2">
-            <form action="/user/login" method="POST" spellcheck="false">
-               <div class="form-group mb-4">
-                  <label for="email">Email</label>
-                  <input type="text" class="form-control form-control-lg" id="email" placeholder="enter email"
-                     autocomplete="off" name="email" autofocus>
-               </div>
-
-               <div class="form-group">
-                  <label for="password">Password</label>
-                  <input type="password" class="form-control form-control-lg" id="password" placeholder="enter password"
-                     name="password">
-               </div>
-
-               <button type="submit" class="mt-5 mb-4 btn btn-outline-primary btn-block btn-lg">Login</button>
-               <hr>
-               <a href="/user/register" class="mt-4 btn btn-outline-secondary btn-block btn-lg">Register</a>
-            </form>
-         </div>
-      </div>
-   </div>
 </body>
 
 </html>

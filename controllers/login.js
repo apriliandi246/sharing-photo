@@ -5,9 +5,7 @@ const passport = require('passport');
 
 // render login page
 module.exports.render_login_page = (req, res) => {
-   res.render('register_login/login', {
-      nav: "Login"
-   });
+   res.render('register_login/login');
 }
 
 // handle login process

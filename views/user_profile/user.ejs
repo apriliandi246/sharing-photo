@@ -5,85 +5,51 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" href="/css/profile.css">
    <title><%= name %></title>
 </head>
 
 <body>
+
    <%- include ('../partials/header2.ejs') %>
 
-   <div class="space-top container">
-      <div class="row mt-5 mb-5 mr-2 justify-content-center">
-         <div class="col-5">
-            <div class="text-center">
-               <img src="/uploads/user_picture/<%= img %>" class="rounded img-thumbnail border border-light"
-                  width="500px" height="370px">
-            </div>
-         </div>
-
-         <div class="col-4 mt-2 ml-5">
-            <ul class="list-group list-group-flush">
-               <li class="list-group-item mb-2 rounded border border-light">
-                  <% if (verified === true) { %>
-                  <h2><%= name %> <img src="/img/verified.png" class="ml-1 mb-1" style="width: 20px;">
-                  </h2>
-                  <% } else { %>
-                  <h2><%= name %></h2>
-                  <% } %>
-               </li>
-               <li class="list-group-item mt-2 mb-1 rounded border border-light mt-3">
-                  <h4>
-                     <span class="ml-1 mr-1">
-                        Joined :
-                     </span>
-                     <%= join %>
-                  </h4>
-               </li>
-               <li class="list-group-item mt-2 mb-1 rounded border border-light mt-3">
-                  <h4>
-                     <span class="ml-1 mr-1">
-                        Posts :
-                     </span>
-                     <%= posts.length %> posts
-                  </h4>
-               </li>
-            </ul>
-
-            <a href="/user/edit" class="font-weight-bold btn btn-outline-primary btn-lg btn-block mt-4">Edit
-               Profile</a>
-            <a href="/post" class="font-weight-bold btn btn-outline-secondary btn-lg btn-block mt-4">Make
-               Post</a>
-         </div>
+   <div class="user-profile space-top">
+      <div class="profile-picture">
+         <img src="/uploads/user_picture/<%= img %>" alt="user-picture">
       </div>
-      <hr>
+
+      <div class="user-data">
+         <p><%= name %></p>
+         <p>Joined <span>: <%= join %></span></p>
+         <p>Posts <span> : <%= posts.length %></span></p>
+         <p><a href="/user/edit">edit profile</a></p>
+         <p><a href="/post">make a post</a></p>
+      </div>
    </div>
 
-   <div class="container">
-      <div class="row mt-3 justify-content-center">
-         <div class="col-12">
-            <ul class="list-unstyled">
-               <% if (posts.length >= 1) { %>
-               <% posts.forEach(post => { %>
-               <li class="media mt-5">
-                  <img src="/uploads/img_post/<%= post.picture %>" alt="image-post" width="470px" height="350px"
-                     class="mr-4 mb-5 img-thumbnail border border-light">
-                  <div class="media-body mt-2">
-                     <h3 class="date mb-4 text-muted text-monospace">
-                        <%= formatDate(post.createdAt); %>
-                     </h3>
-                     <h5 class="description">
-                        <%= post.description %>
-                     </h5>
-                  </div>
-               </li>
-               <% }); %>
-               <% } else { %>
-               <h1 class="text-center mt-3">You have no post right now</h1>
-               <% } %>
-            </ul>
+   <hr>
+
+   <% if (posts.length >= 1) { %>
+   <% posts.forEach(post => { %>
+   <div class="user-post">
+      <div class="image-post">
+         <img src="/uploads/img_post/<%= post.picture %>" alt="image-post">
+      </div>
+
+      <div class="description-post">
+         <div class="date">
+            <%= formatDate(post.createdAt) %>
+         </div>
+
+         <div class="description">
+            <%= post.description %>
          </div>
       </div>
    </div>
-   <br><br><br><br>
+   <% }); %>
+   <% } %>
+
+
 </body>
 
 </html>

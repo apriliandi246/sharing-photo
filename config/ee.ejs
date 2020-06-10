@@ -1,56 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <title>Log In - Just MEME</title>
-</head>
-
-<body>
-   <%- include ('../partials/header.ejs') %>
-
-   <div class="container mt-5">
-      <div class="row justify-content-center">
-         <div class="col-6">
-            <%- include ('../partials/message') %>
+<div class="space-top container">
+   <div class="row mt-5 mb-5 mr-2 justify-content-center">
+      <% data.forEach(user => { %>
+      <div class="col-5">
+         <div class="text-center">
+            <img src="/uploads/user_picture/<%= user.user_picture %>" class="rounded img-thumbnail border border-light"
+               width="500px" height="370px">
          </div>
       </div>
-   </div>
 
-   <div class="container">
-      <div class="row justify-content-center mt-5 mb-2">
-         <div class="col-6"">
-                  <h1 class=" text-center">Login</h1>
-            <hr>
-         </div>
+      <div class="col-4 mt-2 ml-5">
+         <ul class="list-group list-group-flush">
+            <li class="list-group-item mb-2 rounded border border-light">
+               <% if (user.verified === true) { %>
+               <h2><%= user.name %> <img src="/img/verified.png" class="ml-1 mb-1" style="width: 20px;"></h2>
+               <% } else { %>
+               <h2><%= user.name %></h2>
+               <% } %>
+            </li>
+            <li class="list-group-item mt-2 mb-1 rounded border border-light mt-3">
+               <h4>
+                  <span class="ml-1 mr-1">
+                     Joined :
+                  </span>
+                  <%= formatDate(user.join); %>
+               </h4>
+            </li>
+            <li class="list-group-item mt-2 mb-1 rounded border border-light mt-3">
+               <h4>
+                  <span class="ml-1 mr-1">
+                     Posts :
+                  </span>
+                  <%= posts.length %> posts
+               </h4>
+            </li>
+         </ul>
       </div>
+      <% }); %>
    </div>
+   <hr>
+</div>
 
-   <div class="container">
-      <div class="row justify-content-center">
-         <div class="col-4 mt-2">
-            <form action="/user/login" method="POST" spellcheck="false">
-               <div class="form-group mb-4">
-                  <label for="email">Email</label>
-                  <input type="text" class="form-control form-control-lg" id="email" placeholder="enter email"
-                     autocomplete="off" name="email" autofocus>
+<div class="container">
+   <div class="row mt-5 justify-content-center">
+      <div class="col-12">
+         <ul class="list-unstyled">
+            <% if (posts.length >= 1) { %>
+            <% posts.forEach(post => { %>
+            <li class="media mt-5">
+               <img src="/uploads/img_post/<%= post.picture %>" alt="image-post"
+                  class="user-picture mr-4 mb-5 rounded img-thumbnail border border-light" width="470px" height="350px">
+               <div class="media-body mt-2">
+                  <h3 class="date mb-4 text-muted text-monospace">
+                     <%= formatDate(post.date); %>
+                  </h3>
+                  <h5 class="description">
+                     <%= post.description %>
+                  </h5>
                </div>
-
-               <div class="form-group">
-                  <label for="password">Password</label>
-                  <input type="password" class="form-control form-control-lg" id="password" placeholder="enter password"
-                     name="password">
-               </div>
-
-               <button type="submit" class="mt-5 mb-4 btn btn-outline-primary btn-block btn-lg">Login</button>
-               <hr>
-               <a href="/user/register" class="mt-4 btn btn-outline-secondary btn-block btn-lg">Register</a>
-            </form>
-         </div>
+            </li>
+            <% }); %>
+            <% } else { %>
+            <h1 class="text-center mt-3">This user have no post right now</h1>
+            <% } %>
+         </ul>
       </div>
    </div>
-</body>
-
-</html>
+</div>
+<br><br><br>

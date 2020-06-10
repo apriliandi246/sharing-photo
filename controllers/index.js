@@ -14,11 +14,11 @@ module.exports.get_all_post = async (req, res) => {
 
       res.render('index', {
          posts,
-         relativeDate
+         relativeDate,
       });
 
    } catch (err) {
-      console.log("Something wrong", err);
+      console.log("Something wrong", err.message);
       return;
    }
 }
