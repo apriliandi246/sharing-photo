@@ -1,6 +1,6 @@
-const input = document.querySelector('textarea');
-const button = document.querySelector('button');
 const pattern = /^[^\s][\S ]*$/m;
+const button = document.querySelector('button');
+const input = document.querySelector('textarea');
 
 input.addEventListener('keyup', () => {
    if (input.value.length > 150) {

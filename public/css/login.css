@@ -1,11 +1,15 @@
-/* Container */
+/* ! Container */
 .container form {
    margin: auto;
    margin-bottom: 70px;
 }
 
+/* ! Container */
+
+
 
 /* ! Form */
+
 form {
    width: 360px;
 }
@@ -89,9 +93,3 @@ form hr {
 }
 
 /* ! Form */
-
-
-/* Another style */
-.space-top {
-   margin-top: 100px;
-}

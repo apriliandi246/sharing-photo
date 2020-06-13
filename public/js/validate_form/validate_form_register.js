@@ -1,5 +1,5 @@
-const inputs = document.querySelectorAll('input');
 const button = document.querySelector('button');
+const inputs = document.querySelectorAll('input');
 const [username, email, password, confirmPasssword] = inputs;
 
 // pattern regex

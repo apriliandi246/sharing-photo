@@ -1,8 +1,12 @@
-/* Container */
+/* ! Container */
+
 .container form {
    margin: auto;
    margin-bottom: 70px;
 }
+
+/* ! Container */
+
 
 
 /* ! Form */
@@ -145,6 +149,7 @@ textarea.invalid+p {
 
 
 /* ! Alert */
+
 .alert {
    margin: auto;
    width: 700px;
@@ -167,10 +172,3 @@ textarea.invalid+p {
 }
 
 /* ! Alert */
-
-
-
-/* Another style */
-.space-top {
-   margin-top: 100px;
-}

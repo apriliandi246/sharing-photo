@@ -1,7 +1,7 @@
 "use strict";
 
-const session = require('express-session');
 require('dotenv').config();
+const session = require('express-session');
 
 
 // handle session

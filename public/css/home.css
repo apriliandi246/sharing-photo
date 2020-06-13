@@ -1,4 +1,4 @@
-/* Card */
+/* ! Card */
 .container .card {
    margin: 75px auto;
 }
@@ -60,7 +60,7 @@
 
 .card .description {
    padding: 15px;
-   font-size: 19px;
+   font-size: 17px;
    line-height: 25px;
    color: whitesmoke;
    margin-top: -18px;
@@ -83,10 +83,4 @@
 .card h1.no-post {
    text-align: center;
    font-family: monospace;
-}
-
-
-/* Another Style */
-.space-top {
-   margin-top: 180px;
 }

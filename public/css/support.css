@@ -136,11 +136,16 @@ table {
 
 
 
-/* ! Background Color */
-
 body {
    font-family: sans-serif;
    background-color: rgb(21, 32, 43);
 }
 
-/* ! Background Color */
+
+.space-top-1 {
+   margin-top: 100px;
+}
+
+.space-top-2 {
+   margin-top: 180px;
+}

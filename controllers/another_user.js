@@ -1,8 +1,8 @@
 "use strict";
 
-const User = require('../models/User');
-const Post = require('../models/Post');
 const moment = require('moment');
+const User = require('../models/user');
+const Post = require('../models/post');
 
 
 // handle when user visit another user

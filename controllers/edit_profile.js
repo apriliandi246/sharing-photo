@@ -1,12 +1,10 @@
 "use strict";
 
-
-const User = require('../models/User');
 const fs = require('fs');
 const path = require('path');
 const multer = require('multer');
+const User = require('../models/user');
 const crypto = require('crypto').randomBytes(16).toString('hex');
-
 
 
 // render edit profile page

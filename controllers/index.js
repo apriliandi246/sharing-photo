@@ -1,7 +1,7 @@
 "use strict";
 
-const Post = require('../models/Post');
 const moment = require('moment');
+const Post = require('../models/post');
 
 
 // render the main page

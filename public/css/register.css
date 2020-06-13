@@ -1,11 +1,16 @@
-/* Container */
+/* ! Container */
+
 .container form {
    margin: auto;
    margin-bottom: 70px;
 }
 
+/* ! Container */
+
+
 
 /* ! Form */
+
 form {
    width: 360px;
 }
@@ -114,9 +119,3 @@ input.invalid+p {
 }
 
 /* ! Validation Style */
-
-
-/* Another style */
-.space-top {
-   margin-top: 100px;
-}

@@ -20,3 +20,7 @@ a:hover {
    color: blueviolet;
    text-decoration: underline;
 }
+
+span {
+   font-size: 30px;
+}

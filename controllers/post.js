@@ -1,8 +1,8 @@
 "use strict";
 
-const Post = require('../models/Post');
-const multer = require('multer');
 const path = require('path');
+const multer = require('multer');
+const Post = require('../models/post');
 const crypto = require('crypto').randomBytes(16).toString('hex');
 
 
