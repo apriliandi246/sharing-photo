@@ -5,7 +5,7 @@ const passport = require('passport');
 
 // render login page
 module.exports.render_login_page = (req, res) => {
-   res.render('register_login/login');
+   res.render('login/login');
 }
 
 // handle login process
@@ -25,7 +25,7 @@ module.exports.login = async (req, res, next) => {
       }
 
       if (errors.length > 0) {
-         return res.render('register_login/login', {
+         return res.render('login/login', {
             errors,
             email,
             password

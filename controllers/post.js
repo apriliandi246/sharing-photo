@@ -1,6 +1,5 @@
 "use strict";
 
-
 const Post = require('../models/Post');
 const multer = require('multer');
 const path = require('path');
@@ -9,7 +8,7 @@ const crypto = require('crypto').randomBytes(16).toString('hex');
 
 // show make post page
 module.exports.render_make_post_page = (req, res) => {
-   res.render('posts/post');
+   res.render('post/post');
 }
 
 
@@ -45,7 +44,7 @@ module.exports.make_post = async (req, res) => {
       // if post process is failed, remove the image
       if (req.file !== undefined) removeImage(`./public/uploads/img_post/${req.file.filename}`);
 
-      res.render('posts/post', {
+      res.render('post/post', {
          errors,
          description,
          picture

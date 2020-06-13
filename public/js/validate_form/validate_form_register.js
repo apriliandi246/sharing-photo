@@ -1,6 +1,6 @@
 const inputs = document.querySelectorAll('input');
 const button = document.querySelector('button');
-console.log(button);
+const [username, email, password, confirmPasssword] = inputs;
 
 // pattern regex
 const patterns = {
@@ -10,60 +10,56 @@ const patterns = {
    email: /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/
 }
 
-
+// check all input form, when user type something
 inputs.forEach((input) => {
    input.addEventListener('keyup', (e) => {
-      validate(e.target, patterns[e.target.attributes.name.value]);
-
-      checkPasswordForm();
-
-      checkClass();
+      addClass(e.target, patterns[e.target.attributes.name.value]);
+      checkPasswordInput();
+      validate();
    });
 });
 
-
-function validate(field, regex) {
+// add class valid or invalid at input form
+function addClass(field, regex) {
    if (regex.test(field.value)) {
-      field.classList.remove('invalid');
       field.classList.add('valid');
+      field.classList.remove('invalid');
 
    } else {
-      field.classList.remove('valid')
       field.classList.add('invalid');
+      field.classList.remove('valid');
    }
 }
 
+// check password input and confirm password input
+function checkPasswordInput() {
+   // if form password is exist / if password input class is valid
+   if (password.classList[0] === 'valid') {
+      // show / able confirm password input
+      confirmPasssword.disabled = false;
 
-function checkPasswordForm() {
-   // if form password is exist / if form password is valid
-   if (inputs[2].classList[0] === 'valid') {
-
-      // show form confirm password
-      inputs[3].disabled = false;
-
-      // if form confirm password is not same with form password
-      if (inputs[3].value !== inputs[2].value) {
-         inputs[3].classList.remove('valid');
-         inputs[3].classList.add('invalid');
+      // if confirm password input is not same with password input
+      if (confirmPasssword.value !== password.value) {
+         confirmPasssword.classList.add('invalid');
+         confirmPasssword.classList.remove('valid');
 
          button.disabled = true;
          button.style.cursor = 'default';
 
-         // if the values of the two forms are the same
+         // if the values of both input same
       } else {
-         inputs[3].classList.add('valid');
+         confirmPasssword.classList.add('valid');
       }
 
-      // if password is not exist and valid
+      // if password input is not exist
    } else {
-      inputs[3].disabled = true;
+      confirmPasssword.disabled = true;
    }
 }
 
-
-function checkClass() {
-   // if all of form is valid, show the button
-   if (inputs[0].classList[0] === 'valid' && inputs[1].classList[0] === 'valid' && inputs[2].classList[0] === 'valid' && inputs[3].classList[0] === 'valid') {
+function validate() {
+   // if all input in form have valid class
+   if ((username.classList[0] === 'valid') && (email.classList[0] === 'valid') && (password.classList[0] === 'valid') && (confirmPasssword.classList[0] === 'valid')) {
       button.disabled = false;
       button.style.cursor = 'pointer';
 

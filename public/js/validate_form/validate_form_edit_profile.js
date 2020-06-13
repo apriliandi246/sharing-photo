@@ -2,12 +2,10 @@ const pattern = /^[\S*]{5,12}$/i;
 const button = document.querySelector('button');
 const input = document.querySelector('input[type="text"]');
 
-
-
 input.addEventListener('keyup', () => {
    if (pattern.test(input.value) === false) {
-      disableButton();
       input.classList.add('invalid');
+      disableButton();
 
    } else if (input.value === '') {
       disableButton();
@@ -18,7 +16,6 @@ input.addEventListener('keyup', () => {
       input.classList.remove('invalid');
    }
 });
-
 
 function disableButton() {
    button.disabled = true;

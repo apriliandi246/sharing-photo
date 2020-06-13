@@ -11,7 +11,7 @@ const crypto = require('crypto').randomBytes(16).toString('hex');
 
 // render edit profile page
 module.exports.render_page_edit_profile = async (req, res) => {
-   res.render("user_profile/edit_profile", {
+   res.render("user/edit_profile", {
       name: req.user.name
    });
 }
@@ -59,7 +59,7 @@ module.exports.edit_profile = async (req, res) => {
    if (errors.length > 0) {
       if (req.file !== undefined) removeImage(`./public/uploads/user_picture/${req.file.filename}`);
 
-      res.render('user_profile/edit_profile', {
+      res.render('user/edit_profile', {
          errors,
          name
       });

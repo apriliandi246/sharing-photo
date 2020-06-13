@@ -6,7 +6,7 @@ const User = require('../models/User');
 
 // render registration page
 module.exports.render_register_page = (req, res) => {
-   res.render('register_login/register');
+   res.render('register/register');
 }
 
 
@@ -31,7 +31,7 @@ module.exports.create_new_user = (req, res) => {
 
    // show the errors 
    if (errors.length > 0) {
-      res.render('register_login/register', {
+      res.render('register/register', {
          errors,
          name,
          email,
@@ -70,7 +70,7 @@ module.exports.create_new_user = (req, res) => {
                   }
                }
 
-               res.render('register_login/register', {
+               res.render('register/register', {
                   errors,
                   name,
                   email,

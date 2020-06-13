@@ -13,13 +13,12 @@ module.exports.render_user_profile_page = async (req, res) => {
          createdAt: 'desc'
       });
 
-      res.render('user_profile/user', {
+      res.render('user/user', {
          posts,
          formatDate,
          img: req.user.user_picture,
          name: req.user.name,
-         join: moment(req.user.join).format('ll'),
-         verified: req.user.verified
+         join: moment(req.user.join).format('ll')
       });
 
    } catch {

@@ -1,11 +1,7 @@
-# Using :
+# Tech :
 
-##### - Node JS
+### - Node JS
 
-##### - Express JS
-
-##### - Bootstrap
-
-##### - Semantic UI
+### - Express JS
 
 ### ~~ Just simple app for sharing photo like Instagram ~~
