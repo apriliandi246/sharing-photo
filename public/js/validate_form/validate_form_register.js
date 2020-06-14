@@ -59,7 +59,12 @@ function checkPasswordInput() {
 
 function validate() {
    // if all input in form have valid class
-   if ((username.classList[0] === 'valid') && (email.classList[0] === 'valid') && (password.classList[0] === 'valid') && (confirmPasssword.classList[0] === 'valid')) {
+   if (
+      username.classList[0] === 'valid' &&
+      email.classList[0] === 'valid' &&
+      password.classList[0] === 'valid' &&
+      confirmPasssword.classList[0] === 'valid'
+   ) {
       button.disabled = false;
       button.style.cursor = 'pointer';
 
