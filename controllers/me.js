@@ -13,7 +13,7 @@ module.exports.render_user_profile_page = async (req, res) => {
          createdAt: 'desc'
       });
 
-      res.render('user/user', {
+      res.render('user/me', {
          posts,
          formatDate,
          img: req.user.user_picture,

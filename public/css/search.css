@@ -1,6 +1,7 @@
 .container {
    margin: 200px;
    text-align: center;
+   font-family: monospace;
 }
 
 h2 {
