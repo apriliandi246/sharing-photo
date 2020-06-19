@@ -12,19 +12,19 @@
 
 <body>
 
-   <%- include ('./partials/fullNavbar.ejs') %>
+   <%- include ('./partials/full-navbar.ejs') %>
 
    <div class="container space-top-2">
       <% if (posts.length >= 1) { %>
       <% posts.forEach(post => { %>
       <div class="card">
          <div class="head">
-            <img src="/uploads/user_picture/<%= post.user_id.user_picture %>" alt="profile-picture">
+            <img src="/uploads/user-picture/<%= post.user_id.user_picture %>" alt="profile-picture">
             <a href="/user/<%= post.user_id.name %>"><%= post.user_id.name %></a>
          </div>
 
          <div class="image">
-            <img src="/uploads/img_post/<%= post.picture %>" alt="image-post">
+            <img src="/uploads/img-post/<%= post.picture %>" alt="image-post">
          </div>
 
          <div class="description">

@@ -42,7 +42,7 @@ module.exports.make_post = async (req, res) => {
    // if have an errors
    if (errors.length > 0) {
       // if post process is failed, remove the image
-      if (req.file !== undefined) removeImage(`./public/uploads/img_post/${req.file.filename}`);
+      if (req.file !== undefined) removeImage(`./public/uploads/img-post/${req.file.filename}`);
 
       res.render('post/post', {
          errors,
@@ -74,11 +74,19 @@ module.exports.make_post = async (req, res) => {
 
 // handle upload post
 const storage = multer.diskStorage({
-   destination: './public/uploads/img_post',
+   destination: './public/uploads/img-post',
    filename: function (req, file, callback) {
       callback(null, Date.now() + crypto + path.extname(file.originalname));
    }
 });
+
+
+// remove image post, if post process is failed
+const removeImage = (fileName) => {
+   fs.unlink(fileName, (err) => {
+      if (err) console.log(err);
+   })
+}
 
 
 module.exports.upload = multer({

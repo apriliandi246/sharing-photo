@@ -19,8 +19,8 @@ module.exports = (app) => {
    app.use('/', require('../routes/index'));
    app.use('/user', require('../routes/logout'));
    app.use('/me', require('../routes/me'));
-   app.use('/user', require('../routes/edit_profile'));
-   app.use('/user', require('../routes/another_user'));
+   app.use('/user', require('../routes/edit-profile'));
+   app.use('/user', require('../routes/another-user'));
    app.use('/post', require('../routes/post'));
    app.use('/search', require('../routes/search'));
    app.use('/logout', require('../routes/logout'));

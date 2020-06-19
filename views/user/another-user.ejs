@@ -12,12 +12,12 @@
 
 <body>
 
-   <%- include ('../partials/fullNavbar') %>
+   <%- include ('../partials/full-navbar') %>
 
    <div class="user-profile space-top">
       <% data.forEach(user => { %>
       <div class="profile-picture">
-         <img src="/uploads/user_picture/<%= user.user_picture %>" alt="user-picture">
+         <img src="/uploads/user-picture/<%= user.user_picture %>" alt="user-picture">
       </div>
 
       <div class="user-data">
@@ -34,7 +34,7 @@
    <% posts.forEach(post => { %>
    <div class="user-post">
       <div class="image-post">
-         <img src="/uploads/img_post/<%= post.picture %>" alt="image-post">
+         <img src="/uploads/img-post/<%= post.picture %>" alt="image-post">
       </div>
 
       <div class="description-post">

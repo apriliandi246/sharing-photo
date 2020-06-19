@@ -9,7 +9,7 @@ const crypto = require('crypto').randomBytes(16).toString('hex');
 
 // render edit profile page
 module.exports.render_page_edit_profile = async (req, res) => {
-   res.render("user/edit_profile", {
+   res.render("user/edit-profile", {
       name: req.user.name
    });
 }
@@ -55,9 +55,9 @@ module.exports.edit_profile = async (req, res) => {
 
    // if have any error
    if (errors.length > 0) {
-      if (req.file !== undefined) removeImage(`./public/uploads/user_picture/${req.file.filename}`);
+      if (req.file !== undefined) removeImage(`./public/uploads/user-picture/${req.file.filename}`);
 
-      res.render('user/edit_profile', {
+      res.render('user/edit-profile', {
          errors,
          name
       });
@@ -70,9 +70,9 @@ module.exports.edit_profile = async (req, res) => {
 
          if (req.file !== undefined) {
             // if filename is not default picture, update user picture and remove the old picture
-            if (req.user.user_picture !== "default_picture.jpeg") {
+            if (req.user.user_picture !== "default-picture.jpeg") {
                user.user_picture = req.file.filename;
-               removeOldPicture(`./public/uploads/user_picture/${req.user.user_picture}`);
+               removeOldPicture(`./public/uploads/user-picture/${req.user.user_picture}`);
 
                // if filename is default_picture.jpeg, just update user picture
             } else {
@@ -93,18 +93,12 @@ module.exports.edit_profile = async (req, res) => {
 
 // handle upload user picture
 const storage = multer.diskStorage({
-   destination: './public/uploads/user_picture',
+   destination: './public/uploads/user-picture',
    filename: function (req, file, callback) {
       callback(null, crypto + "-" + Date.now() + path.extname(file.originalname));
    }
 });
 
-// remove image post, if post process is failed
-const removeImage = (fileName) => {
-   fs.unlink(fileName, (err) => {
-      if (err) console.log(err);
-   })
-}
 
 // if user update their profile picture, remove old picture
 const removeOldPicture = (fileName) => {
@@ -112,6 +106,7 @@ const removeOldPicture = (fileName) => {
       if (err) console.log(err);
    });
 }
+
 
 module.exports.upload = multer({
    storage: storage

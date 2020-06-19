@@ -1,13 +1,13 @@
 "use strict";
 
 const express = require('express');
-const ControllerEditProfile = require('../controllers/edit_profile');
+const ControllerEditProfile = require('../controllers/edit-profile');
 const {
    ensureAuthenticated
 } = require('../config/auth');
 const {
    upload
-} = require('../controllers/edit_profile');
+} = require('../controllers/edit-profile');
 const router = express.Router();
 
 

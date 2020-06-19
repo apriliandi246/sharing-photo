@@ -83,8 +83,7 @@ module.exports.create_new_user = (req, res) => {
                   name,
                   email,
                   password: pass,
-                  verified: false,
-                  user_picture: "default_picture.jpeg"
+                  user_picture: "default-picture.jpeg"
                });
 
                // hash the password

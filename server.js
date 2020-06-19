@@ -29,7 +29,7 @@ require('./startup/passport')(app);
 require('./startup/flash')(app);
 
 // message connect-flash
-require('./middleware/connect_flash')(app);
+require('./middleware/connect-flash')(app);
 
 // routes
 require('./startup/routes')(app);

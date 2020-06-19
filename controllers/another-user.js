@@ -22,7 +22,7 @@ module.exports.visit_another_user = async (req, res) => {
             createdAt: 'desc'
          }).exec();
 
-         res.render('user/another_user', {
+         res.render('user/another-user', {
             posts,
             formatDate,
             data: name,

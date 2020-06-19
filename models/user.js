@@ -20,9 +20,6 @@ const UserSchema = new mongoose.Schema({
    user_picture: {
       type: String,
       required: true
-   },
-   verified: {
-      type: Boolean
    }
 });
 

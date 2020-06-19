@@ -1,7 +1,7 @@
 "use strict";
 
 const express = require('express');
-const ControllerAnotherUser = require('../controllers/another_user');
+const ControllerAnotherUser = require('../controllers/another-user');
 const {
    ensureAuthenticated
 } = require('../config/auth');

@@ -7,16 +7,16 @@
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <link rel="stylesheet" href="/css/navbar.css">
    <link rel="stylesheet" href="/css/alert.css">
-   <link rel="stylesheet" href="/css/edit_profile.css">
+   <link rel="stylesheet" href="/css/editProfile.css">
    <title>Edit Profile - Just MEME</title>
 </head>
 
 <body>
 
-   <%- include ('../partials/navbar.ejs') %>
+   <%- include ('../partials/navbar') %>
 
    <div class="container space-top-1">
-      <%- include ('../partials/alertMessage') %>
+      <%- include ('../partials/alert-message') %>
 
       <form method="POST" action="/user/edit" enctype="multipart/form-data" spellcheck="false">
          <div class="input-form">
@@ -37,7 +37,7 @@
       </form>
    </div>
 
-   <script src="/js/validate_form/validate_form_edit_profile.js"></script>
+   <script src="/js/validate-form/validate-form-edit-profile.js"></script>
 
 </body>
 
