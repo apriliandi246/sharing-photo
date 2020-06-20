@@ -4,7 +4,7 @@ const moment = require('moment');
 const Post = require('../models/post');
 
 
-module.exports.render_user_profile_page = async (req, res) => {
+module.exports.renderMyProfile = async (req, res) => {
    try {
       // all posts of user
       const posts = await Post.find({

@@ -5,7 +5,7 @@ const Post = require('../models/post');
 
 
 // render the main page
-module.exports.get_all_post = async (req, res) => {
+module.exports.getAllPosts = async (req, res) => {
    try {
       // populate('user_id') => untuk mengambil data dari schema user.
       const posts = await Post.find().sort({

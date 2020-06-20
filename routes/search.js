@@ -2,14 +2,12 @@
 
 const express = require('express');
 const ControllerSearch = require('../controllers/search');
-const {
-   ensureAuthenticated
-} = require('../config/auth');
+const { ensureAuthenticated } = require('../config/auth');
 const router = express();
 
 
-// search another user
-router.get('/', ensureAuthenticated, ControllerSearch.search_another_user);
+// render search page
+router.get('/', ensureAuthenticated, ControllerSearch.renderSearchPage);
 
 
 module.exports = router;

@@ -1,15 +1,13 @@
 "use strict";
 
 const express = require('express');
+const { ensureAuthenticated } = require('../config/auth');
 const ControllerAnotherUser = require('../controllers/another-user');
-const {
-   ensureAuthenticated
-} = require('../config/auth');
 const router = express.Router();
 
 
 // visit another user account
-router.get('/:name', ensureAuthenticated, ControllerAnotherUser.visit_another_user);
+router.get('/:name', ensureAuthenticated, ControllerAnotherUser.renderUserProfile);
 
 
 module.exports = router;

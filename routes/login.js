@@ -1,15 +1,13 @@
 "use strict";
 
 const express = require('express');
+const { forwardAuth } = require('../config/auth');
 const LoginController = require('../controllers/login');
-const {
-   forwardAuth
-} = require('../config/auth');
 const router = express.Router();
 
 
 // render login page
-router.get('/login', forwardAuth, LoginController.render_login_page);
+router.get('/login', forwardAuth, LoginController.renderLoginPage);
 
 
 // handling process login

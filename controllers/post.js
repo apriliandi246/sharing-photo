@@ -7,13 +7,13 @@ const crypto = require('crypto').randomBytes(16).toString('hex');
 
 
 // show make post page
-module.exports.render_make_post_page = (req, res) => {
+function renderPostPage(req, res) {
    res.render('post/post');
 }
 
 
 // handle process post
-module.exports.make_post = async (req, res) => {
+async function post(req, res) {
    const {
       description,
       picture
@@ -89,6 +89,10 @@ const removeImage = (fileName) => {
 }
 
 
-module.exports.upload = multer({
-   storage: storage
-});
+module.exports = {
+   post,
+   renderPostPage,
+   upload: multer({
+      storage
+   })
+}

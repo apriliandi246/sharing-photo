@@ -8,7 +8,7 @@ const crypto = require('crypto').randomBytes(16).toString('hex');
 
 
 // render edit profile page
-module.exports.render_page_edit_profile = async (req, res) => {
+function renderEditMyProfilePage(req, res) {
    res.render("user/edit-profile", {
       name: req.user.name
    });
@@ -16,7 +16,7 @@ module.exports.render_page_edit_profile = async (req, res) => {
 
 
 // handle process edit profile
-module.exports.edit_profile = async (req, res) => {
+async function editProfile(req, res) {
    // store all errors
    let errors = [];
 
@@ -108,6 +108,10 @@ const removeOldPicture = (fileName) => {
 }
 
 
-module.exports.upload = multer({
-   storage: storage
-});
+module.exports = {
+   editProfile,
+   renderEditMyProfilePage,
+   upload: multer({
+      storage
+   })
+}

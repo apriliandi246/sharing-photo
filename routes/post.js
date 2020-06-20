@@ -2,19 +2,15 @@
 
 const express = require('express');
 const ControllerPost = require('../controllers/post');
-const {
-   ensureAuthenticated
-} = require('../config/auth');
-const {
-   upload
-} = require('../controllers/post');
+const { ensureAuthenticated } = require('../config/auth');
 const router = express.Router();
 
 
 // render page post
-router.get('/', ensureAuthenticated, ControllerPost.render_make_post_page);
+router.get('/', ensureAuthenticated, ControllerPost.renderPostPage);
 
 // handle process post
-router.post('/', ensureAuthenticated, upload.single('picture'), ControllerPost.make_post);
+router.post('/', ensureAuthenticated, ControllerPost.upload.single('picture'), ControllerPost.post);
+
 
 module.exports = router;

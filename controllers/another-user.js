@@ -6,7 +6,7 @@ const Post = require('../models/post');
 
 
 // handle when user visit another user
-module.exports.visit_another_user = async (req, res) => {
+module.exports.renderUserProfile = async (req, res) => {
    try {
       const name = await User.find({
          name: req.params.name

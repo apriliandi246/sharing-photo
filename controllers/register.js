@@ -4,14 +4,14 @@ const bcrypt = require('bcrypt');
 const User = require('../models/user');
 
 
-// render registration page
-module.exports.render_register_page = (req, res) => {
+// render register page
+function renderRegisterPage(req, res) {
    res.render('register/register');
 }
 
 
 // handle create new user process
-module.exports.create_new_user = (req, res) => {
+function createNewUser(req, res) {
    const {
       name,
       email,
@@ -108,4 +108,10 @@ module.exports.create_new_user = (req, res) => {
          })
          .catch(err => console.log("Something wrong", err));
    }
+}
+
+
+module.exports = {
+   createNewUser,
+   renderRegisterPage
 }

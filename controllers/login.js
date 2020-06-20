@@ -4,12 +4,13 @@ const passport = require('passport');
 
 
 // render login page
-module.exports.render_login_page = (req, res) => {
+function renderLoginPage(req, res) {
    res.render('login/login');
 }
 
+
 // handle login process
-module.exports.login = async (req, res, next) => {
+async function login(req, res, next) {
    try {
       const {
          email,
@@ -43,4 +44,10 @@ module.exports.login = async (req, res, next) => {
       console.log("Something wrong", err);
       return;
    }
+}
+
+
+module.exports = {
+   login,
+   renderLoginPage
 }
