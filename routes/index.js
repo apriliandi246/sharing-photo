@@ -1,12 +1,13 @@
 "use strict";
 
+
 const express = require('express');
-const IndexController = require('../controllers');
+const Index = require('../controllers');
 const { ensureAuthenticated } = require('../config/auth');
 const router = express.Router();
 
 
-router.get('/', ensureAuthenticated, IndexController.getAllPosts);
+router.get('/', ensureAuthenticated, Index.getAllPosts);
 
 
 module.exports = router;

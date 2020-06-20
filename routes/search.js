@@ -1,13 +1,14 @@
 "use strict";
 
+
 const express = require('express');
-const ControllerSearch = require('../controllers/search');
+const Search = require('../controllers/search');
 const { ensureAuthenticated } = require('../config/auth');
 const router = express();
 
 
 // render search page
-router.get('/', ensureAuthenticated, ControllerSearch.renderSearchPage);
+router.get('/', ensureAuthenticated, Search.renderSearchPage);
 
 
 module.exports = router;

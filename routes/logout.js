@@ -1,12 +1,13 @@
 "use strict";
 
+
 const express = require('express');
 const router = express.Router();
-const LogoutController = require('../controllers/logout');
+const Logout = require('../controllers/logout');
 
 
 // handle logout
-router.get('/', LogoutController.logout);
+router.get('/', Logout.logout);
 
 
 module.exports = router;

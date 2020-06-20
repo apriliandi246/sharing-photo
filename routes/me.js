@@ -1,13 +1,14 @@
 "use strict";
 
+
 const express = require('express');
+const UserProfile = require('../controllers/me');
 const { ensureAuthenticated } = require('../config/auth');
-const ControllerUserProfile = require('../controllers/me');
 const router = express.Router();
 
 
 // render user profile
-router.get('/', ensureAuthenticated, ControllerUserProfile.renderMyProfile);
+router.get('/', ensureAuthenticated, UserProfile.renderMyProfile);
 
 
 module.exports = router;
