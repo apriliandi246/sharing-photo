@@ -86,9 +86,11 @@ hr {
 }
 
 .description-post .description {
-   font-size: 17px;
-   line-height: 24px;
+   font-size: 16.8px;
+   line-height: 26px;
+   color: whitesmoke;
    white-space: pre-line;
+   font-family: monospace;
 }
 
 /* ! User post */
