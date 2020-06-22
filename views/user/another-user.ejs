@@ -23,7 +23,7 @@
       <div class="user-data">
          <p><%= user.name %></p>
          <p>Joined <span>: <%= formatDate(user.join) %></span></p>
-         <p>Posts <span> : <%= posts.length %></span></p>
+         <p>Posts <span> : <%= new Intl.NumberFormat('id-ID').format(posts.length) %></span></p>
       </div>
       <% }); %>
    </div>
