@@ -101,7 +101,6 @@ form a {
    display: block;
    font-size: 18px;
    margin-top: 16px;
-   /* border-radius: 4px; */
    text-align: center;
    color: whitesmoke;
    text-decoration: none;
@@ -129,19 +128,25 @@ form hr {
 textarea+p {
    height: 0;
    opacity: 0;
+   font-size: 16px;
+   line-height: 23px;
+   color: orangered;
+   text-align: center;
+   font-family: monospace;
+   transition: .1s;
 }
 
 /* when valid, add claass invalid */
 textarea.invalid+p {
    opacity: 1;
    height: auto;
-   color: orangered;
    font-size: 16px;
    margin-top: 10px;
    line-height: 23px;
+   color: orangered;
    text-align: center;
    font-family: monospace;
-   transition: .2s;
+   transition: .1s;
 }
 
 /* ! Validation Style */

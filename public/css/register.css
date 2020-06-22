@@ -28,7 +28,6 @@ form .input-form input {
    display: block;
    font-size: 17px;
    margin-top: 15px;
-   /* border-radius: 4px; */
    color: whitesmoke;
    box-sizing: border-box;
    background-color: rgb(37, 51, 65);
@@ -76,7 +75,6 @@ form a {
    display: block;
    font-size: 18px;
    margin-top: 16px;
-   /* border-radius: 4px; */
    text-align: center;
    color: whitesmoke;
    text-decoration: none;
@@ -103,19 +101,25 @@ form hr {
 input+p {
    height: 0;
    opacity: 0;
+   font-size: 16px;
+   line-height: 23px;
+   text-align: center;
+   color: orangered;
+   font-family: monospace;
+   transition: .1s;
 }
 
 /* when user input is invalid, add class invalid */
 input.invalid+p {
    opacity: 1;
    height: auto;
-   color: orangered;
    font-size: 16px;
    margin-top: 10px;
    line-height: 23px;
+   color: orangered;
    text-align: center;
    font-family: monospace;
-   transition: .2s;
+   transition: .1s;
 }
 
 /* ! Validation Style */
