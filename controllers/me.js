@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 
 const moment = require('moment');
@@ -17,8 +17,8 @@ module.exports.renderMyProfile = async (req, res) => {
       res.render('user/me', {
          posts,
          formatDate,
-         img: req.user.user_picture,
          name: req.user.name,
+         img: req.user.user_picture,
          join: moment(req.user.join).format('ll')
       });
 

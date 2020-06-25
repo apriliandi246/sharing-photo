@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 
 const passport = require('passport');
@@ -42,7 +42,7 @@ async function login(req, res, next) {
       }
 
    } catch (err) {
-      console.log("Something wrong", err);
+      console.log('Something wrong', err);
       return;
    }
 }

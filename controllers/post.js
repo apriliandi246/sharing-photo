@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 
 const path = require('path');
@@ -24,7 +24,7 @@ async function post(req, res) {
 
    if (!description || req.file == undefined) {
       errors.push({
-         msg: "please fill all fields"
+         msg: 'please fill all fields'
       });
    }
 
@@ -34,7 +34,7 @@ async function post(req, res) {
 
       if (imageMimeTypes == false) {
          errors.push({
-            msg: "image only"
+            msg: 'image only'
          });
       }
    }
@@ -47,8 +47,8 @@ async function post(req, res) {
 
       res.render('post/post', {
          errors,
-         description,
-         picture
+         picture,
+         description
       });
 
    } else {
@@ -66,7 +66,7 @@ async function post(req, res) {
          res.redirect('/');
 
       } catch (err) {
-         console.log("Something wrong", err);
+         console.log('Something wrong', err);
          return;
       }
    }

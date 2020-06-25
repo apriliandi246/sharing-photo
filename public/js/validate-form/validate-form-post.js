@@ -4,16 +4,19 @@ const input = document.querySelector('textarea');
 
 input.addEventListener('keyup', () => {
    if (input.value.length > 150) {
-      button.disabled = true;
-      input.classList.add("invalid");
+      input.classList.add('invalid');
+      disableOrAbleButton(true, 'default')
 
    } else if (pattern.test(input.value) === false) {
-      button.disabled = true;
-      button.style.cursor = 'default';
+      disableOrAbleButton(true, 'default');
 
    } else {
-      button.disabled = false;
-      button.style.cursor = 'pointer';
-      input.classList.remove("invalid");
+      input.classList.remove('invalid');
+      disableOrAbleButton(false, 'pointer');
    }
 });
+
+function disableOrAbleButton(status, cursor) {
+   button.disabled = status;
+   button.style.cursor = cursor;
+}

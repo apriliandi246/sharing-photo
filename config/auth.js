@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 
 module.exports = {
@@ -7,7 +7,7 @@ module.exports = {
       if (req.isAuthenticated()) {
          return next();
       }
-      req.flash("error_msg", "please login first");
+      req.flash('error_msg', 'please login first');
       res.redirect('/user/login');
    },
 

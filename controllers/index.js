@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 
 const moment = require('moment');
@@ -19,7 +19,7 @@ module.exports.getAllPosts = async (req, res) => {
       });
 
    } catch (err) {
-      console.log("Something wrong", err.message);
+      console.log('Something wrong', err.message);
       return;
    }
 }

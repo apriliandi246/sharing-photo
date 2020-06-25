@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 
 const bcrypt = require('bcrypt');
@@ -26,7 +26,7 @@ function createNewUser(req, res) {
    // check required fields
    if (!name || !email || !pass || !pass2) {
       errors.push({
-         msg: "please fill all fields"
+         msg: 'please fill all fields'
       });
    }
 
@@ -54,19 +54,19 @@ function createNewUser(req, res) {
                if (user.name === name || user.email === email) {
                   if (user.name === name && user.email === email) {
                      errors.push({
-                        msg: "username is already registered"
+                        msg: 'username is already registered'
                      }, {
-                        msg: "email is already registered"
+                        msg: 'email is already registered'
                      });
 
                   } else if (user.name === name) {
                      errors.push({
-                        msg: "username is already registered"
+                        msg: 'username is already registered'
                      });
 
                   } else {
                      errors.push({
-                        msg: "email is already registered"
+                        msg: 'email is already registered'
                      });
                   }
                }
@@ -84,7 +84,7 @@ function createNewUser(req, res) {
                   name,
                   email,
                   password: pass,
-                  user_picture: "default-picture.jpeg"
+                  user_picture: 'default-picture.jpeg'
                });
 
                // hash the password
@@ -99,7 +99,7 @@ function createNewUser(req, res) {
                      newUser.password = hash;
                      newUser.save()
                         .then(() => {
-                           req.flash('success_msg', "You are now registered");
+                           req.flash('success_msg', 'You are now registered');
                            res.redirect('/user/login');
                         })
                         .catch(err => console.log(err));
@@ -107,7 +107,7 @@ function createNewUser(req, res) {
                });
             }
          })
-         .catch(err => console.log("Something wrong", err));
+         .catch(err => console.log('Something wrong', err));
    }
 }
 

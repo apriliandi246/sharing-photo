@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 
 const fs = require('fs');
@@ -10,7 +10,7 @@ const crypto = require('crypto').randomBytes(16).toString('hex');
 
 // render edit profile page
 function renderEditMyProfilePage(req, res) {
-   res.render("user/edit-profile", {
+   res.render('user/edit-profile', {
       name: req.user.name
    });
 }
@@ -32,14 +32,14 @@ async function editProfile(req, res) {
    // check filed name
    if (!name) {
       errors.push({
-         msg: "please fill all fields"
+         msg: 'please fill all fields'
       });
    }
 
    // check username is already in use or not
    if (user && name !== req.user.name) {
       errors.push({
-         msg: "username is already in use"
+         msg: 'username is already in use'
       });
    }
 
@@ -49,7 +49,7 @@ async function editProfile(req, res) {
 
       if (imageMimeTypes === false) {
          errors.push({
-            msg: "image only"
+            msg: 'image only'
          });
       }
    }
@@ -71,7 +71,7 @@ async function editProfile(req, res) {
 
          if (req.file !== undefined) {
             // if filename is not default picture, update user picture and remove the old picture
-            if (req.user.user_picture !== "default-picture.jpeg") {
+            if (req.user.user_picture !== 'default-picture.jpeg') {
                user.user_picture = req.file.filename;
                removeOldPicture(`./public/uploads/user-picture/${req.user.user_picture}`);
 
@@ -96,7 +96,7 @@ async function editProfile(req, res) {
 const storage = multer.diskStorage({
    destination: './public/uploads/user-picture',
    filename: function (req, file, callback) {
-      callback(null, crypto + "-" + Date.now() + path.extname(file.originalname));
+      callback(null, crypto + '-' + Date.now() + path.extname(file.originalname));
    }
 });
 

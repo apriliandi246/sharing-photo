@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 
 const moment = require('moment');
@@ -34,7 +34,7 @@ module.exports.renderUserProfile = async (req, res) => {
       }
 
    } catch (err) {
-      console.log("Something wrong", err);
+      console.log('Something wrong', err);
       return;
    }
 }

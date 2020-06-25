@@ -5,19 +5,18 @@ const input = document.querySelector('input[type="text"]');
 input.addEventListener('keyup', () => {
    if (pattern.test(input.value) === false) {
       input.classList.add('invalid');
-      disableButton();
+      disableOrAbleButton(true, 'default');
 
-   } else if (input.value === '') {
-      disableButton();
+   } else if (!input.value) {
+      disableButton(true, 'default');
 
    } else {
-      button.disabled = false;
-      button.style.cursor = 'pointer';
       input.classList.remove('invalid');
+      disableButton(false, 'pointer');
    }
 });
 
-function disableButton() {
-   button.disabled = true;
-   button.style.cursor = 'default';
+function disableOrAbleButton(status, cursor) {
+   button.disabled = status;
+   button.style.cursor = cursor;
 }
