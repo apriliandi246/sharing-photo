@@ -1,3 +1,5 @@
 node_modules
-img-post/*.[.jpeg, .jpg, .png, .gif]
+
+img-post/
+
 .env
