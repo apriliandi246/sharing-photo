@@ -1,4 +1,9 @@
 node_modules
-img-post
-user-picture
+
+*.png
+*.jpg
+*.jpeg
+
+!logo.png
+
 .env
