@@ -1,15 +1,15 @@
-"use strict";
+'use strict';
 
 
+require('dotenv').config();
 const mongoose = require('mongoose');
 
 
-// handle connect to database
 module.exports = () => {
-   mongoose.connect("mongodb://localhost/project_1", {
-      useFindAndModify: true,
+   mongoose.connect(process.env.DATABASE, {
       useNewUrlParser: true,
-      useUnifiedTopology: true,
+      useFindAndModify: true,
+      useUnifiedTopology: true
    })
       .then(() => console.log(`Connect to MongoDB...`))
       .catch(err => console.log("Something wrong", err));

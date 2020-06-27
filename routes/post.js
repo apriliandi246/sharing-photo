@@ -7,11 +7,9 @@ const { ensureAuthenticated } = require('../config/auth');
 const router = express.Router();
 
 
-// render page post
 router.get('/', ensureAuthenticated, Post.renderPostPage);
 
-// handle process post
-router.post('/', ensureAuthenticated, Post.upload.single('picture'), Post.post);
+router.post('/', ensureAuthenticated, Post.upload, Post.post);
 
 
 module.exports = router;

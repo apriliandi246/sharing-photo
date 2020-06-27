@@ -2,7 +2,7 @@
 
 
 module.exports = {
-   // jika user belum login, maka arahkah ke jalaman login
+   // jika user belum login, maka arahkah ke halaman login
    ensureAuthenticated: (req, res, next) => {
       if (req.isAuthenticated()) {
          return next();

@@ -7,7 +7,6 @@ const { ensureAuthenticated } = require('../config/auth');
 const router = express.Router();
 
 
-// render user profile
 router.get('/', ensureAuthenticated, UserProfile.renderMyProfile);
 
 

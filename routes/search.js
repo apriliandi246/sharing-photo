@@ -7,7 +7,6 @@ const { ensureAuthenticated } = require('../config/auth');
 const router = express();
 
 
-// render search page
 router.get('/', ensureAuthenticated, Search.renderSearchPage);
 
 

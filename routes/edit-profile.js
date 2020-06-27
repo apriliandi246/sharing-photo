@@ -7,12 +7,9 @@ const EditProfile = require('../controllers/edit-profile');
 const router = express.Router();
 
 
-// render edit page
 router.get('/edit', ensureAuthenticated, EditProfile.renderEditMyProfilePage);
 
-
-// handle process edit
-router.post('/edit', ensureAuthenticated, EditProfile.upload.single('picture'), EditProfile.editProfile);
+router.post('/edit', ensureAuthenticated, EditProfile.upload, EditProfile.editProfile);
 
 
 module.exports = router;

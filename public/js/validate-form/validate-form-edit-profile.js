@@ -12,7 +12,7 @@ input.addEventListener('keyup', () => {
 
    } else {
       input.classList.remove('invalid');
-      disableButton(false, 'pointer');
+      disableOrAbleButton(false, 'pointer');
    }
 });
 

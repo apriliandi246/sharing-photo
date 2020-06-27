@@ -3,7 +3,7 @@ node_modules
 *.png
 *.jpg
 *.jpeg
-
+*.gif
 !logo.png
 
 .env

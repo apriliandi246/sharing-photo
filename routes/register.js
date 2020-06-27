@@ -7,11 +7,9 @@ const Register = require('../controllers/register');
 const router = express.Router();
 
 
-// Render page form register
 router.get('/register', forwardAuth, Register.renderRegisterPage);
 
 
-// process register
 router.post('/register', forwardAuth, Register.createNewUser);
 
 
