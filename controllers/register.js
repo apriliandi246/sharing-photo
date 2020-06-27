@@ -5,109 +5,77 @@ const bcrypt = require('bcrypt');
 const User = require('../models/user');
 
 
-// render register page
 function renderRegisterPage(req, res) {
    res.render('register/register');
 }
 
 
-// handle create new user process
 function createNewUser(req, res) {
-   const {
-      name,
-      email,
-      pass,
-      pass2
-   } = req.body;
+   const errors = [];
+   const { name, email, password, confirmPassword } = req.body;
 
-   // errors
-   let errors = [];
-
-   // check required fields
-   if (!name || !email || !pass || !pass2) {
-      errors.push({
-         msg: 'please fill all fields'
-      });
+   if (!name || !email || !password || !confirmPassword) {
+      errors.push({ msg: 'please fill all fields' });
    }
 
-   // show the errors 
    if (errors.length > 0) {
-      res.render('register/register', {
-         errors,
-         name,
-         email,
-         pass,
-         pass2
-      });
+      return res.render('register/register', { errors });
 
    } else {
-      User.findOne()
-         .or([{
+      User.findOne().or([
+         {
             name
          },
          {
             email
          }
-         ])
-         .then(user => {
-            if (user) {
-               if (user.name === name || user.email === email) {
-                  if (user.name === name && user.email === email) {
-                     errors.push({
-                        msg: 'username is already registered'
-                     }, {
-                        msg: 'email is already registered'
-                     });
-
-                  } else if (user.name === name) {
-                     errors.push({
-                        msg: 'username is already registered'
-                     });
-
-                  } else {
-                     errors.push({
-                        msg: 'email is already registered'
-                     });
-                  }
-               }
-
-               res.render('register/register', {
-                  errors,
-                  name,
-                  email,
-                  pass,
-                  pass2
-               });
-
-            } else {
-               const newUser = new User({
-                  name,
-                  email,
-                  password: pass,
-                  user_picture: 'default-picture.jpeg'
-               });
-
-               // hash the password
-               bcrypt.genSalt(10, function (err, salt) {
-                  bcrypt.hash(newUser.password, salt, function (err, hash) {
-                     if (err) {
-                        console.log(err);
-                        return;
-                     }
-
-                     // set password to hash and save the new user to database.
-                     newUser.password = hash;
-                     newUser.save()
-                        .then(() => {
-                           req.flash('success_msg', 'You are now registered');
-                           res.redirect('/user/login');
-                        })
-                        .catch(err => console.log(err));
+      ]).then((user) => {
+         if (user) {
+            if (user.name === name || user.email === email) {
+               if (user.name === name && user.email === email) {
+                  errors.push({
+                     msg: 'username is already registered'
+                  }, {
+                     msg: 'email is already registered'
                   });
-               });
+
+               } else if (user.name === name) {
+                  errors.push({ msg: 'username is already registered' });
+
+               } else {
+                  errors.push({ msg: 'email is already registered' });
+               }
             }
-         })
-         .catch(err => console.log('Something wrong', err));
+
+            return res.render('register/register', { errors });
+
+         } else {
+            const newUser = new User({
+               name,
+               email,
+               password,
+               user_picture: 'default-picture.jpeg'
+            });
+
+            bcrypt.genSalt(10, (err, salt) => {
+               bcrypt.hash(newUser.password, salt, (err, hash) => {
+                  if (err) {
+                     console.error(err);
+                     return;
+                  }
+
+                  newUser.password = hash;
+
+                  newUser.save()
+                     .then(() => {
+                        req.flash('success_msg', 'You are now registered');
+                        res.redirect('/user/login');
+                     })
+                     .catch((err) => console.error(err));
+               });
+            });
+         }
+      }).catch((err) => console.error('Something wrong', err));
    }
 }
 

@@ -5,8 +5,8 @@ const [username, email, password, confirmPasssword] = inputs;
 // pattern regex
 const patterns = {
    name: /^[\S*]{5,12}$/i,
-   pass: /^[\w@-]{6,}$/,
-   pass2: /^[\w@-]{6,}$/,
+   password: /^[\w@-]{6,}$/,
+   confirmPassword: /^[\w@-]{6,}$/,
    email: /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/
 }
 
@@ -71,5 +71,6 @@ function validate() {
       // if not, disable the button
    } else {
       button.disabled = true;
+      button.style.cursor = 'default';
    }
 }

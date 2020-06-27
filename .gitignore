@@ -1,5 +1,4 @@
 node_modules
-
-img-post/
-
+img-post
+user-picture
 .env

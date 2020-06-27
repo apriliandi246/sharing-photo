@@ -6,17 +6,16 @@ const User = require('../models/user');
 const Post = require('../models/post');
 
 
-// handle when user visit another user
 module.exports.renderUserProfile = async (req, res) => {
    try {
       const name = await User.find({
          name: req.params.name
       }).exec();
 
-      if (req.user.name === req.params.name) {
+      if (req.params.name === req.user.name) {
          res.redirect('/me');
 
-      } else if (req.user.name !== req.params.name && name.length > 0) {
+      } else if (name.length > 0) {
          const posts = await Post.find({
             user_id: name[0]._id
          }).sort({
@@ -25,8 +24,8 @@ module.exports.renderUserProfile = async (req, res) => {
 
          res.render('user/another-user', {
             posts,
-            formatDate,
             data: name,
+            formatDate,
          });
 
       } else {
@@ -34,7 +33,7 @@ module.exports.renderUserProfile = async (req, res) => {
       }
 
    } catch (err) {
-      console.log('Something wrong', err);
+      console.error('Something wrong', err);
       return;
    }
 }

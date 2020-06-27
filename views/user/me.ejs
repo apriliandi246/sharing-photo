@@ -21,7 +21,7 @@
 
       <div class="user-data">
          <p><%= name %></p>
-         <p>Joined <span>: <%= join %></span></p>
+         <p>Joined <span>: <%= formatDate(join) %></span></p>
          <p>Posts <span> : <%= new Intl.NumberFormat('id-ID').format(posts.length) %></span></p>
          <p><a href="/user/edit">edit profile</a></p>
          <p><a href="/post">make a post</a></p>

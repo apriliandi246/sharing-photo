@@ -7,7 +7,6 @@ const Post = require('../models/post');
 
 module.exports.renderMyProfile = async (req, res) => {
    try {
-      // all posts of user
       const posts = await Post.find({
          user_id: req.user._id
       }).sort({
@@ -18,17 +17,17 @@ module.exports.renderMyProfile = async (req, res) => {
          posts,
          formatDate,
          name: req.user.name,
-         img: req.user.user_picture,
-         join: moment(req.user.join).format('ll')
+         join: req.user.join,
+         img: req.user.user_picture
       });
 
-   } catch {
-      posts = [];
+   } catch (err) {
+      console.error('Something wrong', err);
+      return;
    }
 }
 
 
-// make format date
 function formatDate(date) {
    return moment(date).format('ll');
 }

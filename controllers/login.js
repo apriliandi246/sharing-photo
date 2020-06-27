@@ -4,45 +4,35 @@
 const passport = require('passport');
 
 
-// render login page
 function renderLoginPage(req, res) {
    res.render('login/login');
 }
 
 
-// handle login process
 async function login(req, res, next) {
    try {
-      const {
-         email,
-         password
-      } = req.body;
-
-      let errors = [];
+      const errors = [];
+      const { email, password } = req.body;
 
       if (!email || !password) {
-         errors.push({
-            msg: "please fill all fields"
-         });
+         errors.push({ msg: 'please fill all fields' });
       }
 
       if (errors.length > 0) {
          return res.render('login/login', {
-            errors,
-            email,
-            password
+            errors
          });
 
       } else {
          passport.authenticate('local', {
+            failureFlash: true,
             successRedirect: '/',
-            failureRedirect: '/user/login',
-            failureFlash: true
+            failureRedirect: '/user/login'
          })(req, res, next);
       }
 
    } catch (err) {
-      console.log('Something wrong', err);
+      console.error('Something wrong', err);
       return;
    }
 }

@@ -5,10 +5,8 @@ const moment = require('moment');
 const Post = require('../models/post');
 
 
-// render the main page
 module.exports.getAllPosts = async (req, res) => {
    try {
-      // populate('user_id') => untuk mengambil data dari schema user.
       const posts = await Post.find().sort({
          createdAt: 'desc'
       }).populate('user_id').exec();
@@ -19,13 +17,12 @@ module.exports.getAllPosts = async (req, res) => {
       });
 
    } catch (err) {
-      console.log('Something wrong', err.message);
+      console.error('Something wrong', err);
       return;
    }
 }
 
 
-// make relative date 
 function relativeDate(date) {
    return moment(date).fromNow();
 }
