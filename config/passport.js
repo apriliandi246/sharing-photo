@@ -18,34 +18,37 @@ module.exports = function (passport) {
          })
             .then(users => {
                if (!users) {
-                  return done(null, false, {
-                     message: 'email is not registered'
-                  });
+                  return done(null, false, { message: 'email is not registered' });
                }
 
-               // match the passport to login
+               // match the passport
                bcrypt.compare(password, users.password, (err, isMatch) => {
-                  if (err) throw err;
+                  if (err) {
+                     console.error(err);
+                     return;
+                  }
 
                   if (isMatch) {
                      return done(null, users);
+
                   } else {
-                     return done(null, false, {
-                        message: 'incorrect email or password'
-                     });
+                     return done(null, false, { message: 'incorrect email or password' });
                   }
                });
             })
-            .catch(err => console.log(err));
+            .catch((err) => {
+               console.error(err);
+               return;
+            });
       })
    )
 
-   passport.serializeUser(function (user, done) {
+   passport.serializeUser((user, done) => {
       done(null, user.id);
    });
 
-   passport.deserializeUser(function (id, done) {
-      User.findById(id, function (err, user) {
+   passport.deserializeUser((id, done) => {
+      User.findById(id, (err, user) => {
          done(err, user);
       });
    });

@@ -7,7 +7,7 @@
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <link rel="stylesheet" href="/css/full-navbar.css">
    <link rel="stylesheet" href="/css/profile.css">
-   <title><%= data[0].name %></title>
+   <title><%= user.name %></title>
 </head>
 
 <body>
@@ -15,7 +15,6 @@
    <%- include ('../partials/full-navbar') %>
 
    <div class="user-profile space-top">
-      <% data.forEach(user => { %>
       <div class="profile-picture">
          <img src="/uploads/user-picture/<%= user.user_picture %>" alt="user-picture">
       </div>
@@ -25,7 +24,6 @@
          <p>Joined <span>: <%= formatDate(user.join) %></span></p>
          <p>Posts <span> : <%= new Intl.NumberFormat('id-ID').format(posts.length) %></span></p>
       </div>
-      <% }); %>
    </div>
 
    <hr>

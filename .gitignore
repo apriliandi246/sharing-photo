@@ -5,5 +5,6 @@ node_modules
 *.jpeg
 *.gif
 !logo.png
+!default-picture.jpeg
 
 .env

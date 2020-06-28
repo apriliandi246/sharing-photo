@@ -15,7 +15,7 @@ function renderPostPage(req, res) {
 
 async function post(req, res) {
    const errors = [];
-   const { description } = req.body;
+   const description = req.body;
    const imageMimeTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
 
    if (!description || req.file === undefined) {

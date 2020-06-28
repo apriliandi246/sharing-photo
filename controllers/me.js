@@ -16,9 +16,7 @@ module.exports.renderMyProfile = async (req, res) => {
       res.render('user/me', {
          posts,
          formatDate,
-         name: req.user.name,
-         join: req.user.join,
-         img: req.user.user_picture
+         userData: req.user
       });
 
    } catch (err) {

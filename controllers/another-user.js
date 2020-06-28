@@ -8,24 +8,24 @@ const Post = require('../models/post');
 
 module.exports.renderUserProfile = async (req, res) => {
    try {
-      const name = await User.find({
+      const user = await User.find({
          name: req.params.name
       }).exec();
 
       if (req.params.name === req.user.name) {
          res.redirect('/me');
 
-      } else if (name.length > 0) {
+      } else if (user.length > 0) {
          const posts = await Post.find({
-            user_id: name[0]._id
+            user_id: user[0]._id
          }).sort({
             createdAt: 'desc'
          }).exec();
 
          res.render('user/another-user', {
             posts,
-            data: name,
             formatDate,
+            user: user[0]
          });
 
       } else {
