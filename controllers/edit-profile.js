@@ -30,10 +30,8 @@ async function editProfile(req, res) {
       errors.push({ msg: 'username is already in use' });
    }
 
-   if (req.file !== undefined) {
-      if (!imageMimeTypes.includes(req.file.mimetype)) {
-         errors.push({ msg: 'image only' });
-      }
+   if (req.file !== undefined && !imageMimeTypes.includes(req.file.mimetype)) {
+      errors.push({ msg: 'image only' });
    }
 
    if (errors.length > 0) {

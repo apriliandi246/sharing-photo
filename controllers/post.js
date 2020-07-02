@@ -22,10 +22,8 @@ async function post(req, res) {
       errors.push({ msg: 'please fill all fields' });
    }
 
-   if (req.file !== undefined) {
-      if (!imageMimeTypes.includes(req.file.mimetype)) {
-         errors.push({ msg: 'image only' });
-      }
+   if (req.file !== undefined && !imageMimeTypes.includes(req.file.mimetype)) {
+      errors.push({ msg: 'image only' });
    }
 
    if (errors.length > 0) {
