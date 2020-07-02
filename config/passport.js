@@ -18,7 +18,9 @@ module.exports = function (passport) {
          })
             .then(users => {
                if (!users) {
-                  return done(null, false, { message: 'email is not registered' });
+                  return done(null, false, {
+                     message: 'email is not registered'
+                  });
                }
 
                // match the passport
@@ -32,7 +34,9 @@ module.exports = function (passport) {
                      return done(null, users);
 
                   } else {
-                     return done(null, false, { message: 'incorrect email or password' });
+                     return done(null, false, {
+                        message: 'incorrect email or password'
+                     });
                   }
                });
             })

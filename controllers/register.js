@@ -19,7 +19,9 @@ function createNewUser(req, res) {
    }
 
    if (errors.length > 0) {
-      return res.render('register/register', { errors });
+      return res.render('register/register', {
+         errors
+      });
 
    } else {
       User.findOne().or([
@@ -47,7 +49,9 @@ function createNewUser(req, res) {
                }
             }
 
-            return res.render('register/register', { errors });
+            return res.render('register/register', {
+               errors
+            });
 
          } else {
             const newUser = new User({
@@ -71,11 +75,17 @@ function createNewUser(req, res) {
                         req.flash('success_msg', 'You are now registered');
                         res.redirect('/user/login');
                      })
-                     .catch((err) => console.error(err));
+                     .catch((err) => {
+                        console.error(err);
+                        return;
+                     });
                });
             });
          }
-      }).catch((err) => console.error('Something wrong', err));
+      }).catch((err) => {
+         console.error('Something wrong', err);
+         return;
+      });
    }
 }
 
