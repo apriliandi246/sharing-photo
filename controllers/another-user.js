@@ -39,6 +39,6 @@ module.exports.renderUserProfile = async (req, res) => {
 }
 
 
-function formatDate(join) {
-   return moment(join).format('ll');
+function formatDate(date) {
+   return moment(date).format('ll');
 }
