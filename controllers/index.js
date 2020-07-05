@@ -1,8 +1,8 @@
 'use strict';
 
 
-const moment = require('moment');
 const Post = require('../models/post');
+const Time = require('../helper/time');
 
 
 module.exports.getAllPosts = async (req, res) => {
@@ -24,5 +24,6 @@ module.exports.getAllPosts = async (req, res) => {
 
 
 function relativeDate(date) {
-   return moment(date).fromNow();
+   let time = new Time(date);
+   return time.fromNow()
 }

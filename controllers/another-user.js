@@ -1,9 +1,9 @@
 'use strict';
 
 
-const moment = require('moment');
 const User = require('../models/user');
 const Post = require('../models/post');
+const Time = require('../helper/time');
 
 
 module.exports.renderUserProfile = async (req, res) => {
@@ -40,5 +40,6 @@ module.exports.renderUserProfile = async (req, res) => {
 
 
 function formatDate(date) {
-   return moment(date).format('ll');
+   let time = new Time(date);
+   return time.format('medium');
 }
