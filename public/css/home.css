@@ -5,8 +5,8 @@
 
 .card::after {
    content: "";
-   display: block;
    clear: both;
+   display: block;
 }
 
 .card {
