@@ -26,12 +26,12 @@ form .input-form textarea {
    outline: none;
    display: block;
    font-size: 17px;
+   transition: .2s;
    margin-top: 15px;
    color: whitesmoke;
    white-space: pre-line;
    box-sizing: border-box;
    background-color: rgb(37, 51, 65);
-   transition: .2s;
 }
 
 form .input-form textarea:focus {

@@ -48,19 +48,19 @@ form .input-form label {
 
 form button {
    width: 100%;
-   padding: 10px;
    border: none;
+   padding: 10px;
    outline: none;
+   cursor: default;
    font-size: 18px;
    cursor: pointer;
+   transition: 0.2s;
    margin-top: 45px;
    margin-bottom: 10px;
    color: whitesmoke;
    font-family: monospace;
    box-sizing: border-box;
    background-color: rgb(37, 51, 65);
-   cursor: default;
-   transition: 0.2s;
 }
 
 form button:hover {
@@ -102,24 +102,24 @@ input+p {
    height: 0;
    opacity: 0;
    font-size: 16px;
+   transition: .1s;
    line-height: 23px;
    text-align: center;
    color: orangered;
    font-family: monospace;
-   transition: .1s;
 }
 
 /* when user input is invalid, add class invalid */
 input.invalid+p {
    opacity: 1;
    height: auto;
+   transition: .1s;
    font-size: 16px;
    margin-top: 10px;
    line-height: 23px;
    color: orangered;
    text-align: center;
    font-family: monospace;
-   transition: .1s;
 }
 
 /* ! Validation Style */

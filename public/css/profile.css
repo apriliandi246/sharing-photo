@@ -57,13 +57,13 @@ hr {
 .user-post {
    width: 70%;
    margin: auto;
+   display: flex;
    color: white;
    margin-bottom: 85px;
    padding: 27px 0 27px 0;
    box-sizing: border-box;
-   background-color: rgb(25, 39, 52);
-   display: flex;
    justify-content: center;
+   background-color: rgb(25, 39, 52);
 }
 
 .image-post {

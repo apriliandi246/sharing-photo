@@ -4,21 +4,21 @@
    margin: auto;
    width: 500px;
    padding: 13px;
+   display: flex;
    font-size: 15px;
    font-weight: bold;
    color: whitesmoke;
    margin-bottom: 35px;
+   align-items: center;
    font-family: monospace;
    box-sizing: border-box;
    background-color: orangered;
-   display: flex;
-   align-items: center;
    justify-content: space-between;
 }
 
 .alert span {
-   cursor: pointer;
    font-size: 20px;
+   cursor: pointer;
 }
 
 /* ! Alert */

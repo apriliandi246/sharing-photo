@@ -24,6 +24,6 @@ module.exports.getAllPosts = async (req, res) => {
 
 
 function relativeDate(date) {
-   let time = new Time(date);
+   const time = new Time(date);
    return time.fromNow()
 }

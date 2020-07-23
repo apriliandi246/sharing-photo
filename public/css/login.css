@@ -53,12 +53,12 @@ form button {
    font-size: 18px;
    cursor: pointer;
    margin-top: 45px;
+   transition: 0.2s;
    color: whitesmoke;
    margin-bottom: 10px;
    font-family: monospace;
    box-sizing: border-box;
    background-color: rgb(37, 51, 65);
-   transition: 0.2s;
 }
 
 form button:hover {

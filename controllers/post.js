@@ -15,20 +15,22 @@ function renderPostPage(req, res) {
 
 async function post(req, res) {
    const errors = [];
-   const description = req.body;
+   const fileIput = req.file;
+   const userData = req.user;
+   const description = req.body.description;
    const imageMimeTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
 
-   if (!description || req.file === undefined) {
+   if (!description || !fileIput) {
       errors.push({ msg: 'please fill all fields' });
    }
 
-   if (req.file !== undefined && !imageMimeTypes.includes(req.file.mimetype)) {
+   if (fileIput && !imageMimeTypes.includes(fileIput.mimetype)) {
       errors.push({ msg: 'image only' });
    }
 
    if (errors.length > 0) {
-      if (req.file !== undefined) {
-         removeImage(`./public/uploads/img-post/${req.file.filename}`);
+      if (fileIput) {
+         removeImage(`./public/uploads/img-post/${fileIput.filename}`);
       }
 
       res.render('post/post', {
@@ -38,9 +40,9 @@ async function post(req, res) {
    } else {
       try {
          const newPost = new Post({
-            user_id: req.user._id,
-            image: req.file.filename,
-            description: req.body.description.trimStart().trimEnd(),
+            user_id: userData._id,
+            image: fileIput.filename,
+            description: description.trimStart().trimEnd(),
          });
 
          await newPost.save();

@@ -8,11 +8,12 @@ const Time = require('../helper/time');
 
 module.exports.renderUserProfile = async (req, res) => {
    try {
+      const userData = req.user;
       const user = await User.find({
          name: req.params.name
       }).exec();
 
-      if (req.params.name === req.user.name) {
+      if (req.params.name === userData.name) {
          res.redirect('/me');
 
       } else if (user.length > 0) {
@@ -40,6 +41,6 @@ module.exports.renderUserProfile = async (req, res) => {
 
 
 function formatDate(date) {
-   let time = new Time(date);
+   const time = new Time(date);
    return time.format('medium');
 }

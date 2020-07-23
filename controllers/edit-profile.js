@@ -17,7 +17,9 @@ function renderEditMyProfilePage(req, res) {
 
 async function editProfile(req, res) {
    const errors = [];
-   const { name } = req.body;
+   const userData = req.user;
+   const name = req.body.name;
+   const fileInput = req.file;
    const user = await User.findOne({ name });
    const defaultPictureName = 'default-picture.jpeg';
    const imageMimeTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
@@ -26,17 +28,17 @@ async function editProfile(req, res) {
       errors.push({ msg: 'please fill all fields' });
    }
 
-   if (user !== null && user.name !== req.user.name) {
+   if (user !== null && user.name !== userData.name) {
       errors.push({ msg: 'username is already in use' });
    }
 
-   if (req.file !== undefined && !imageMimeTypes.includes(req.file.mimetype)) {
+   if (fileInput !== undefined && !imageMimeTypes.includes(fileInput.mimetype)) {
       errors.push({ msg: 'image only' });
    }
 
    if (errors.length > 0) {
-      if (req.file !== undefined) {
-         removeOldPicture(`./public/uploads/user-picture/${req.file.filename}`);
+      if (fileInput !== undefined) {
+         removeOldPicture(`./public/uploads/user-picture/${fileInput.filename}`);
       }
 
       res.render('user/edit-profile', {
@@ -50,13 +52,13 @@ async function editProfile(req, res) {
 
          user.name = name;
 
-         if (req.file !== undefined) {
-            if (req.user.user_picture !== defaultPictureName) {
-               user.user_picture = req.file.filename;
-               removeOldPicture(`./public/uploads/user-picture/${req.user.user_picture}`);
+         if (fileInput !== undefined) {
+            if (userData.user_picture !== defaultPictureName) {
+               user.user_picture = fileInput.filename;
+               removeOldPicture(`./public/uploads/user-picture/${userData.user_picture}`);
 
             } else {
-               user.user_picture = req.file.filename;
+               user.user_picture = fileInput.filename;
             }
          }
 
@@ -78,14 +80,13 @@ const storage = multer.diskStorage({
    }
 });
 
-const upload = multer({
-   storage
-}).single('picture');
+const upload = multer({ storage }).single('picture');
 
 const removeOldPicture = (fileName) => {
    fs.unlink(fileName, (err) => {
       if (err) {
          console.error(err);
+         return;
       }
    });
 }

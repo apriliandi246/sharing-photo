@@ -7,16 +7,17 @@ const Time = require('../helper/time');
 
 module.exports.renderMyProfile = async (req, res) => {
    try {
+      const userData = req.user;
       const posts = await Post.find({
-         user_id: req.user._id
+         user_id: userData._id
       }).sort({
          createdAt: 'desc'
       });
 
       res.render('user/me', {
          posts,
-         formatDate,
-         userData: req.user
+         userData,
+         formatDate
       });
 
    } catch (err) {
@@ -27,6 +28,6 @@ module.exports.renderMyProfile = async (req, res) => {
 
 
 function formatDate(date) {
-   let time = new Time(date);
+   const time = new Time(date);
    return time.format('medium');
 }

@@ -5,18 +5,28 @@ const input = document.querySelector('textarea');
 input.addEventListener('keyup', () => {
    if (input.value.length > 150) {
       input.classList.add('invalid');
-      disableOrAbleButton(true, 'default')
+      buttonStatus(true);
+      cursorStyle('default');
 
    } else if (pattern.test(input.value) === false) {
-      disableOrAbleButton(true, 'default');
+      buttonStatus(true);
+      cursorStyle('default');
 
    } else {
       input.classList.remove('invalid');
-      disableOrAbleButton(false, 'pointer');
+      buttonStatus(false);
+      cursorStyle('pointer');
    }
 });
 
-function disableOrAbleButton(status, cursor) {
+function buttonStatus(status) {
    button.disabled = status;
+}
+
+function cursorStyle(cursor) {
    button.style.cursor = cursor;
 }
+// function disableOrAbleButton(status, cursor) {
+//    button.disabled = status;
+//    button.style.cursor = cursor;
+// }
