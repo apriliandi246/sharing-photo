@@ -1,18 +1,7 @@
 'use strict';
 
 
-const express = require('express');
-
-
 module.exports = (app) => {
-   app.use(express.urlencoded({
-      extended: false
-   }));
-
-   app.disable('etag');
-   app.disable('x-powered-by');
-
-   // Routes
    app.use('/me', require('../routes/me'));
    app.use('/', require('../routes/index'));
    app.use('/post', require('../routes/post'));
