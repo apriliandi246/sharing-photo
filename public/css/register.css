@@ -102,10 +102,10 @@ input+p {
    height: 0;
    opacity: 0;
    font-size: 16px;
-   transition: .1s;
+   transition: 0.2s;
+   color: orangered;
    line-height: 23px;
    text-align: center;
-   color: orangered;
    font-family: monospace;
 }
 
@@ -113,11 +113,11 @@ input+p {
 input.invalid+p {
    opacity: 1;
    height: auto;
-   transition: .1s;
-   font-size: 16px;
-   margin-top: 10px;
-   line-height: 23px;
    color: orangered;
+   transition: 0.2s;
+   margin-top: 10px;
+   font-size: 16.5px;
+   line-height: 23px;
    text-align: center;
    font-family: monospace;
 }
