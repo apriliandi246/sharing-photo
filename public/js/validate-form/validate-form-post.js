@@ -5,6 +5,7 @@ const input = document.querySelector('textarea');
 input.addEventListener('keyup', () => {
    if (input.value.length > 150) {
       input.classList.add('invalid');
+
       buttonStatus(true);
       cursorStyle('default');
 
@@ -14,6 +15,7 @@ input.addEventListener('keyup', () => {
 
    } else {
       input.classList.remove('invalid');
+
       buttonStatus(false);
       cursorStyle('pointer');
    }
@@ -26,7 +28,3 @@ function buttonStatus(status) {
 function cursorStyle(cursor) {
    button.style.cursor = cursor;
 }
-// function disableOrAbleButton(status, cursor) {
-//    button.disabled = status;
-//    button.style.cursor = cursor;
-// }
