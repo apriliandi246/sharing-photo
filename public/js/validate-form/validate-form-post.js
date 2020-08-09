@@ -10,11 +10,14 @@ input.addEventListener('keyup', () => {
       cursorStyle('default');
 
    } else if (pattern.test(input.value) === false) {
+      input.style.border = '1px solid red';
+
       buttonStatus(true);
       cursorStyle('default');
 
    } else {
       input.classList.remove('invalid');
+      input.style.border = 'none';
 
       buttonStatus(false);
       cursorStyle('pointer');
