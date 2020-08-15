@@ -1,15 +1,15 @@
-const pattern = /^[^\s][\S ]*$/m;
+const regexPattern = /^[^\s][\S ]*$/m;
 const button = document.querySelector('button');
 const input = document.querySelector('textarea');
 
-input.addEventListener('keyup', () => {
+input.addEventListener('input', () => {
    if (input.value.length > 150) {
       input.classList.add('invalid');
 
       buttonStatus(true);
       cursorStyle('default');
 
-   } else if (pattern.test(input.value) === false) {
+   } else if (regexPattern.test(input.value) === false) {
       input.style.border = '1px solid red';
 
       buttonStatus(true);

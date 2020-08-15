@@ -1,9 +1,9 @@
-const pattern = /^[\S*]{5,12}$/i;
+const regexPattern = /^[\S*]{5,12}$/i;
 const button = document.querySelector('button');
 const input = document.querySelector('input[type="text"]');
 
-input.addEventListener('keyup', () => {
-   if (pattern.test(input.value) === false) {
+input.addEventListener('input', () => {
+   if (regexPattern.test(input.value) === false) {
       input.classList.add('invalid');
       buttonStatus(true);
       cursorStyle('default');
