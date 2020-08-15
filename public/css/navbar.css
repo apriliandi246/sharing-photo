@@ -6,13 +6,13 @@ nav {
    overflow: hidden;
    align-items: center;
    justify-content: space-evenly;
-   background-color: rgb(21, 32, 43);
-   box-shadow: 0 0 1px 4px rgba(64, 74, 77, 0.1);
+   background-color: #15202b;
+   box-shadow: 0 0 1px 4px #404a4d1a;
 }
 
 nav h1 {
    font-size: 26px;
-   color: whitesmoke;
+   color: #f5f5f5;
    letter-spacing: 5px;
    font-family: monospace;
 }
@@ -24,7 +24,7 @@ nav .logo {
    background-repeat: no-repeat;
    background-position: -1px 2px;
    background-image: url(../img/logo.png);
-   box-shadow: 0 0 1px 1px rgba(64, 74, 77, 0.2);
+   box-shadow: 0 0 1px 1px #404a4d33;
 }
 
 /* ! Navbar */

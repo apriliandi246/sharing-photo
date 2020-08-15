@@ -7,12 +7,12 @@
    display: flex;
    font-size: 15px;
    font-weight: bold;
-   color: whitesmoke;
+   color: #f5f5f5;
    margin-bottom: 45px;
    align-items: center;
    font-family: monospace;
    box-sizing: border-box;
-   background-color: orangered;
+   background-color: #ff4500;
    justify-content: space-between;
 }
 

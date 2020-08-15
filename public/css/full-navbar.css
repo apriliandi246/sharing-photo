@@ -12,8 +12,8 @@ nav {
    overflow: hidden;
    align-items: center;
    justify-content: space-around;
-   background-color: rgb(21, 32, 43);
-   box-shadow: 0 0 2px 4px rgba(64, 74, 77, 0.2);
+   background-color: #15202b;
+   box-shadow: 0 0 2px 4px #404a4d33;
 }
 
 nav ul {
@@ -32,7 +32,7 @@ nav ul li span {
 }
 
 nav ul li a {
-   color: white;
+   color: #ffffff;
    font-size: 20px;
    transition: 0.1s;
    letter-spacing: 2px;
@@ -41,7 +41,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-   color: blueviolet;
+   color: #8a2be2;
 }
 
 nav .logo {
@@ -52,11 +52,11 @@ nav .logo {
    background-repeat: no-repeat;
    background-position: -1px 2px;
    background-image: url(../img/logo.png);
-   box-shadow: 0 0 1px 1px rgba(64, 74, 77, 0.2);
+   box-shadow: 0 0 1px 1px #404a4d33;
 }
 
 nav .logo:hover {
-   box-shadow: 0 0 5px 5px rgba(64, 74, 77, 0.2);
+   box-shadow: 0 0 5px 5px #404a4d33;
 }
 
 /* ! Navbar */

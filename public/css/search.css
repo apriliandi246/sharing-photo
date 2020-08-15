@@ -5,20 +5,20 @@
 }
 
 h2 {
-   color: white;
+   color: #ffffff;
    font-size: 50px;
    margin-bottom: 18px;
 }
 
 a {
    font-size: 25px;
-   transition: .1s;
-   color: lightskyblue;
+   transition: 0.2s;
+   color: #87cefa;
    text-decoration: none;
 }
 
 a:hover {
-   color: blueviolet;
+   color: #8a2be2;
    text-decoration: underline;
 }
 

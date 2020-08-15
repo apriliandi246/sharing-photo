@@ -15,7 +15,7 @@ form {
 }
 
 form .input-form {
-   color: white;
+   color: #ffffff;
    margin-top: 32px;
 }
 
@@ -27,9 +27,9 @@ form .input-form input {
    display: block;
    font-size: 17px;
    margin-top: 15px;
-   color: whitesmoke;
+   color: #f5f5f5;
    box-sizing: border-box;
-   background-color: rgb(37, 51, 65);
+   background-color: #253341;
 }
 
 form .input-form input:focus {
@@ -54,11 +54,11 @@ form button {
    cursor: pointer;
    margin-top: 45px;
    transition: 0.2s;
-   color: whitesmoke;
+   color: #f5f5f5;
    margin-bottom: 10px;
    font-family: monospace;
    box-sizing: border-box;
-   background-color: rgb(37, 51, 65);
+   background-color: #253341;
 }
 
 form button:hover {
@@ -73,12 +73,12 @@ form a {
    display: block;
    font-size: 18px;
    margin-top: 16px;
-   color: whitesmoke;
+   color: #f5f5f5;
    text-align: center;
    text-decoration: none;
    font-family: monospace;
    box-sizing: border-box;
-   background-color: rgb(37, 51, 65);
+   background-color: #253341;
 }
 
 form a:hover {
@@ -86,7 +86,7 @@ form a:hover {
 }
 
 form hr {
-   border: 1px solid rgb(37, 51, 65);
+   border: 1px solid #253341;
 }
 
 /* ! Form */

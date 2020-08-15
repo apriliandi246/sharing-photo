@@ -2,7 +2,7 @@
 
 .user-profile {
    width: 80%;
-   color: white;
+   color: #ffffff;
    margin: auto;
    display: flex;
    justify-content: center;
@@ -15,26 +15,26 @@
 
 .profile-picture img {
    width: 100%;
-   border: 5px solid whitesmoke;
+   border: 5px solid #f5f5f5;
 }
 
 .user-data p {
-   color: black;
+   color: #000000;
    padding: 16px;
    font-size: 17px;
    margin-left: 10px;
    margin-bottom: 41.3px;
    font-family: monospace;
-   background-color: whitesmoke;
-   text-shadow: 1px 1px 1px rgba(64, 74, 77, 0.1);
+   background-color: #f5f5f5;
+   text-shadow: 1px 1px 1px #404a4d1a;
 }
 
 .user-data p a {
-   color: black;
+   color: #000000;
 }
 
 .user-data p a:hover {
-   color: blue;
+   color: #0000ff;
 }
 
 .user-data p span {
@@ -45,7 +45,7 @@ hr {
    width: 60%;
    margin-top: 90px;
    margin-bottom: 90px;
-   border: 1px dashed whitesmoke;
+   border: 1px dashed #f5f5f5;
 }
 
 /* ! User profile */
@@ -58,12 +58,12 @@ hr {
    width: 70%;
    margin: auto;
    display: flex;
-   color: white;
+   color: #ffffff;
    margin-bottom: 85px;
    padding: 27px 0 27px 0;
    box-sizing: border-box;
    justify-content: center;
-   background-color: rgb(25, 39, 52);
+   background-color: #192734;
 }
 
 .image-post {
@@ -82,13 +82,13 @@ hr {
    font-size: 19px;
    margin-bottom: 8px;
    font-family: monospace;
-   text-shadow: 2px 2px 2px black;
+   text-shadow: 2px 2px 2px #000000;
 }
 
 .description-post .description {
    font-size: 16.8px;
    line-height: 26px;
-   color: whitesmoke;
+   color: #f5f5f5;
    white-space: pre-line;
    font-family: monospace;
 }
