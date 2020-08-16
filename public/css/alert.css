@@ -1,13 +1,11 @@
-/* ! Alert */
-
 .alert {
    margin: auto;
    width: 500px;
    padding: 13px;
    display: flex;
+   color: #f5f5f5;
    font-size: 15px;
    font-weight: bold;
-   color: #f5f5f5;
    margin-bottom: 45px;
    align-items: center;
    font-family: monospace;
@@ -20,5 +18,3 @@
    font-size: 20px;
    cursor: pointer;
 }
-
-/* ! Alert */

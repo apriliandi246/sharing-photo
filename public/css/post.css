@@ -1,15 +1,15 @@
-/* ! Container */
+/* Container */
 
 .container form {
    margin: auto;
    margin-bottom: 70px;
 }
 
-/* ! Container */
+/* Container */
 
 
+/* Form */
 
-/* ! Form */
 form {
    width: 680px;
 }
@@ -25,10 +25,10 @@ form .input-form textarea {
    padding: 12px;
    outline: none;
    display: block;
-   font-size: 17px;
-   transition: .2s;
-   margin-top: 15px;
    color: #f5f5f5;
+   transition: .2s;
+   font-size: 17px;
+   margin-top: 15px;
    white-space: pre-line;
    box-sizing: border-box;
    background-color: #253341;
@@ -49,6 +49,7 @@ form .input-form label {
 
 
 /* file input */
+
 form .file-input-form {
    color: #ffffff;
    margin-top: 35px;
@@ -74,18 +75,18 @@ form .file-input-form input {
 
 form button {
    width: 100%;
-   padding: 10px;
    border: none;
+   padding: 10px;
    outline: none;
-   cursor: default;
-   font-size: 18px;
-   margin-top: 45px;
    color: #f5f5f5;
-   margin-bottom: 10px;
-   font-family: monospace;
-   box-sizing: border-box;
-   background-color: #253341;
+   font-size: 18px;
+   cursor: default;
+   margin-top: 45px;
    transition: 0.2s;
+   margin-bottom: 10px;
+   box-sizing: border-box;
+   font-family: monospace;
+   background-color: #253341;
 }
 
 form button:hover {
@@ -98,9 +99,9 @@ form a {
    padding: 11px;
    outline: none;
    display: block;
+   color: #f5f5f5;
    font-size: 18px;
    margin-top: 16px;
-   color: #f5f5f5;
    text-align: center;
    text-decoration: none;
    font-family: monospace;
@@ -116,56 +117,53 @@ form hr {
    border: 1px solid #253341;
 }
 
-/* ! Form */
+/* Form */
 
 
-
-
-/* ! Validation Style */
+/* Validation Style */
 
 /* make elemen p disappear, when user not type any characters */
 textarea+p {
    height: 0;
    opacity: 0;
-   font-size: 16px;
    color: #ff4500;
+   font-size: 16px;
+   transition: 0.2s;
    line-height: 23px;
    text-align: center;
    font-family: monospace;
-   transition: 0.2s;
 }
 
 /* when valid, add claass invalid */
 textarea.invalid+p {
    opacity: 1;
    height: auto;
+   color: #ff4500;
    font-size: 16px;
    margin-top: 10px;
-   color: #ff4500;
    line-height: 23px;
    text-align: center;
    font-family: monospace;
 }
 
-/* ! Validation Style */
+/* Validation Style */
 
 
-
-/* ! Alert */
+/* Alert */
 
 .alert {
    margin: auto;
    width: 700px;
    padding: 13px;
+   display: flex;
+   color: #f5f5f5;
    font-size: 16px;
    font-weight: bold;
-   color: #f5f5f5;
    margin-bottom: 55px;
+   align-items: center;
    font-family: monospace;
    box-sizing: border-box;
    background-color: #ff4500;
-   display: flex;
-   align-items: center;
    justify-content: space-between;
 }
 
@@ -174,4 +172,4 @@ textarea.invalid+p {
    font-size: 20px;
 }
 
-/* ! Alert */
+/* Alert */

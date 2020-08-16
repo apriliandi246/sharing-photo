@@ -1,10 +1,10 @@
-/* ! User profile */
+/* User profile */
 
 .user-profile {
    width: 80%;
-   color: #ffffff;
    margin: auto;
    display: flex;
+   color: #ffffff;
    justify-content: center;
 }
 
@@ -19,8 +19,8 @@
 }
 
 .user-data p {
-   color: #000000;
    padding: 16px;
+   color: #000000;
    font-size: 17px;
    margin-left: 10px;
    margin-bottom: 41.3px;
@@ -48,11 +48,11 @@ hr {
    border: 1px dashed #f5f5f5;
 }
 
-/* ! User profile */
+/* User profile */
 
 
 
-/* ! User post */
+/* User post */
 
 .user-post {
    width: 70%;
@@ -86,15 +86,14 @@ hr {
 }
 
 .description-post .description {
-   font-size: 16.8px;
-   line-height: 26px;
    color: #f5f5f5;
+   line-height: 26px;
+   font-size: 16.8px;
    white-space: pre-line;
    font-family: monospace;
 }
 
-/* ! User post */
-
+/* User post */
 
 
 /* Another Style */
